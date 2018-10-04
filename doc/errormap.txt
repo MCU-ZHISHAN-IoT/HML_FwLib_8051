@@ -1,0 +1,10 @@
+#Author     :Weilun Fong | wlf(at)zhishan-iot.tk
+#Description:record HML error code type
+#E-mail     :mcu(at)zhishan-iot.tk
+
+ERROR_CODE LIST >>
+ -0x01
+  (@macro.h) User need to specify a frequency value of extern crystal oscillator via macro definitions;The default frequency value is 11059200L.
+ -0x02
+  (@macro.h) Invaild operation in configuration of compilation macro. Macro ___COMPILE_UART___ depends on ___COMPILE_TIM___.
+  

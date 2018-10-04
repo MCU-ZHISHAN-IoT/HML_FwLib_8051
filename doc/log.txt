@@ -1,0 +1,61 @@
+#FwLib       :HML_FwLib_8051
+#Description :record file about HML_FwLib_8051
+#E-mail      :mcu@zhishant-iot.tk
+#Organization:ZHISHAN-IoT(https://zhishan-iot.tk)
+#Page        :https://hw.zhishant-iot.tk/page/hml/detail/fwlib_8051.html
+
+#RELEASE RECORD
+
+>Version :v0.0.0(beta)
+ Alias   :
+ Date    :2018-03-21
+ Note    :The first version of HML_FwLib_8051!
+ 
+>Version :v0.0.0
+ Alias   :
+ Date    :2018-03-28
+ Note    :The first stable version of HML_FwLib_8051!
+ 
+>Version :v0.0.1
+ Alias   :
+ Date    :2018-04-30
+ Note    :(1)fix a bug about code order in <uart.c>
+          (2)fix a bug of function TIM_setValue in <tim.c>
+		  (3)rewrite <mem.h>, fix fatal bug!
+		  
+>Version :v0.0.2
+ Alias   :
+ Date    :2018-05-20
+ Note    :(1)correct spelling mistakes in uart.c
+ 
+>Version :v0.0.3
+ Alias   :
+ Date    :2018-08-26
+ Note    :(1)add new data type "byte" in <macro.h>
+          (2)modify data type of member variable of "baudrate" in structment UART_configTypeDef(unsigned int -> uint32_t)
+          (3)correct note of function TIM_setValue in <tim.c>
+          (4)rename EXTI_MOD as EXTI_mode
+          (5)move macro define _FRE_OSC_ from <tim.h> to <macro.h>
+          (6)rename UART_MODE as UART_mode, and modify name of related eunm value
+          (7)rename TIM_MODE as TIM_mode, and modify name of related eunm value
+          (8)The conditional compilation mechanism is introduced into the source code(select expected compilation part in <macro.h>)
+          (9)update Makefile
+		  
+>Version :v0.0.4
+ Alias   :
+ Date    :2018-09-23
+ Note    :(1)update Makefile, it's able to make a static link library under [obj] directory in order to avoid all source files every time
+          (2)rename directory [sample] as [example]
+          (3)rename directory [user] as [usr]
+          (4)correct /doc/errormap.txt
+		  
+>Version :v0.0.5
+ Alias   :
+ Date    :2018-10-04
+ Note    :(1)modify function void GPIO_configPort(PERIPH_GPIO gpio,u8 val) as void GPIO_configPort(PERIPH_GPIO gpio,byte val) in <gpio.h>
+          (2)modify function void TIM_setValue(PERIPH_TIM tim,unsigned int val) as void TIM_setValue(PERIPH_TIM tim,word val) in <tim.h>
+
+#DEVELOPER (This is an one-man project...)
+ Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
+
+ 
