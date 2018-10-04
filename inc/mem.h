@@ -3,8 +3,8 @@
  *  #Weilun Fong | wlf(at)zhishan-iot.tk
  * @E-mail:mcu(at)zhishan-iot.tk
  * @File-description:
- * #contains definitions that allow you to directly access the different memory areas of the 8051.
- * #have the similar functions like absacc.h in Keil
+ * #define macro that allow you to directly access the different memory areas of the 8051.
+ * #include the similar functions like <absacc.h> in Keil
  * @Required-compiler:SDCC
  * @Support-mcu:Intel MCS-51 based microprocessors
  * @Version:V0

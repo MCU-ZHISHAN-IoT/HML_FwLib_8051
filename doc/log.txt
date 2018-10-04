@@ -26,18 +26,18 @@
 >Version :v0.0.2
  Alias   :
  Date    :2018-05-20
- Note    :(1)correct spelling mistakes in uart.c
+ Note    :(1)correct spelling mistakes in <uart.c>
  
 >Version :v0.0.3
  Alias   :
  Date    :2018-08-26
  Note    :(1)add new data type "byte" in <macro.h>
-          (2)modify data type of member variable of "baudrate" in structment UART_configTypeDef(unsigned int -> uint32_t)
+          (2)modify data type of member variable of "baudrate" in struct UART_configTypeDef(unsigned int -> uint32_t)
           (3)correct note of function TIM_setValue in <tim.c>
           (4)rename EXTI_MOD as EXTI_mode
           (5)move macro define _FRE_OSC_ from <tim.h> to <macro.h>
-          (6)rename UART_MODE as UART_mode, and modify name of related eunm value
-          (7)rename TIM_MODE as TIM_mode, and modify name of related eunm value
+          (6)rename UART_MODE as UART_mode, and modify name of related enum value
+          (7)rename TIM_MODE as TIM_mode, and modify name of related enum value
           (8)The conditional compilation mechanism is introduced into the source code(select expected compilation part in <macro.h>)
           (9)update Makefile
 		  
@@ -54,7 +54,9 @@
  Date    :2018-10-04
  Note    :(1)modify function void GPIO_configPort(PERIPH_GPIO gpio,u8 val) as void GPIO_configPort(PERIPH_GPIO gpio,byte val) in <gpio.h>
           (2)modify function void TIM_setValue(PERIPH_TIM tim,unsigned int val) as void TIM_setValue(PERIPH_TIM tim,word val) in <tim.h>
-
+          (3)modify function void UART_sendByte(unsigned char dat) as void UART_sendByte(byte dat) in <uart.h>
+          (4)modify function unsigned int UART_getTimerInitValue(unsigned int baud) as unsigned int UART_getTimerInitValue(uint32_t baud) in <uart.h>
+		  
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
 

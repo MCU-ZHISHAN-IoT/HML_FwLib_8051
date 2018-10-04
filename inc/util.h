@@ -11,7 +11,7 @@
 #ifndef ___UTIL_H___
 #define ___UTIL_H___
 
-/* --- @header file --- */
+/* ----- @header file ----- */
 #include <8051.h>
 #include "intrasm.h"
 #include "macro.h"

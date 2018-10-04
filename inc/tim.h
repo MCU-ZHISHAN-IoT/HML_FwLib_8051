@@ -11,7 +11,7 @@
 #ifndef ___TIM_H___
 #define ___TIM_H___
 
-/* --- @header file --- */
+/* ----- @header file ----- */
 #include <8051.h>
 #include <stdbool.h>
 #include "macro.h"

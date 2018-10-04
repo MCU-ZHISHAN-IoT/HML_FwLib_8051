@@ -4,14 +4,14 @@
  * @E-mail:mcu(at)zhishan-iot.tk
  * @File-description:a demo which shows how to use HML to toggle P10 state when EXTI is trigged
  * @Required-compiler:SDCC
- * @Support-mcu:8051 and its compitable MCUs
+ * @Support-mcu:Intel MCS-51 based microprocessors
  * @Version:V0
  */
 
 #include "conf.h"
 
 /*
- * @Protype:void sys_init(void)
+ * @Prototype:void sys_init(void)
  * @Parameter:None
  * @Ret-val:None
  * @Note:init MCU
@@ -29,6 +29,7 @@ void sys_init(void)
 	GPIO_configPort(PERIPH_GPIO_1,0xFF);
 }
 
+/* ----- @main ----- */
 void main(void)
 {
 	sys_init();
@@ -36,7 +37,7 @@ void main(void)
 }
 
 /*
- * @Protype:void exti1_isr(void)
+ * @Prototype:void exti1_isr(void)
  * @Parameter:None
  * @Ret-val:None
  * @Note:interrupt service function for EXTI1

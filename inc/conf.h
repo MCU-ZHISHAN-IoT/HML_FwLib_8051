@@ -11,7 +11,7 @@
 #ifndef ___CONF_H___
 #define ___CONF_H___
 
-/* --- @header file --- */
+/* ----- @header file ----- */
 #include "exti.h"
 #include "gpio.h"
 #include "intrasm.h"

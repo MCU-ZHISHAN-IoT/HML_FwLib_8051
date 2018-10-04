@@ -13,12 +13,12 @@
 #ifdef ___COMPILE_TIM___
 
 /*
- * @Protype:void TIM_cmd(PERIPH_TIM tim,Action a)
+ * @Prototype:void TIM_cmd(PERIPH_TIM tim,Action a)
  * @Parameter:
  *  (1)tim:target timer module
  *  (2)a:expected action
  * @Ret-val:
- * @Note:lanuch or stop timer
+ * @Note:launch or stop timer
  */
 void TIM_cmd(PERIPH_TIM tim,Action a)
 {
@@ -31,12 +31,12 @@ void TIM_cmd(PERIPH_TIM tim,Action a)
 }
 
 /*
- * @Protype:void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
+ * @Prototype:void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
  * @Parameter:
  *  (1)tim:target timer module
- *  (2)tc:custom config reference info.,look up details in header file
+ *  (2)tc:custom configure reference info.,look up details in header file
  * @Ret-val:
- * @Note:config target timer
+ * @Note:configure target timer
  */
 void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
 {
@@ -48,7 +48,7 @@ void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
 }
 
 /*
- * @Protype:unsigned int TIM_getValue(PERIPH_TIM tim)
+ * @Prototype:unsigned int TIM_getValue(PERIPH_TIM tim)
  * @Parameter:(1)tim:target timer module
  * @Ret-val:value(if return 0,means user call this function with error ways)
  * @Note:get timer's value
@@ -64,7 +64,7 @@ unsigned int TIM_getValue(PERIPH_TIM tim)
 }
 
 /*
- * @Protype:bool TIM_isOverflow(PERIPH_TIM tim)
+ * @Prototype:bool TIM_isOverflow(PERIPH_TIM tim)
  * @Parameter:(1)tim:target timer module
  * @Ret-val:(1)false:not overflow;(2)true:overflow;
  * @Note:check value register timer if is overflow
@@ -80,12 +80,12 @@ bool TIM_isOverflow(PERIPH_TIM tim)
 }
 
 /*
- * @Protype:void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
+ * @Prototype:void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
  * @Parameter:
  * (1)tim:target timer module
  * (2)f:expected function
  * @Ret-val:
- * @Note:config the module as counter mode or timer mode
+ * @Note:configure the module as counter mode or timer mode
  */
 void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
 {
@@ -98,7 +98,7 @@ void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
 }
 
 /*
- * @Protype:void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
+ * @Prototype:void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
  * @Parameter:
  * (1)tim:target timer module
  * (2)m:work mode(refer to header file)
@@ -116,7 +116,7 @@ void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
 }
 
 /*
- * @Protype:void TIM_setValue(PERIPH_TIM tim,word val)
+ * @Prototype:void TIM_setValue(PERIPH_TIM tim,word val)
  * @Parameter:
  * (1)tim:target timer module
  * (2)val:expected value
@@ -142,12 +142,12 @@ void TIM_setValue(PERIPH_TIM tim,word val)
 }
 
 /*
- * @Protype:void TIM_INT_cmd(PERIPH_TIM tim,Action a)
+ * @Prototype:void TIM_INT_cmd(PERIPH_TIM tim,Action a)
  * @Parameter:
  * (1)tim:target timer module
- * (2)a:expected action,decide disable or enable timer intterupt
+ * (2)a:expected action,decide disable or enable timer interrupt
  * @Ret-val:
- * @Note:disable or enable timer intterupt
+ * @Note:disable or enable timer interrupt
  */
 void TIM_INT_cmd(PERIPH_TIM tim,Action a)
 {
@@ -160,7 +160,7 @@ void TIM_INT_cmd(PERIPH_TIM tim,Action a)
 }
 
 /*
- * @Protype:void TIM_INT_setPriority(PERIPH_TIM tim,Action a)
+ * @Prototype:void TIM_INT_setPriority(PERIPH_TIM tim,Action a)
  * @Parameter:
  * (1)tim:target timer module
  * (2)a:expected action,decide disable or enable the timer has higher priority

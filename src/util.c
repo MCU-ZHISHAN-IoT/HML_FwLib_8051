@@ -14,7 +14,7 @@
 #ifdef ___COMPILE_UTIL___
 
 /*
- * @Protype:void disableAllInterrupts(void)
+ * @Prototype:void disableAllInterrupts(void)
  * @Parameter:
  * @Ret-val:
  * @Note:disable all interrupts
@@ -25,10 +25,10 @@ void disableAllInterrupts(void)
 }
 
 /*
- * @Protype:void enableAllInterrupts(void)
+ * @Prototype:void enableAllInterrupts(void)
  * @Parameter:
  * @Ret-val:
- * @Note:enable total switch of intterupts
+ * @Note:enable total switch of interrupts
  */
 void enableAllInterrupts(void)
 {
@@ -36,7 +36,7 @@ void enableAllInterrupts(void)
 }
 
 /*
- * @Protype:void sleep(u16 t)
+ * @Prototype:void sleep(u16 t)
  * @Parameter:(1)how many ms users expected
  * @Ret-val:
  * @Note:software delay according to frequency of crystal oscillator

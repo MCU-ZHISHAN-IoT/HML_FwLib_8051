@@ -4,12 +4,18 @@
  * @E-mail:mcu(at)zhishan-iot.tk
  * @File-description:send byte data which from HC-05 module(via UART) to GPIO1
  * @Required-compiler:SDCC
- * @Support-mcu:8051 and its compitable MCUs
+ * @Support-mcu:Intel MCS-51 based microprocessors
  * @Version:V0
  */
 
 #include "conf.h"
 
+/*
+ * @Prototype:void sys_init(void)
+ * @Parameter:None
+ * @Ret-val:None
+ * @Note:init MCU
+ */
 void sys_init(void)
 {
 	UART_configTypeDef uc;
@@ -25,15 +31,22 @@ void sys_init(void)
 	enableAllInterrupts();
 }
 
+/* ----- @main ----- */
 void main(void)
 {
 	sys_init();
 	while(true);
 }
 
+/*
+ * @Prototype:void uart_isr(void) __interrupt SI0_VECTOR
+ * @Parameter:None
+ * @Ret-val:None
+ * @Note:interrupt function for UART
+ */
 void uart_isr(void) __interrupt SI0_VECTOR
 {
 	P1 = SBUF;
-	RI = 0;
+	RI = RESET;
 }
 
