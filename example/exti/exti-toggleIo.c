@@ -26,7 +26,7 @@ void sys_init(void)
 	EXTI_cmd(PERIPH_EXTI_1,ENABLE);
 	enableAllInterrupts();
 	
-	GPIO_configPort(PERIPH_GPIO_1,0xFF);
+	GPIO_configPortValue(PERIPH_GPIO_1,0xFF);
 }
 
 /* ----- @main ----- */

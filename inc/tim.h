@@ -39,7 +39,7 @@ typedef enum
 	TIM_FUNC_TIM = 0x0  /* timer mode */
 } TIM_function;
 
-/* special structment for configurating TIM module */
+/* special struct for congratulating TIM module */
 typedef struct
 {
 	TIM_function function;

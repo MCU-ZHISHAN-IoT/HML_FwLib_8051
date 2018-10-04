@@ -30,6 +30,7 @@ void sys_init(void)
 	enableAllInterrupts();
 }
 
+/* ----- @main ----- */
 void main(void)
 {	
     sys_init();

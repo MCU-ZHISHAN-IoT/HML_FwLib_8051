@@ -34,14 +34,14 @@ void GPIO_configBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin,FunctionalState f)
 }
 
 /*
- * @Prototype:void GPIO_configPort(PERIPH_GPIO gpio,byte val)
+ * @Prototype:void GPIO_configPortValue(PERIPH_GPIO gpio,byte val)
  * @Parameter:
  *  (1)gpio:target GPIO port
  *  (2)val:expected port value
  * @Ret-val:
- * @Note:configure port value
+ * @Note:configure specified port value
  */
-void GPIO_configPort(PERIPH_GPIO gpio,byte val)
+void GPIO_configPortValue(PERIPH_GPIO gpio,byte val)
 {
 	switch(gpio)
 	{
