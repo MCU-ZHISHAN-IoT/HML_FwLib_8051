@@ -43,7 +43,7 @@ void EXTI_cmd(PERIPH_EXTI exti,Action a)
 }
 
 /*
- * @Prototype:void EXTI_cmd(PERIPH_EXTI exti,Action a)
+ * @Prototype:void EXTI_setMode(PERIPH_EXTI exti,EXTI_mode mod)
  * @Parameter:
  *  (1)exti:target EXTI module
  *  (2)mod:expected work mode
