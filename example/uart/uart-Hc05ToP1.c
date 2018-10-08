@@ -12,8 +12,8 @@
 
 /*
  * @Prototype:void sys_init(void)
- * @Parameter:None
- * @Ret-val:None
+ * @Parameter:
+ * @Ret-val:
  * @Note:init MCU
  */
 void sys_init(void)
@@ -40,9 +40,9 @@ void main(void)
 
 /*
  * @Prototype:void uart_isr(void) __interrupt SI0_VECTOR
- * @Parameter:None
- * @Ret-val:None
- * @Note:interrupt function for UART
+ * @Parameter:
+ * @Ret-val:
+ * @Note:interrupt handle function for UART
  */
 void uart_isr(void) __interrupt SI0_VECTOR
 {

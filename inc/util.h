@@ -16,7 +16,7 @@
 #include "intrasm.h"
 #include "macro.h"
 
-/* ---------- @function --------- */
+/* ----- @function ----- */
 void disableAllInterrupts(void);
 void enableAllInterrupts(void);
 void sleep(u16 t);

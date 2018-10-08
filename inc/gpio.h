@@ -37,7 +37,7 @@ typedef enum
 	PERIPH_GPIO_PIN_7 = 0x80
 } PERIPH_GPIO_PIN;
 
-/* ---------- @function ---------- */
+/* ----- @function ----- */
 void GPIO_configBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin,FunctionalState f);
 void GPIO_configPortValue(PERIPH_GPIO gpio,byte val);
 FunctionalState GPIO_getBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin);

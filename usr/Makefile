@@ -4,7 +4,9 @@
 #E-mail     :mcu(at)zhishan-iot.tk
 #Make-tool  :GNU Make (http://www.gnu.org/software/make/manual/make.html)
 #Page       :https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
-#Vesrion    :v0.0.3
+#Tar-mcu    :Intel MCS-51 based microprocessors
+#Tar-project:HML_FwLib_8051
+#Version    :v0.0.3
 
 #important directories#
 DIR_OUTPUT     = ../obj

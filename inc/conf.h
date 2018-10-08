@@ -2,7 +2,7 @@
  * @Author:
  *  #Weilun Fong | wlf(at)zhishan-iot.tk
  * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:includes all header file of the HML
+ * @File-description:include all header file of the HML
  * @Required-compiler:SDCC
  * @Support-mcu:Intel MCS-51 based microprocessors
  * @Version:V0

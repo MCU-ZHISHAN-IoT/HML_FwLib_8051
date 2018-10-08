@@ -35,11 +35,11 @@ typedef struct
 	Action    receiveState;
 } UART_configTypeDef;
 
-/* ---------- @function --------- */
+/* ----- @function ----- */
 void UART_cmd_multiBaudrate(Action a);
 void UART_cmd_receive(Action a);
 void UART_config(UART_configTypeDef *uc);
-unsigned int UART_getTimerInitValue(uint32_t baud);
+unsigned int UART_getBaudGeneratorInitValue(uint32_t baud);
 FunctionalState UART_isReceived(void);
 FunctionalState UART_isTransmitted(void);
 void UART_sendByte(byte dat);

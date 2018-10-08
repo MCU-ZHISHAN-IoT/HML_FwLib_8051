@@ -35,7 +35,7 @@ typedef enum
 /* mark counter mode and timer mode */
 typedef enum
 {
-	TIM_FUNC_CNT = 0x1, /* couter mode */
+	TIM_FUNC_CNT = 0x1, /* counter mode */
 	TIM_FUNC_TIM = 0x0  /* timer mode */
 } TIM_function;
 
@@ -49,7 +49,7 @@ typedef struct
 	unsigned int value;
 } TIM_configTypeDef;
 
-/* ---------- @function --------- */
+/* ----- @function ----- */
 void TIM_cmd(PERIPH_TIM tim,Action a);
 void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc);
 unsigned int TIM_getValue(PERIPH_TIM tim);

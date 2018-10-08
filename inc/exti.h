@@ -35,7 +35,7 @@ typedef struct
 	Action    priority;
 } EXTI_configTypeDef;
 
-/* ---------- @function ---------- */
+/* ----- @function ----- */
 void EXTI_cmd(PERIPH_EXTI exti,Action a);
 void EXTI_config(PERIPH_EXTI exti,EXTI_configTypeDef *ec);
 void EXTI_setMode(PERIPH_EXTI exti,EXTI_mode mod);

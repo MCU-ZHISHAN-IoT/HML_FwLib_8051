@@ -2,7 +2,7 @@
  * @Author:
  *  #Weilun Fong | wlf(at)zhishan-iot.tk
  * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:a demo which shows how to use HML to toggle P10 state when EXTI is trigged
+ * @File-description:a example which shows how to use HML to toggle P10 state when EXTI is trigged
  * @Required-compiler:SDCC
  * @Support-mcu:Intel MCS-51 based microprocessors
  * @Version:V0
@@ -12,8 +12,8 @@
 
 /*
  * @Prototype:void sys_init(void)
- * @Parameter:None
- * @Ret-val:None
+ * @Parameter:
+ * @Ret-val:
  * @Note:init MCU
  */
 void sys_init(void)
@@ -38,9 +38,9 @@ void main(void)
 
 /*
  * @Prototype:void exti1_isr(void)
- * @Parameter:None
- * @Ret-val:None
- * @Note:interrupt service function for EXTI1
+ * @Parameter:
+ * @Ret-val:
+ * @Note:interrupt handle function for EXTI1
  */
 void exti1_isr(void) __interrupt IE1_VECTOR
 {

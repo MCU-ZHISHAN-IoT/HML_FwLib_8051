@@ -55,7 +55,7 @@
  Note    :(1)modify function void GPIO_configPort(PERIPH_GPIO gpio,u8 val) as void GPIO_configPort(PERIPH_GPIO gpio,byte val) in <gpio.h>
           (2)modify function void TIM_setValue(PERIPH_TIM tim,unsigned int val) as void TIM_setValue(PERIPH_TIM tim,word val) in <tim.h>
           (3)modify function void UART_sendByte(unsigned char dat) as void UART_sendByte(byte dat) in <uart.h>
-          (4)modify function unsigned int UART_getTimerInitValue(unsigned int baud) as unsigned int UART_getTimerInitValue(uint32_t baud) in <uart.h>
+          (4)rename function unsigned int UART_getTimerInitValue(unsigned int baud) as unsigned int UART_getBaudGeneratorInitValue(uint32_t baud) in <uart.h>
           (5)modify function void GPIO_configPortValue(PERIPH_GPIO gpio,unsigned char val) as void GPIO_configPortValue(PERIPH_GPIO gpio,byte val) in <gpio.h>
 
 #DEVELOPER (This is an one-man project...)

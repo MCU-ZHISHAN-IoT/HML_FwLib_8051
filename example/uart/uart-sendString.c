@@ -2,7 +2,7 @@
  * @Author:
  *  #Weilun Fong | wlf(at)zhishan-iot.tk
  * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:a demo which shows how to use HML_FwLib_8051 to send string via UART module
+ * @File-description:a example which shows how to use HML_FwLib_8051 to send string via UART module
  * @Required-compiler:SDCC
  * @Support-mcu:Intel MCS-51 based microprocessors
  * @Version:V0
@@ -11,8 +11,8 @@
 
 /*
  * @Prototype:void sys_init(void)
- * @Parameter:None
- * @Ret-val:None
+ * @Parameter:
+ * @Ret-val:
  * @Note:init MCU
  */
 void sys_init(void)

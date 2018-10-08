@@ -35,12 +35,12 @@ void UART_cmd_receive(Action a)
 }
 
 /*
- * @Prototype:unsigned int UART_getTimerInitValue(uint32_t baud)
+ * @Prototype:unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
  * @Parameter:(1)baud:expected baud rate
- * @Ret-val:init value the baud rate required of timer counter register(if return 0x0000,it means overflow)
+ * @Ret-val:initial value the baud rate required of timer counter register(if return 0x0000, it means overflow)
  * @Note:calculate timer counter register value
  */
-unsigned int UART_getTimerInitValue(uint32_t baud)
+unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
 {
 	unsigned char tmp = 0x00;
 	
@@ -94,7 +94,7 @@ void UART_config(UART_configTypeDef *uc)
 	tc.interruptState    = DISABLE;
 	tc.interruptPriority = DISABLE;
 	tc.mode              = TIM_mode_2;
-	tc.value             = UART_getTimerInitValue(uc->baudrate);
+	tc.value             = UART_getBaudGeneratorInitValue(uc->baudrate);
 	TIM_config(PERIPH_TIM_1,&tc);
 	TIM_cmd(PERIPH_TIM_1,ENABLE);
 	
