@@ -21,7 +21,7 @@
  Date    :2018-04-30
  Note    :(1)fix a bug about code order in <uart.c>
           (2)fix a bug of function TIM_setValue in <tim.c>
-		  (3)rewrite <mem.h>, fix fatal bug!
+          (3)rewrite <mem.h>, fix fatal bug!
 		  
 >Version :v0.0.2
  Alias   :
@@ -47,16 +47,24 @@
  Note    :(1)update Makefile, it's able to make a static link library under [obj] directory in order to avoid all source files every time
           (2)rename directory [sample] as [example]
           (3)rename directory [user] as [usr]
-          (4)correct /doc/errormap.txt
+          (4)correct doc/errormap.txt
 		  
 >Version :v0.0.5
- Alias   :
+ Alias   :V0R1
  Date    :2018-10-04
  Note    :(1)modify function void GPIO_configPort(PERIPH_GPIO gpio,u8 val) as void GPIO_configPort(PERIPH_GPIO gpio,byte val) in <gpio.h>
           (2)modify function void TIM_setValue(PERIPH_TIM tim,unsigned int val) as void TIM_setValue(PERIPH_TIM tim,word val) in <tim.h>
           (3)modify function void UART_sendByte(unsigned char dat) as void UART_sendByte(byte dat) in <uart.h>
           (4)rename function unsigned int UART_getTimerInitValue(unsigned int baud) as unsigned int UART_getBaudGeneratorInitValue(uint32_t baud) in <uart.h>
           (5)modify function void GPIO_configPortValue(PERIPH_GPIO gpio,unsigned char val) as void GPIO_configPortValue(PERIPH_GPIO gpio,byte val) in <gpio.h>
+		  
+>Version :v0.0.6
+ Alias   :
+ Date    :2018-11-04
+ Note    :(1)rename macro __PDATA as __PBYTE in <mem.h>
+          (2)rename file doc/license.txt as LICENSE
+          (3)improve header information of example source files
+          (4)add .gitkeep file into obj directory, because Git doesn't permit user committing a empty directory.
 
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
