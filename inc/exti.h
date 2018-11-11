@@ -18,21 +18,21 @@
 /* mark EXTI module */
 typedef enum
 {
-	PERIPH_EXTI_0 = 0x0,
-	PERIPH_EXTI_1 = 0x1
+    PERIPH_EXTI_0 = 0x0,
+    PERIPH_EXTI_1 = 0x1
 } PERIPH_EXTI;
 
 /* mark work mode */
 typedef enum
 {
-	EXTI_mode_fallEdge = 0x1,
+    EXTI_mode_fallEdge = 0x1,
     EXTI_mode_lowLevel = 0x0
 } EXTI_mode;
 
 typedef struct
 {
-	EXTI_mode mode;
-	Action    priority;
+    EXTI_mode mode;
+    Action    priority;
 } EXTI_configTypeDef;
 
 /* ----- @function ----- */
