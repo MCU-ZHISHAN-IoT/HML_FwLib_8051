@@ -21,15 +21,15 @@ typedef unsigned int  word;
 /* mark user action */
 typedef enum
 {
-    DISABLE = 0x0,
-    ENABLE  = !DISABLE
+	DISABLE = 0x0,
+	ENABLE  = !DISABLE
 } Action;
 
 /* mark bit value/state */
 typedef enum
 {
-    RESET = 0x0,
-    SET   = !RESET
+	RESET = 0x0,
+	SET   = !RESET
 } FunctionalState;
 
 /* ---------- NEED TO CONFIG MANUALLY !!! ---------- */
@@ -50,11 +50,11 @@ typedef enum
 /* --------- @run-time check ------- */
 
 #ifndef _FRE_OSC_
-    #error HML run-time check:the firmware library need define extern clcok frequency!(ERROR_CODE-0x01)
+	#error HML run-time check:the firmware library need define extern clcok frequency!(ERROR_CODE-0x01)
 #endif
 
 #if (defined ___COMPILE_UART___) && (!defined ___COMPILE_TIM___)
-    #error HML run-time check: UART part need extern support, please enable macro ___COMPILE_TIM___ (ERROR_CODE-0x02)
+	#error HML run-time check: UART part need extern support, please enable macro ___COMPILE_TIM___ (ERROR_CODE-0x02)
 #endif
 
 #endif

@@ -23,14 +23,14 @@
  */
 void GPIO_configBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin,FunctionalState f)
 {
-    if(f == RESET)
-    {
-        GPIO_resetBitValue(gpio,pin);
-    }
-    else
-    {
-        GPIO_setBitValue(gpio,pin);
-    }
+	if(f == RESET)
+	{
+		GPIO_resetBitValue(gpio,pin);
+	}
+	else
+	{
+		GPIO_setBitValue(gpio,pin);
+	}
 }
 
 /*
@@ -43,14 +43,14 @@ void GPIO_configBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin,FunctionalState f)
  */
 void GPIO_configPortValue(PERIPH_GPIO gpio,byte val)
 {
-    switch(gpio)
-    {
-        case PERIPH_GPIO_0:P0 = val;break;
-        case PERIPH_GPIO_1:P1 = val;break;
-        case PERIPH_GPIO_2:P2 = val;break;
-        case PERIPH_GPIO_3:P3 = val;break;
-        default:break;
-    }
+	switch(gpio)
+	{
+		case PERIPH_GPIO_0:P0 = val;break;
+		case PERIPH_GPIO_1:P1 = val;break;
+		case PERIPH_GPIO_2:P2 = val;break;
+		case PERIPH_GPIO_3:P3 = val;break;
+		default:break;
+	}
 }
 
 /*
@@ -63,15 +63,15 @@ void GPIO_configPortValue(PERIPH_GPIO gpio,byte val)
  */
 FunctionalState GPIO_getBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
 {
-    switch(gpio)
-    {
-        case PERIPH_GPIO_0:return (P0 & pin);break;
-        case PERIPH_GPIO_1:return (P1 & pin);break;
-        case PERIPH_GPIO_2:return (P2 & pin);break;
-        case PERIPH_GPIO_3:return (P3 & pin);break;
-    }
-    
-    return RESET;
+	switch(gpio)
+	{
+		case PERIPH_GPIO_0:return (P0 & pin);break;
+		case PERIPH_GPIO_1:return (P1 & pin);break;
+		case PERIPH_GPIO_2:return (P2 & pin);break;
+		case PERIPH_GPIO_3:return (P3 & pin);break;
+	}
+	
+	return RESET;
 }
 
 /*
@@ -83,15 +83,15 @@ FunctionalState GPIO_getBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
  */
 unsigned char GPIO_getPortValue(PERIPH_GPIO gpio)
 {
-    switch(gpio)
-    {
-        case PERIPH_GPIO_0:return P0;break;
-        case PERIPH_GPIO_1:return P1;break;
-        case PERIPH_GPIO_2:return P2;break;
-        case PERIPH_GPIO_3:return P3;break;
-    }
-    
-    return 0x00;
+	switch(gpio)
+	{
+		case PERIPH_GPIO_0:return P0;break;
+		case PERIPH_GPIO_1:return P1;break;
+		case PERIPH_GPIO_2:return P2;break;
+		case PERIPH_GPIO_3:return P3;break;
+	}
+	
+	return 0x00;
 }
 
 /*
@@ -104,14 +104,14 @@ unsigned char GPIO_getPortValue(PERIPH_GPIO gpio)
  */
 void GPIO_resetBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
 {
-    switch(gpio)
-    {
-        case PERIPH_GPIO_0:P0 = P0 & (~pin);break;
-        case PERIPH_GPIO_1:P1 = P1 & (~pin);break;
-        case PERIPH_GPIO_2:P2 = P2 & (~pin);break;
-        case PERIPH_GPIO_3:P3 = P3 & (~pin);break;
-        default:break;
-    }
+	switch(gpio)
+	{
+		case PERIPH_GPIO_0:P0 = P0 & (~pin);break;
+		case PERIPH_GPIO_1:P1 = P1 & (~pin);break;
+		case PERIPH_GPIO_2:P2 = P2 & (~pin);break;
+		case PERIPH_GPIO_3:P3 = P3 & (~pin);break;
+		default:break;
+	}
 }
 
 /*
@@ -124,14 +124,14 @@ void GPIO_resetBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
  */
 void GPIO_setBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
 {
-    switch(gpio)
-    {
-        case PERIPH_GPIO_0:P0 = P0 | pin;break;
-        case PERIPH_GPIO_1:P1 = P1 | pin;break;
-        case PERIPH_GPIO_2:P2 = P2 | pin;break;
-        case PERIPH_GPIO_3:P3 = P3 | pin;break;
-        default:break;
-    }
+	switch(gpio)
+	{
+		case PERIPH_GPIO_0:P0 = P0 | pin;break;
+		case PERIPH_GPIO_1:P1 = P1 | pin;break;
+		case PERIPH_GPIO_2:P2 = P2 | pin;break;
+		case PERIPH_GPIO_3:P3 = P3 | pin;break;
+		default:break;
+	}
 }
 
 /*
@@ -144,14 +144,14 @@ void GPIO_setBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
  */
 void GPIO_toggleBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
 {
-    switch(gpio)
-    {
-        case PERIPH_GPIO_0:P0 = (P0 & (~pin)) | ((~P0) & pin);break;
-        case PERIPH_GPIO_1:P1 = (P1 & (~pin)) | ((~P1) & pin);break;
-        case PERIPH_GPIO_2:P2 = (P2 & (~pin)) | ((~P2) & pin);break;
-        case PERIPH_GPIO_3:P3 = (P3 & (~pin)) | ((~P3) & pin);break;
-        default:break;
-    }
+	switch(gpio)
+	{
+		case PERIPH_GPIO_0:P0 = (P0 & (~pin)) | ((~P0) & pin);break;
+		case PERIPH_GPIO_1:P1 = (P1 & (~pin)) | ((~P1) & pin);break;
+		case PERIPH_GPIO_2:P2 = (P2 & (~pin)) | ((~P2) & pin);break;
+		case PERIPH_GPIO_3:P3 = (P3 & (~pin)) | ((~P3) & pin);break;
+		default:break;
+	}
 }
 
 #endif

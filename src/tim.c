@@ -22,12 +22,12 @@
  */
 void TIM_cmd(PERIPH_TIM tim,Action a)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:TR0 = a;break;
-        case PERIPH_TIM_1:TR1 = a;break;
-        default:break;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:TR0 = a;break;
+		case PERIPH_TIM_1:TR1 = a;break;
+		default:break;
+	}
 }
 
 /*
@@ -40,11 +40,11 @@ void TIM_cmd(PERIPH_TIM tim,Action a)
  */
 void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
 {
-    TIM_setFunction(tim,tc->function);
-    TIM_setMode(tim,tc->mode);
-    TIM_setValue(tim,tc->value);
-    TIM_INT_cmd(tim,tc->interruptState);
-    TIM_INT_setPriority(tim,tc->interruptPriority);
+	TIM_setFunction(tim,tc->function);
+	TIM_setMode(tim,tc->mode);
+	TIM_setValue(tim,tc->value);
+	TIM_INT_cmd(tim,tc->interruptState);
+	TIM_INT_setPriority(tim,tc->interruptPriority);
 }
 
 /*
@@ -55,12 +55,12 @@ void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
  */
 unsigned int TIM_getValue(PERIPH_TIM tim)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:return ((TH0 << 0x08) | TL0);
-        case PERIPH_TIM_1:return ((TH1 << 0x08) | TL1);
-        default:return 0;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:return ((TH0 << 0x08) | TL0);
+		case PERIPH_TIM_1:return ((TH1 << 0x08) | TL1);
+		default:return 0;
+	}
 }
 
 /*
@@ -71,12 +71,12 @@ unsigned int TIM_getValue(PERIPH_TIM tim)
  */
 bool TIM_isOverflow(PERIPH_TIM tim)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:return (bool)TF0;
-        case PERIPH_TIM_1:return (bool)TF1;
-        default:return false;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:return (bool)TF0;
+		case PERIPH_TIM_1:return (bool)TF1;
+		default:return false;
+	}
 }
 
 /*
@@ -89,12 +89,12 @@ bool TIM_isOverflow(PERIPH_TIM tim)
  */
 void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:TMOD = (TMOD & 0xFB) | (f << 0x02);break;
-        case PERIPH_TIM_1:TMOD = (TMOD & 0xBF) | (f << 0x06);break;
-        default:break;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:TMOD = (TMOD & 0xFB) | (f << 0x02);break;
+		case PERIPH_TIM_1:TMOD = (TMOD & 0xBF) | (f << 0x06);break;
+		default:break;
+	}
 }
 
 /*
@@ -107,12 +107,12 @@ void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
  */
 void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:TMOD = (TMOD & 0xFC) | m;break;
-        case PERIPH_TIM_1:TMOD = (TMOD & 0xCF) | (m << 0x04);break;
-        default:break;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:TMOD = (TMOD & 0xFC) | m;break;
+		case PERIPH_TIM_1:TMOD = (TMOD & 0xCF) | (m << 0x04);break;
+		default:break;
+	}
 }
 
 /*
@@ -125,20 +125,20 @@ void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
  */
 void TIM_setValue(PERIPH_TIM tim,word val)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:
-        {
-            TH0 = (u8)((val >> 0x8) & 0x00FF);
-            TL0 = (u8)(val & 0x00FF);
-        } break;
-        case PERIPH_TIM_1:
-        {
-            TH1 = (u8)((val >> 0x8) & 0x00FF);
-            TL1 = (u8)(val & 0x00FF);
-        } break;
-        default:break;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:
+		{
+			TH0 = (u8)((val >> 0x8) & 0x00FF);
+			TL0 = (u8)(val & 0x00FF);
+		} break;
+		case PERIPH_TIM_1:
+		{
+			TH1 = (u8)((val >> 0x8) & 0x00FF);
+			TL1 = (u8)(val & 0x00FF);
+		} break;
+		default:break;
+	}
 }
 
 /*
@@ -151,12 +151,12 @@ void TIM_setValue(PERIPH_TIM tim,word val)
  */
 void TIM_INT_cmd(PERIPH_TIM tim,Action a)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:ET0 = (FunctionalState)a;break;
-        case PERIPH_TIM_1:ET1 = (FunctionalState)a;break;
-        default:break;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:ET0 = (FunctionalState)a;break;
+		case PERIPH_TIM_1:ET1 = (FunctionalState)a;break;
+		default:break;
+	}
 }
 
 /*
@@ -169,12 +169,12 @@ void TIM_INT_cmd(PERIPH_TIM tim,Action a)
  */
 void TIM_INT_setPriority(PERIPH_TIM tim,Action a)
 {
-    switch(tim)
-    {
-        case PERIPH_TIM_0:PT0 = (FunctionalState)a;break;
-        case PERIPH_TIM_1:PT1 = (FunctionalState)a;break;
-        default:break;
-    }
+	switch(tim)
+	{
+		case PERIPH_TIM_0:PT0 = (FunctionalState)a;break;
+		case PERIPH_TIM_1:PT1 = (FunctionalState)a;break;
+		default:break;
+	}
 }
 
 #endif

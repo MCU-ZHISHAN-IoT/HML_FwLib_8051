@@ -19,26 +19,26 @@
  */
 void sys_init(void)
 {
-    UART_configTypeDef uc;
-    
-    uc.baudrate = 9600;
-    uc.interruptState = ENABLE;
-    uc.interruptPriority = DISABLE;
-    uc.mode = UART_mode_1;
-    uc.multiBaudrate = DISABLE;
-    uc.receiveState  = ENABLE;
-    
-    UART_config(&uc);
-    enableAllInterrupts();
+	UART_configTypeDef uc;
+	
+	uc.baudrate = 9600;
+	uc.interruptState = ENABLE;
+	uc.interruptPriority = DISABLE;
+	uc.mode = UART_mode_1;
+	uc.multiBaudrate = DISABLE;
+	uc.receiveState  = ENABLE;
+	
+	UART_config(&uc);
+	enableAllInterrupts();
 }
 
 /* ----- @main ----- */
 void main(void)
-{    
+{	
     sys_init();
-    while(true)
-    {
-        sleep(500);
-        UART_sendString("Hello,world!\r\n");
-    }
+	while(true)
+	{
+		sleep(500);
+		UART_sendString("Hello,world!\r\n");
+	}
 }

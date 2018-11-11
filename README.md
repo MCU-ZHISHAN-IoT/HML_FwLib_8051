@@ -22,7 +22,7 @@ Please visit [detail page](https://hw.zhishan-iot.tk/page/hml/detail/fwlib_stc80
 ## Usage
 ### file structure
 ```bash
-HML_FwLib_STC89
+HML_FwLib_8051
 ├─doc      #store related documents about HML_FwLib_8051
 ├─example  #provide some example files with *.c format to help users learn about HML_FwLib_8051
 ├─inc      #include all header files(*.h) of HML_FwLib_8051
@@ -33,9 +33,9 @@ HML_FwLib_STC89
 ### configuration
 There are several parameters need to be configured by user manually.
 #### \_FRE\_OSC\_
-The macro mark frequency of clock source, including extern crystal oscillator or internal RC oscillating circuit, and it's defined in *macro.h*. The default value is `11059200L`.
+The macro mark frequency of clock source, including extern crystal oscillator, and it's defined in *macro.h*. The default value is `11059200L`.
 #### conditional compilation
-In order to ensure the projects based on HML_FwLib_8051 can be downloaded into the limited on-chip flash space of 8051 MCUs, the developers can modify the macro definition named `___COMPILE_XXX___` in *macro.h* to specify which piece of code should be compiled, thus to reduce the size of the HEX file. If user only use GPIO module, then user just need to enable `___COMPILE_GPIO___` macro definition in macro.h. Some macros for conditional compilation rely on others. For example, before you define the macro definition `___COMPILE_UART___`, the macro `___COMPILE_TIM___` should be defined, otherwise the compilation would be failed.
+In order to ensure the projects based on HML_FwLib_8051 can be downloaded into the limited on-chip store space of 8051 MCUs, the developers can modify the macro definition named `___COMPILE_XXX___` in *macro.h* to specify which piece of code should be compiled, thus to reduce the size of the HEX file. If user only use GPIO module, then user just need to enable `___COMPILE_GPIO___` macro definition in macro.h. Some macros for conditional compilation rely on others. For example, before you define the macro definition `___COMPILE_UART___`, the macro `___COMPILE_TIM___` should be defined, otherwise the compilation would be failed.
 ### code & compilation
 There is a source file named *test.c* under *usr* directory, we have put a main function here. User can add and modify own code here, then enter <kbd>make</kbd> in terminal(you had better use [Cygwin](http://www.cygwin.com/) instead of cmd.exe under Windows), the Makefile will work and complete compilation. Certainly, you can just add *inc* and *src* directory into your project structure, and write your own makefile to build a custom project. 
 
