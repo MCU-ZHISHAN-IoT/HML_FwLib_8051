@@ -66,6 +66,11 @@
           (3)improve header information of example source files
           (4)add .gitkeep file into obj directory, because Git doesn't permit user committing a empty directory.
 
+>Version :v0.0.7
+ Alias   :
+ Date    :
+ Note    :(1)update Makefile
+ 
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
 
