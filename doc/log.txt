@@ -22,7 +22,7 @@
  Note    :(1)fix a bug about code order in <uart.c>
           (2)fix a bug of function TIM_setValue in <tim.c>
           (3)rewrite <mem.h>, fix fatal bug!
-		  
+          
 >Version :v0.0.2
  Alias   :
  Date    :2018-05-20
@@ -40,7 +40,7 @@
           (7)rename TIM_MODE as TIM_mode, and modify name of related enum value
           (8)The conditional compilation mechanism is introduced into the source code(select expected compilation part in <macro.h>)
           (9)update Makefile
-		  
+          
 >Version :v0.0.4
  Alias   :
  Date    :2018-09-23
@@ -48,7 +48,7 @@
           (2)rename directory [sample] as [example]
           (3)rename directory [user] as [usr]
           (4)correct doc/errormap.txt
-		  
+          
 >Version :v0.0.5
  Alias   :V0R1
  Date    :2018-10-04
@@ -57,7 +57,7 @@
           (3)modify function void UART_sendByte(unsigned char dat) as void UART_sendByte(byte dat) in <uart.h>
           (4)rename function unsigned int UART_getTimerInitValue(unsigned int baud) as unsigned int UART_getBaudGeneratorInitValue(uint32_t baud) in <uart.h>
           (5)modify function void GPIO_configPortValue(PERIPH_GPIO gpio,unsigned char val) as void GPIO_configPortValue(PERIPH_GPIO gpio,byte val) in <gpio.h>
-		  
+          
 >Version :v0.0.6
  Alias   :
  Date    :2018-11-04

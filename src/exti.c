@@ -21,8 +21,8 @@
  */
 void EXTI_config(PERIPH_EXTI exti,EXTI_configTypeDef *ec)
 {
-	EXTI_setMode(exti,ec->mode);
-	EXTI_setPriority(exti,ec->priority);
+    EXTI_setMode(exti,ec->mode);
+    EXTI_setPriority(exti,ec->priority);
 }
 
 /*
@@ -34,12 +34,12 @@ void EXTI_config(PERIPH_EXTI exti,EXTI_configTypeDef *ec)
  */
 void EXTI_cmd(PERIPH_EXTI exti,Action a)
 {
-	switch(exti)
-	{
-		case PERIPH_EXTI_0:EX0 = a;break;
-		case PERIPH_EXTI_1:EX1 = a;break;
-		default:break;
-	}
+    switch(exti)
+    {
+        case PERIPH_EXTI_0:EX0 = a;break;
+        case PERIPH_EXTI_1:EX1 = a;break;
+        default:break;
+    }
 }
 
 /*
@@ -51,12 +51,12 @@ void EXTI_cmd(PERIPH_EXTI exti,Action a)
  */
 void EXTI_setMode(PERIPH_EXTI exti,EXTI_mode mod)
 {
-	switch(exti)
-	{
-		case PERIPH_EXTI_0:IT0 = mod;break;
-		case PERIPH_EXTI_1:IT1 = mod;break;
-		default:break;
-	}
+    switch(exti)
+    {
+        case PERIPH_EXTI_0:IT0 = mod;break;
+        case PERIPH_EXTI_1:IT1 = mod;break;
+        default:break;
+    }
 }
 
 /*
@@ -68,12 +68,12 @@ void EXTI_setMode(PERIPH_EXTI exti,EXTI_mode mod)
  */
 void EXTI_setPriority(PERIPH_EXTI exti,Action a)
 {
-	switch(exti)
-	{
-		case PERIPH_EXTI_0:PX0 = a;break;
-		case PERIPH_EXTI_1:PX1 = a;break;
-		default:break;
-	}
+    switch(exti)
+    {
+        case PERIPH_EXTI_0:PX0 = a;break;
+        case PERIPH_EXTI_1:PX1 = a;break;
+        default:break;
+    }
 }
 
 #endif
