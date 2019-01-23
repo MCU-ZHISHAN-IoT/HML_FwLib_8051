@@ -15,6 +15,7 @@
 #include <8051.h>
 #include "macro.h"
 
+/* ----- @enumeration type ----- */
 /* mark EXTI module */
 typedef enum
 {
@@ -29,6 +30,8 @@ typedef enum
     EXTI_mode_lowLevel = 0x0
 } EXTI_mode;
 
+/* ----- @structure define ----- */
+/* configuration structure */
 typedef struct
 {
     EXTI_mode mode;

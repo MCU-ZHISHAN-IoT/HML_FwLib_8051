@@ -13,6 +13,7 @@
 #ifndef ___MEM_H___
 #define ___MEM_H___
 
+/* ----- @macro ----- */
 #define __CBYTE ((unsigned char volatile __code  *) 0)
 #define __DBYTE ((unsigned char volatile __data  *) 0)
 #define __PBYTE ((unsigned char volatile __pdata *) 0)

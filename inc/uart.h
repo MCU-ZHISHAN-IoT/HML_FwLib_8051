@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include "tim.h"
 
+/* ----- @enumeration type ----- */
 /* mark work mode */
 typedef enum
 {
@@ -24,7 +25,8 @@ typedef enum
     UART_mode_3 = 0x3   /* 9-bit UART,variable baud rate */
 } UART_mode;
 
-/* special struct for congratulating UART module */
+/* ----- @structure define ----- */
+/* special structure for congratulating UART module */
 typedef struct
 {
     uint32_t  baudrate;

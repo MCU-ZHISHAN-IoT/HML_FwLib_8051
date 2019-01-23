@@ -15,6 +15,7 @@
 #include <8051.h>
 #include "macro.h"
 
+/* ----- @enumeration type ----- */
 /* define port */
 typedef enum
 {

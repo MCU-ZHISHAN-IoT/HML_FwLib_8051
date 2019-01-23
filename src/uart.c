@@ -73,7 +73,7 @@ unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
 
 /*
  * @Prototype:void UART_config(UART_configTypeDef *uc)
- * @Parameter:(1)uc:the pointer of configuration struct
+ * @Parameter:(1)uc:the pointer of configuration structure
  * @Ret-val:
  * @Note:configure UART module
  */
@@ -90,7 +90,7 @@ void UART_config(UART_configTypeDef *uc)
     UART_cmd_receive(uc->receiveState);
     
     /* UART module need TIM1 module as baud rate generator */
-    tc.function          = TIM_FUNC_TIM;
+    tc.function          = TIM_function_tim;
     tc.interruptState    = DISABLE;
     tc.interruptPriority = DISABLE;
     tc.mode              = TIM_mode_2;

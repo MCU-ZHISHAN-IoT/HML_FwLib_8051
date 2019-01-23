@@ -11,13 +11,13 @@
 #ifndef ___MACRO_H___
 #define ___MACRO_H___
 
-/* --- @type define --- */
+/* ----- @type define ----- */
 typedef unsigned char byte;
 typedef unsigned char u8;
 typedef unsigned int  u16;
 typedef unsigned int  word;
 
-/* --- @enum type --- */
+/* ----- @enumeration type ----- */
 /* mark user action */
 typedef enum
 {

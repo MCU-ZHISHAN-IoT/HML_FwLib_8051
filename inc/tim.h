@@ -16,6 +16,7 @@
 #include <stdbool.h>
 #include "macro.h"
 
+/* ----- @enumeration type ----- */
 /* mark timer */
 typedef enum
 {
@@ -35,11 +36,12 @@ typedef enum
 /* mark counter mode and timer mode */
 typedef enum
 {
-    TIM_FUNC_CNT = 0x1, /* counter mode */
-    TIM_FUNC_TIM = 0x0  /* timer mode */
+    TIM_function_cnt = 0x1, /* counter mode */
+    TIM_function_tim = 0x0  /* timer mode */
 } TIM_function;
 
-/* special struct for congratulating TIM module */
+/* ----- @structure define ----- */
+/* special structure for congratulating TIM module */
 typedef struct
 {
     TIM_function function;

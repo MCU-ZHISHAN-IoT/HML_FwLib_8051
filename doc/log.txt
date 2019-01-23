@@ -70,6 +70,7 @@
  Alias   :
  Date    :
  Note    :(1)update Makefile
+          (2)rename name of member inside enumeration type TIM_function
  
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
