@@ -1,34 +1,37 @@
 #Author     :Weilun Fong | wlf(at)zhishan-iot.tk
-#Date       :2018-11-30
+#Date       :2019-01-31
 #Description:Makefile for HML_FwLib_8051, it will generate a hex format file finally
 #E-mail     :mcu(at)zhishan-iot.tk
 #Make-tool  :GNU Make (http://www.gnu.org/software/make/manual/make.html)
 #Page       :https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 #Tar-mcu    :Intel MCS-51 based microprocessors (8031, 8032, 8051, 8052, etc.)
 #Tar-project:HML_FwLib_8051
-#Version    :v0.0.4
+#Version    :v0.1.0
 
-#important directories#
+##### variable define #####
+##important directories##
 DIR_ROOT       = ..
 DIR_INC        = $(DIR_ROOT)/inc
 DIR_OUTPUT     = $(DIR_ROOT)/obj
 DIR_SRC        = $(DIR_ROOT)/src
-#important files#
+##important files##
 HML_SRC_FILES  = $(wildcard ${DIR_SRC}/*.c)
-HML_SRC_NAMES  = $(basename $(notdir ${HML_SRC_FILES}))
-HML_REL_FILES  = $(addsuffix .rel, $(addprefix ${DIR_OUTPUT}/, ${HML_SRC_NAMES}))
-#operation parameter#
+HML_REL_FILES  = $(patsubst $(DIR_SRC)/%.c,$(DIR_OUTPUT)/%.rel,$(HML_SRC_FILES))
+##operation parameter##
 CFLAGS         = -c -o ${DIR_OUTPUT}/ -I ${DIR_INC} --std-sdcc99 -L ${DIR_OUTPUT}/hml_fw.lib
 LFLAGS         = -rcs
-#target#
-HML_FWLIB_NAME = HML_FwLib_8051
+##target##
 TARGET         = output
-#tool-chain#
+##tool-chain##
+AR             = sdar
 CC             = sdcc
-LL             = sdar
+##version information##
+HML_FWLIB_NAME = HML_FwLib_8051
+#note: we unify version code from v0.1.0 because of the same makefile template
+MAK_VERSION    = v0.1.0
 
-###function define###
-#function-clean#
+##### function define #####
+##function-clean##
 define clean_obj
 	@echo
 	@cd ${DIR_OUTPUT} && (find . -name "*.asm" | xargs rm -rfv)
@@ -41,7 +44,7 @@ define clean_obj
 	@cd ${DIR_OUTPUT} && (find . -name "*.rst" | xargs rm -rfv)
 	@cd ${DIR_OUTPUT} && (find . -name "*.sym" | xargs rm -rfv)
 endef
-#function-show_end_information#
+##function-show_end_information##
 define show_end_information
 	@echo
 	@echo ===================================================
@@ -51,17 +54,17 @@ define show_end_information
 	@echo completed at `date "+%Y-%m-%d %H:%M:%S"`
 	@echo ===================================================
 endef
-#function-show_version#
+##function-show_version##
 define show_version
 	@echo ===================================================
-	@echo "MK-$(HML_FWLIB_NAME) [v0.0.4]"
-	@echo "Copyright(c) 2018 ZHISHAN-IoT, all rights reserved."
-	@echo "Written by Weilun Fong <wlf(at)zhishan-iot.tk>"
+	@echo "Makefile for $(HML_FWLIB_NAME) [$(MAK_VERSION)]"
+	@echo "Copyright(c) 2018-019 ZHISHAN-IoT, all rights reserved."
+	@echo "Adapted by Weilun Fong <wlf(at)zhishan-iot.tk>"
 	@echo ===================================================
 	@echo
 endef
 
-###build works###
+##### build works #####
 all:startup $(TARGET).hex
 	$(show_end_information)
 
@@ -84,36 +87,46 @@ endif
 #generate static library
 hml_fw.lib:$(HML_REL_FILES)
 ifeq ($(wildcard ${DIR_OUTPUT}/hml_fw.lib), )
-	@echo LL ${DIR_OUTPUT}/$@
-	@$(LL) $(LFLAGS) $(DIR_OUTPUT)/$@ $(HML_REL_FILES)
+	@echo AR ${DIR_OUTPUT}/$@
+	@$(AR) $(LFLAGS) $(DIR_OUTPUT)/$@ $(HML_REL_FILES)
 	@echo
 endif
-#startup information#
+#startup information
 startup:
 	$(show_version)
 	@echo start at `date "+%Y-%m-%d %H:%M:%S"`
 	@echo
-#compile source file of user#
+#compile source file of user
 test.rel:test.c hml_fw.lib
 	@echo compile user source code
 	@echo CC $<
 	@$(CC) $< $(CFLAGS) -L ${DIR_OUTPUT}/hml_fw.lib
 	@echo
 
-###special operation###
-#clean temp files#
+##### PHONY target #####
+##clean temp files##
 .PHONY:clean
 clean:
 	$(show_version)
 	@echo start to clean...
 	$(clean_obj)
 	$(show_end_information)
-	
-.PHONY:mostlyclean 
-mostlyclean:
+##distclean##
+.PHONY:distclean
+distclean:
 	$(show_version)
-	@echo start to clean mostly...
+	@echo start to distclean...
 	$(clean_obj)
 	@cd ${DIR_OUTPUT} && (find . -name "*.hex" | xargs rm -rfv)
 	@cd ${DIR_OUTPUT} && (find . -name "*.lib" | xargs rm -rfv)
 	$(show_end_information)
+##help##
+.PHONY: help
+help:
+    sinclude Makefile.help
+##version information##
+.PHONY: version
+version:
+	@echo "$(HML_FWLIB_NAME) makefile [$(MAK_VERSION)]"
+	@echo "Copyright(c) 2018-2019 ZHISHAN-IoT, all rights reserved."
+	@echo "Adapted by Weilun Fong <wlf(at)zhishan-iot.tk>"
