@@ -68,7 +68,7 @@
 
 >Version :v0.0.7
  Alias   :V0R2
- Date    :
+ Date    :2018-02-03
  Note    :(1)update Makefile to v0.1.1
           (2)rename name of member inside enumeration type TIM_function
  
