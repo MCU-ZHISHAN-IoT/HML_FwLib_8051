@@ -1,12 +1,12 @@
 #Author     :Weilun Fong | wlf(at)zhishan-iot.tk
-#Date       :2019-01-31
+#Date       :2019-02-03
 #Description:Makefile for HML_FwLib_8051, it will generate a hex format file finally
 #E-mail     :mcu(at)zhishan-iot.tk
 #Make-tool  :GNU Make (http://www.gnu.org/software/make/manual/make.html)
 #Page       :https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 #Tar-mcu    :Intel MCS-51 based microprocessors (8031, 8032, 8051, 8052, etc.)
 #Tar-project:HML_FwLib_8051
-#Version    :v0.1.0
+#Version    :v0.1.1
 
 ##### variable define #####
 ##important directories##
@@ -15,10 +15,10 @@ DIR_INC        = $(DIR_ROOT)/inc
 DIR_OUTPUT     = $(DIR_ROOT)/obj
 DIR_SRC        = $(DIR_ROOT)/src
 ##important files##
-HML_SRC_FILES  = $(wildcard ${DIR_SRC}/*.c)
+HML_SRC_FILES  = $(wildcard $(DIR_SRC)/*.c)
 HML_REL_FILES  = $(patsubst $(DIR_SRC)/%.c,$(DIR_OUTPUT)/%.rel,$(HML_SRC_FILES))
 ##operation parameter##
-CFLAGS         = -c -o ${DIR_OUTPUT}/ -I ${DIR_INC} --std-sdcc99 -L ${DIR_OUTPUT}/hml_fw.lib
+CFLAGS         = -c -o $(DIR_OUTPUT)/ -I $(DIR_INC) --std-sdcc99 -L $(DIR_OUTPUT)/hml_fw.lib
 LFLAGS         = -rcs
 ##target##
 TARGET         = output
@@ -26,23 +26,23 @@ TARGET         = output
 AR             = sdar
 CC             = sdcc
 ##version information##
-HML_FWLIB_NAME = HML_FwLib_8051
+HML_FWLIB_NAME = HML_FwLib_STC89
 #note: we unify version code from v0.1.0 because of the same makefile template
-MAK_VERSION    = v0.1.0
+MAK_VERSION    = v0.1.1
 
 ##### function define #####
 ##function-clean##
 define clean_obj
 	@echo
-	@cd ${DIR_OUTPUT} && (find . -name "*.asm" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.ihx" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.lk"  | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.lst" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.map" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.mem" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.rel" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.rst" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.sym" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.asm" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.ihx" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.lk"  | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.lst" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.map" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.mem" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.rel" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.rst" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.sym" | xargs rm -rfv)
 endef
 ##function-show_end_information##
 define show_end_information
@@ -58,7 +58,7 @@ endef
 define show_version
 	@echo ===================================================
 	@echo "Makefile for $(HML_FWLIB_NAME) [$(MAK_VERSION)]"
-	@echo "Copyright(c) 2018-019 ZHISHAN-IoT, all rights reserved."
+	@echo "Copyright(c) 2018-2019 ZHISHAN-IoT, all rights reserved."
 	@echo "Adapted by Weilun Fong <wlf(at)zhishan-iot.tk>"
 	@echo ===================================================
 	@echo
@@ -70,14 +70,14 @@ all:startup $(TARGET).hex
 
 $(TARGET).hex:$(TARGET).ihx
 	@echo generate .hex file
-	@cd ${DIR_OUTPUT} && packihx $< > $@
+	@cd $(DIR_OUTPUT) && packihx $< > $@
 $(TARGET).ihx:test.rel hml_fw.lib
 	@echo generate .ihx file
-	@cd ${DIR_OUTPUT} && $(CC) $^ -o $@
+	@cd $(DIR_OUTPUT) && $(CC) $^ -o $@
 
 #compile source file(*.c)
 $(HML_REL_FILES):$(HML_SRC_FILES)
-ifeq ($(wildcard ${DIR_OUTPUT}/hml_fw.lib), )
+ifeq ($(wildcard $(DIR_OUTPUT)/hml_fw.lib), )
 	@echo make static link library hml_fw.lib
 	@(for cur_file in $(HML_SRC_FILES); do \
 		echo CC "$$cur_file";              \
@@ -86,8 +86,8 @@ ifeq ($(wildcard ${DIR_OUTPUT}/hml_fw.lib), )
 endif
 #generate static library
 hml_fw.lib:$(HML_REL_FILES)
-ifeq ($(wildcard ${DIR_OUTPUT}/hml_fw.lib), )
-	@echo AR ${DIR_OUTPUT}/$@
+ifeq ($(wildcard $(DIR_OUTPUT)/hml_fw.lib), )
+	@echo AR $(DIR_OUTPUT)/$@
 	@$(AR) $(LFLAGS) $(DIR_OUTPUT)/$@ $(HML_REL_FILES)
 	@echo
 endif
@@ -100,7 +100,7 @@ startup:
 test.rel:test.c hml_fw.lib
 	@echo compile user source code
 	@echo CC $<
-	@$(CC) $< $(CFLAGS) -L ${DIR_OUTPUT}/hml_fw.lib
+	@$(CC) $< $(CFLAGS) -L $(DIR_OUTPUT)/hml_fw.lib
 	@echo
 
 ##### PHONY target #####
@@ -117,8 +117,8 @@ distclean:
 	$(show_version)
 	@echo start to distclean...
 	$(clean_obj)
-	@cd ${DIR_OUTPUT} && (find . -name "*.hex" | xargs rm -rfv)
-	@cd ${DIR_OUTPUT} && (find . -name "*.lib" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.hex" | xargs rm -rfv)
+	@cd $(DIR_OUTPUT) && (find . -name "*.lib" | xargs rm -rfv)
 	$(show_end_information)
 ##help##
 .PHONY: help
