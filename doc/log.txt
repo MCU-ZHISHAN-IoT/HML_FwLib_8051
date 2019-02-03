@@ -59,7 +59,7 @@
           (5)modify function void GPIO_configPortValue(PERIPH_GPIO gpio,unsigned char val) as void GPIO_configPortValue(PERIPH_GPIO gpio,byte val) in <gpio.h>
           
 >Version :v0.0.6
- Alias   :V0R1
+ Alias   :V0R2
  Date    :2018-11-04
  Note    :(1)rename macro __PDATA as __PBYTE in <mem.h>
           (2)rename file doc/license.txt as LICENSE
@@ -67,7 +67,7 @@
           (4)add .gitkeep file into obj directory, because Git doesn't permit user committing a empty directory.
 
 >Version :v0.0.7
- Alias   :V0R2
+ Alias   :V0R3
  Date    :2018-02-03
  Note    :(1)update Makefile to v0.1.1
           (2)rename name of member inside enumeration type TIM_function
