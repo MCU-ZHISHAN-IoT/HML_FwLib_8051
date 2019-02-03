@@ -12,7 +12,7 @@
  Note    :The first version of HML_FwLib_8051!
  
 >Version :v0.0.0
- Alias   :
+ Alias   :V0R1
  Date    :2018-03-28
  Note    :The first stable version of HML_FwLib_8051!
  
@@ -50,7 +50,7 @@
           (4)correct doc/errormap.txt
           
 >Version :v0.0.5
- Alias   :V0R1
+ Alias   :
  Date    :2018-10-04
  Note    :(1)modify function void GPIO_configPort(PERIPH_GPIO gpio,u8 val) as void GPIO_configPort(PERIPH_GPIO gpio,byte val) in <gpio.h>
           (2)modify function void TIM_setValue(PERIPH_TIM tim,unsigned int val) as void TIM_setValue(PERIPH_TIM tim,word val) in <tim.h>
@@ -59,7 +59,7 @@
           (5)modify function void GPIO_configPortValue(PERIPH_GPIO gpio,unsigned char val) as void GPIO_configPortValue(PERIPH_GPIO gpio,byte val) in <gpio.h>
           
 >Version :v0.0.6
- Alias   :
+ Alias   :V0R1
  Date    :2018-11-04
  Note    :(1)rename macro __PDATA as __PBYTE in <mem.h>
           (2)rename file doc/license.txt as LICENSE
@@ -67,9 +67,9 @@
           (4)add .gitkeep file into obj directory, because Git doesn't permit user committing a empty directory.
 
 >Version :v0.0.7
- Alias   :
+ Alias   :V0R2
  Date    :
- Note    :(1)update Makefile
+ Note    :(1)update Makefile to v0.1.1
           (2)rename name of member inside enumeration type TIM_function
  
 #DEVELOPER (This is an one-man project...)
