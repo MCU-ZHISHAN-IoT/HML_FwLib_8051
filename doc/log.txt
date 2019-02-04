@@ -71,6 +71,11 @@
  Date    :2018-02-03
  Note    :(1)update Makefile to v0.1.1
           (2)rename name of member inside enumeration type TIM_function
+
+>Version :
+ Alias   :
+ Date    :
+ Note    :(1)update Makefile to v0.1.2
  
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
