@@ -3,8 +3,7 @@
  *  #Weilun Fong | wlf(at)zhishan-iot.tk
  * @Compiler:SDCC v3.6.0
  * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:a example which shows how to use HML to toggle P10 state when EXTI is trigged
- * @Support-mcu:Intel MCS-51 based microprocessors
+ * @File-description:a example which shows how to use HML_FwLib_8051 to toggle P10 state when EXTI1 is trigged
  * @Test-board:TS51-V2.0
  * @Test-mcu:STC89C52RC
  * @Version:V0

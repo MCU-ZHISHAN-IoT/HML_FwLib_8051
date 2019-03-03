@@ -77,7 +77,12 @@
  Date    :2019-03-03
  Note    :(1)update Makefile to v0.1.2
           (2)add bit operation function
- 
+
+>Version :
+ Alias   :
+ Date    :
+ Note    :(1)adjust coding style of example files
+          
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
 
