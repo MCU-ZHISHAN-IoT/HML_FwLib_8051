@@ -68,13 +68,13 @@
 
 >Version :v0.0.7
  Alias   :V0R3
- Date    :2018-02-03
+ Date    :2019-02-03
  Note    :(1)update Makefile to v0.1.1
           (2)rename name of member inside enumeration type TIM_function
 
->Version :
+>Version :v0.0.8
  Alias   :
- Date    :
+ Date    :2019-03-03
  Note    :(1)update Makefile to v0.1.2
           (2)add bit operation function
  
