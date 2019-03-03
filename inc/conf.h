@@ -12,6 +12,7 @@
 #define ___CONF_H___
 
 /* ----- @header file ----- */
+#include "bit.h"
 #include "exti.h"
 #include "gpio.h"
 #include "intrasm.h"

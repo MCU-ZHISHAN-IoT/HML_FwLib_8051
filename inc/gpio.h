@@ -13,6 +13,7 @@
 
 /* ----- @header file ----- */
 #include <8051.h>
+#include "bit.h"
 #include "macro.h"
 
 /* ----- @enumeration type ----- */

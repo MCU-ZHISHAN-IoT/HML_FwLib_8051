@@ -15,6 +15,9 @@
 #include <stdint.h>
 #include "tim.h"
 
+/* -----  @bit operation -----*/
+#define BIT_NUM_SMOD 7
+
 /* ----- @enumeration type ----- */
 /* mark work mode */
 typedef enum

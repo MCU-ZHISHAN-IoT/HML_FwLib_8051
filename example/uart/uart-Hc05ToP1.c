@@ -16,18 +16,18 @@
  * @Prototype:void sys_init(void)
  * @Parameter:
  * @Ret-val:
- * @Note:init MCU
+ * @Note:initial MCU
  */
 void sys_init(void)
 {
     UART_configTypeDef uc;
     
-    uc.baudrate = 9600;
-    uc.interruptState = ENABLE;
+    uc.baudrate          = 9600;
+    uc.interruptState    = ENABLE;
     uc.interruptPriority = DISABLE;
-    uc.mode = UART_mode_1;
-    uc.multiBaudrate = DISABLE;
-    uc.receiveState  = ENABLE;
+    uc.mode              = UART_mode_1;
+    uc.multiBaudrate     = DISABLE;
+    uc.receiveState      = ENABLE;
 
     UART_config(&uc);
     enableAllInterrupts();

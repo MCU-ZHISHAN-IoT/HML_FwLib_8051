@@ -14,7 +14,19 @@
 /* ----- @header file ----- */
 #include <8051.h>
 #include <stdbool.h>
+#include "bit.h"
 #include "macro.h"
+
+/* ----- @bit operation ----- */
+/* TMOD bits */
+#define BIT_NUM_T0_M0     0
+#define BIT_NUM_T0_M1     1
+#define BIT_NUM_T0_CT     2
+#define BIT_NUM_T0_GATE   3
+#define BIT_NUM_T1_M0     4
+#define BIT_NUM_T1_M1     5
+#define BIT_NUM_T1_CT     6
+#define BIT_NUM_T1_GATE   7
 
 /* ----- @enumeration type ----- */
 /* mark timer */

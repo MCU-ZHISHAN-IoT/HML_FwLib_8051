@@ -20,7 +20,7 @@
  */
 void UART_cmd_multiBaudrate(Action a)
 {
-    PCON = (PCON & 0x7F) | ((unsigned char)a << 0x7);
+    PCON = CONFB(PCON,BIT_NUM_SMOD,a); 
 }
 
 /*

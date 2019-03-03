@@ -76,6 +76,7 @@
  Alias   :
  Date    :
  Note    :(1)update Makefile to v0.1.2
+          (2)add bit operation function
  
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)

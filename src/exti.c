@@ -16,7 +16,7 @@
  * @Prototype:void EXTI_config(PERIPH_EXTI exti,EXTI_configTypeDef ec)
  * @Parameter:
  *  (1)exti:target EXTI module
- *  (2)ec:the pointer of configuration struct which includes all configuration information
+ *  (2)ec:the pointer of configuration structure which includes all configuration information
  * @Note:configure EXTI module
  */
 void EXTI_config(PERIPH_EXTI exti,EXTI_configTypeDef *ec)
