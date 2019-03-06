@@ -82,6 +82,7 @@
  Alias   :
  Date    :
  Note    :(1)adjust coding style of example files
+          (2)optimize bit operation function
           
 #DEVELOPER (This is an one-man project...)
  Director/Developer: Weilun Fong (wlf@zhishan-iot.tk)
