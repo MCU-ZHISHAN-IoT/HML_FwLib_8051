@@ -5,7 +5,7 @@
  * @File-description:bit operation
  * @Required-compiler:SDCC
  * @Support-mcu:general purpose header file
- * @Version:V1
+ * @Version:V0
  */
  
 #ifndef ___BIT_H___
@@ -25,7 +25,7 @@
 #define NOTB(reg,x)             (reg xor_eq (1U << (x % BITS_PER_BYTE)))
 #define SETB(reg,x)             (reg or_eq  (1U << (x % BITS_PER_BYTE)))
 #define TESTB(val,x)            (not(not(val bitand (1U << (x % BITS_PER_BYTE)))))
-#define CONFB(reg,x,val)        (reg = (reg and_eq (complement(1U << (x % BITS_PER_BYTE)))) bitor (val << x))
+#define CONFB(reg,x,val)        (reg = (reg bitand (complement(1U << (x % BITS_PER_BYTE)))) bitor (val << x))
  
 /* --- bit mask function --- */
 #define BIT_MASK(x)             SET(x)
