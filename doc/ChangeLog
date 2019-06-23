@@ -85,4 +85,5 @@
           (4)rename log.txt as ChangeLog
           (5)fix bug of CONFB in <bit.h>
           (6)update Makefile to v0.1.3, support -j option and rebuild function
+          (7)move file LICENSE to root path of project
  
