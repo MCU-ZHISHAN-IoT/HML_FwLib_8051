@@ -15,7 +15,6 @@
 #include "bit.h"
 #include "exti.h"
 #include "gpio.h"
-#include "intrasm.h"
 #include "macro.h"
 #include "mem.h"
 #include "tim.h"

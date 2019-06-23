@@ -13,7 +13,6 @@
 
 /* ----- @header file ----- */
 #include <8051.h>
-#include "intrasm.h"
 #include "macro.h"
 
 /* ----- @function ----- */
