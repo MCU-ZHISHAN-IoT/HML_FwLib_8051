@@ -76,9 +76,9 @@
  Note    :(1)update Makefile to v0.1.2
           (2)add bit operation function
 
->Version :
+>Version :v0.1.0
  Alias   :
- Date    :
+ Date    :2019-06-27
  Note    :(1)adjust coding style of example files
           (2)optimize bit operation function
           (3)add file AUTHORS
