@@ -69,8 +69,14 @@ typedef enum
 /**
  *\brief: SDCC version check
  */
-#if (__SDCC_VERSION_MAJOR > 3) && (__SDCC_VERSION_MINOR > 3)
-    #error HML run-time check: HML require SDCC v3.6.0 or later versions (ERROR_CODE-0x03)
+#if (__SDCC_VERSION_MAJOR == 3)
+    #if (__SDCC_VERSION_MINOR < 6)
+        #error HML run-time check: HML requires SDCC v3.6.0 or later versions (ERROR_CODE-0x03)
+    #endif
+#else
+    #if (__SDCC_VERSION_MAJOR < 3)
+        #error HML run-time check: HML requires SDCC v3.6.0 or later versions (ERROR_CODE-0x03)
+    #endif
 #endif
  
 #endif
