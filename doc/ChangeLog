@@ -90,4 +90,8 @@
           (7)move file LICENSE to root path of project; support incremental compilation
           (8)delete abolished header file intrasm.h
           (9)add file VERSION
- 
+
+>Version :v0.1.1
+ Alias   :
+ Date    :
+ Note    :(1)update Makefile to v0.2.1: support compiling custom source file

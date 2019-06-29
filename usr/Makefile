@@ -1,13 +1,13 @@
 ##################################################
 # Author     :Weilun Fong | wlf(at)zhishan-iot.tk
-# Date       :2019-06-23
+# Date       :2019-06-29
 # Description:Makefile for HML_FwLib_8051, it will generate a hex format file finally
 # E-mail     :mcu(at)zhishan-iot.tk
 # Make-tool  :GNU Make (http://www.gnu.org/software/make/manual/make.html)
 # Page       :https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 # Tar-mcu    :Intel MCS-51 based microprocessors (8031, 8032, 8051, 8052, etc.)
 # Tar-project:HML_FwLib_8051
-# Version    :v0.2.0
+# Version    :v0.2.1
 ##################################################
 
 ########################################
@@ -41,6 +41,13 @@ DIR_SRC            := $(DIR_ROOT)/src
 FILE_HML_FWLIB     := libhml_8051.lib
 HML_SRC_FILES      := $(wildcard $(DIR_SRC)/*.c)
 HML_REL_FILES      := $(patsubst $(DIR_SRC)/%.c, $(DIR_OUTPUT)/%.rel, $(HML_SRC_FILES))
+MYFILE             ?= test.c
+    # file check
+    ifneq ($(wildcard $(MYFILE)),$(MYFILE))
+        $(error no such file $(CURDIR)/$(MYFILE))
+    endif
+MYFILE_NAME        := $(shell basename $(MYFILE) .c)
+MYFILE_REL         := $(patsubst %.c, $(DIR_OUTPUT)/%.rel, $(MYFILE))
 ###### target
 TARGET             := output
 TARGET_FWLIB       := $(DIR_OUTPUT)/$(FILE_HML_FWLIB)
@@ -53,10 +60,10 @@ CFLAGS             := -c -I$(DIR_INC) -mmcs51 --opt-code-size --std-sdcc99 -L$(D
 ##### [2]VERSIION INFORMATION
 ########################################
 ##### version information##
-HML_FWLIB_NAME     := HML_FwLib_8051
-HML_FWLIB_VERSION  := $(shell $(CAT) $(DIR_ROOT)/VERSION)
+HML_FWLIB_NAME    := HML_FwLib_8051
+HML_FWLIB_VERSION := $(shell $(CAT) $(DIR_ROOT)/VERSION)
 # [note]: we unify version code from v0.1.0 because of the same makefile template
-MAK_VERSION        := v0.2.0
+MAK_VERSION       := v0.2.1
 
 ########################################
 ##### [3]BUILD WORKS
@@ -83,13 +90,13 @@ $(TARGET_FWLIB): $(HML_REL_FILES)
 	@$(AR) $(AFLAGS_HML) $@ $^
 ########################################
 #### compile source file of user
-test.rel: test.c $(TARGET_FWLIB)
+$(MYFILE_REL): $(MYFILE) $(TARGET_FWLIB)
 	@$(EECHO) "\033[36m - Compile user source code \033[0m"
 	@$(ECHO) "CC  $<"
-	@$(CC) $< $(CFLAGS) -o $(DIR_OUTPUT)/$@
+	@$(CC) $< $(CFLAGS) -o $@
 ########################################
 ##### generate .hex file
-$(TARGET).ihx: test.rel
+$(TARGET).ihx: $(MYFILE_REL)
 	@$(EECHO) "\033[36m - Generate .ihx file \033[0m"
 	@$(CD) $(DIR_OUTPUT) && $(CC) $^ $(FILE_HML_FWLIB) -o $@
 $(TARGET).hex: $(TARGET).ihx
@@ -102,7 +109,7 @@ $(TARGET).hex: $(TARGET).ihx
 ##### clean
 .PHONY:clean
 clean:
-	$(CD) $(DIR_OUTPUT) && $(LS) | $(GREP) -vE -e ".gitkeep" -e ^test* -e *.lib$$ -e *.hex$$ | $(XARGS) $(RM)
+	$(CD) $(DIR_OUTPUT) && $(LS) | $(GREP) -vE -e ".gitkeep" -e ^$(MYFILE_NAME)* -e *.lib$$ -e *.hex$$ | $(XARGS) $(RM)
 ##### distclean
 .PHONY:distclean
 distclean:
