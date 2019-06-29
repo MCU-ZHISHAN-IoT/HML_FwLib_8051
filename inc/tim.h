@@ -1,24 +1,31 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:includes some definitions for operating timer resource
- * @Required-complier:SDCC
- * @Support-mcu:Intel MCS-51 based microprocessors
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        tim.h
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       operations for on-chip timer
+ * \note        
+ * \version     v0.1
+ * \ingroup     TIM
+******************************************************************************/
 
 #ifndef ___TIM_H___
 #define ___TIM_H___
 
-/* ----- @header file ----- */
+/*****************************************************************************
+ *                             header file                                   *
+ *****************************************************************************/
 #include <8051.h>
 #include <stdbool.h>
 #include "bit.h"
 #include "macro.h"
 
-/* ----- @bit operation ----- */
-/* TMOD bits */
+/*****************************************************************************
+ *                                macro                                      *
+ *****************************************************************************/
+
+/**
+ *\brief: mark TMOD bits for bit operation
+ */
 #define BIT_NUM_T0_M0     0
 #define BIT_NUM_T0_M1     1
 #define BIT_NUM_T0_CT     2
@@ -28,15 +35,22 @@
 #define BIT_NUM_T1_CT     6
 #define BIT_NUM_T1_GATE   7
 
-/* ----- @enumeration type ----- */
-/* mark timer */
+/*****************************************************************************
+ *                           enumeration type                                *
+ *****************************************************************************/
+
+/**
+ *\brief: mark timer
+ */
 typedef enum
 {
     PERIPH_TIM_0 = 0x0,
     PERIPH_TIM_1 = 0x1
 } PERIPH_TIM;
 
-/* mark work mode */
+/**
+ *\brief: mark work mode
+ */
 typedef enum
 {
     TIM_mode_0 = 0x0,   /* 13-bit timer/counter */
@@ -45,15 +59,22 @@ typedef enum
     TIM_mode_3 = 0x3    /* only for timer-0 */
 } TIM_mode;
 
-/* mark counter mode and timer mode */
+/**
+ *\brief: mark counter mode and timer mode
+ */
 typedef enum
 {
     TIM_function_cnt = 0x1, /* counter mode */
     TIM_function_tim = 0x0  /* timer mode */
 } TIM_function;
 
-/* ----- @structure define ----- */
-/* special structure for congratulating TIM module */
+/*****************************************************************************
+ *                           structure define                                *
+ *****************************************************************************/
+
+/**
+ *\brief: structure for congratulating TIM module
+ */
 typedef struct
 {
     TIM_function function;
@@ -63,7 +84,9 @@ typedef struct
     unsigned int value;
 } TIM_configTypeDef;
 
-/* ----- @function ----- */
+/*****************************************************************************
+ *                          function declare                                 *
+ *****************************************************************************/
 void TIM_cmd(PERIPH_TIM tim,Action a);
 void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc);
 unsigned int TIM_getValue(PERIPH_TIM tim);

@@ -1,70 +1,81 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:provides some public functions
- * @Required-complier:SDCC
- * @Support-mcu:Intel MCS-51 based microprocessors
- * @Version:V0
- */
-
+/*****************************************************************************/
+/** 
+ * \file        util.c
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       public operations
+ * \note        
+ * \version     v0.0
+ * \ingroup     UTIL
+******************************************************************************/
 
 #include "util.h"
 
 #ifdef __CONF_COMPILE_UTIL
 
-/*
- * @Prototype:void disableAllInterrupts(void)
- * @Parameter:
- * @Ret-val:
- * @Note:disable all interrupts
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       disable MCU interrupt switch
+ * \param[in]   
+ * \return      none
+ * \ingroup     UTIL
+ * \remarks     
+******************************************************************************/
 void disableAllInterrupts(void)
 {
     EA = RESET;
 }
 
-/*
- * @Prototype:void enableAllInterrupts(void)
- * @Parameter:
- * @Ret-val:
- * @Note:enable total switch of interrupts
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       enable MCU interrupt switch
+ * \param[in]   
+ * \return      none
+ * \ingroup     UTIL
+ * \remarks     
+******************************************************************************/
 void enableAllInterrupts(void)
 {
     EA = SET;
 }
 
-/*
- * @Prototype:void sleep(u16 t)
- * @Parameter:(1)how many ms users expected
- * @Ret-val:
- * @Note:software delay according to frequency of crystal oscillator
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       software delay according to frequency of crystal oscillator
+ * \param[in]   t: how many one ms you want to delay
+ * \return      none
+ * \ingroup     UTIL
+ * \remarks     
+******************************************************************************/
 void sleep(u16 t)
 {
     u8 i = 0x00;
     
     #if ( MCU_FRE_CLK == 11059200L )
 
-        while(t--)
-        {
-            i = 110;
-            while(i--);
-        }
+    while(t--)
+    {
+        i = 110;
+        while(i--);
+    }
         
     #elif ( MCU_FRE_CLK == 12000000L )
 
-        while(t--)
-        {
-            i = 120;
-            while(i--);
-        }
-        
+    while(t--)
+    {
+        i = 120;
+        while(i--);
+    }
+
     #else
-        
+
     /* users can add other situations here */
-    
+
     #endif
 }
 

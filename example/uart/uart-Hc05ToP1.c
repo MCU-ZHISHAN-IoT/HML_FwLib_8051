@@ -1,22 +1,27 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @Compiler:SDCC v3.6.0
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:send byte data which from HC-05 module(via UART) to GPIO1
- * @Test-board:TS51-V2.0
- * @Test-mcu:STC89C52RC
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        uart-Hc05ToP1.c
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       show content of data which from HC-05 module(via UART) to GPIO1
+ * \note        
+ * \test-board  TS51-V2.0
+ * \test-mcu    STC89C52RC
+ * \version     v0.1
+ * \ingroup     example
+******************************************************************************/
 
 #include "conf.h"
 
-/*
- * @Prototype:void sys_init(void)
- * @Parameter:
- * @Ret-val:
- * @Note:initial MCU
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       initial MCU
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void sys_init(void)
 {
     UART_configTypeDef uc;
@@ -32,19 +37,32 @@ void sys_init(void)
     enableAllInterrupts();
 }
 
-/* ----- @main ----- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       main function
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void main(void)
 {
     sys_init();
     while(true);
 }
 
-/*
- * @Prototype:void uart_isr(void) __interrupt SI0_VECTOR
- * @Parameter:
- * @Ret-val:
- * @Note:interrupt handle function for UART
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       interrupt service function for UART
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void uart_isr(void) __interrupt SI0_VECTOR
 {
     P1 = SBUF;

@@ -1,19 +1,19 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:
- * #define macro that allow you to directly access the different memory areas of the 8051.
- * #include the similar functions like <absacc.h> in Keil
- * @Required-compiler:SDCC
- * @Support-mcu:Intel MCS-51 based microprocessors
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        mem.h
+ * \author      Weillun Fong | wlf@zhishan-iot.tk
+ * \brief       operations for memory zone of MCU
+ * \note        allow you to directly access the different memory areas of the 8051.
+ * \version     v0.1
+ * \ingroup     MEM
+******************************************************************************/
 
 #ifndef ___MEM_H___
 #define ___MEM_H___
 
-/* ----- @macro ----- */
+/*****************************************************************************
+ *                                macro                                      *
+ *****************************************************************************/
 #define __CBYTE ((unsigned char volatile __code  *) 0)
 #define __DBYTE ((unsigned char volatile __data  *) 0)
 #define __PBYTE ((unsigned char volatile __pdata *) 0)

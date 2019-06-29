@@ -66,4 +66,11 @@ typedef enum
     #error HML run-time check: UART module need extern support, please enable macro __CONF_COMPILE_TIM (ERROR_CODE-0x02)
 #endif
 
+/**
+ *\brief: SDCC version check
+ */
+#if (__SDCC_VERSION_MAJOR > 3) && (__SDCC_VERSION_MINOR > 3)
+    #error HML run-time check: HML require SDCC v3.6.0 or later versions (ERROR_CODE-0x03)
+#endif
+ 
 #endif

@@ -1,22 +1,27 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @Compiler:SDCC v3.6.0
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:a example which shows how to use HML_FwLib_8051 to toggle P10 state when EXTI1 is trigged
- * @Test-board:TS51-V2.0
- * @Test-mcu:STC89C52RC
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        exti-toggleIo.c
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       a example which shows how to use HML_FwLib_8051 to toggle P10 state when EXTI1 is trigged
+ * \note        
+ * \test-board  TS51-V2.0
+ * \test-mcu    STC89C52RC
+ * \version     v0.1
+ * \ingroup     example
+******************************************************************************/
 
-#include "conf.h"
+#include "hml.h"
 
-/*
- * @Prototype:void sys_init(void)
- * @Parameter:
- * @Ret-val:
- * @Note:initial MCU
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       initial MCU
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void sys_init(void)
 {
     EXTI_configTypeDef ec;
@@ -30,19 +35,32 @@ void sys_init(void)
     GPIO_configPortValue(PERIPH_GPIO_1,0xFF);
 }
 
-/* ----- @main ----- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       main function
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void main(void)
 {
     sys_init();
     while(true);
 }
 
-/*
- * @Prototype:void exti1_isr(void)
- * @Parameter:
- * @Ret-val:
- * @Note:interrupt handle function for EXTI1
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       interrupt service function for EXTI1
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void exti1_isr(void) __interrupt IE1_VECTOR
 {
     GPIO_toggleBitValue(PERIPH_GPIO_1,PERIPH_GPIO_PIN_2);

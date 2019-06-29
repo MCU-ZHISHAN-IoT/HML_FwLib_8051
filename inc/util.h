@@ -1,21 +1,25 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:provides some public functions
- * @Required-complier:SDCC
- * @Support-mcu:Intel MCS-51 based microprocessors
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        util.h
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       public operations
+ * \note        
+ * \version     v0.1
+ * \ingroup     UTIL
+******************************************************************************/
 
 #ifndef ___UTIL_H___
 #define ___UTIL_H___
 
-/* ----- @header file ----- */
+/*****************************************************************************
+ *                             header file                                   *
+ *****************************************************************************/
 #include <8051.h>
 #include "macro.h"
 
-/* ----- @function ----- */
+/*****************************************************************************
+ *                          function declare                                 *
+ *****************************************************************************/
 void disableAllInterrupts(void);
 void enableAllInterrupts(void);
 void sleep(u16 t);

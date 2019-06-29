@@ -1,22 +1,27 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @Compiler:SDCC v3.6.0
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:a example which shows how to use HML_FwLib_8051 to send string via UART module
- * @Support-mcu:Intel MCS-51 based microprocessors
- * @Test-board:TS51-V2.0
- * @Test-mcu:STC89C52RC
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        test.c
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       a example which shows how to use HML_FwLib_8051 to send string via UART module
+ * \note        
+ * \test-board  TS51-V2.0
+ * \test-mcu    STC89C52RC
+ * \version     v0.1
+ * \ingroup     example
+******************************************************************************/
+
 #include "hml.h"
 
-/*
- * @Prototype:void sys_init(void)
- * @Parameter:
- * @Ret-val:
- * @Note:initial MCU
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       initial MCU
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void sys_init(void)
 {
     UART_configTypeDef uc;
@@ -32,7 +37,16 @@ void sys_init(void)
     enableAllInterrupts();
 }
 
-/* ----- @main ----- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       main function
+ * \param[in]   
+ * \return      none
+ * \ingroup     
+ * \remarks     
+******************************************************************************/
 void main(void)
 {    
     sys_init();

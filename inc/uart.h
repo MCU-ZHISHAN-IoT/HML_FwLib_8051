@@ -1,25 +1,38 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:includes some definitions for operating uart resource
- * @Required-complier:SDCC
- * @Support-mcu:Intel MCS-51 based microprocessors
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        uart.h
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       operation for on-chip UART module
+ * \note        
+ * \version     v0.1
+ * \ingroup     UART
+******************************************************************************/
 
 #ifndef ___UART_H___
 #define ___UART_H___
 
-/* ----- @header file ----- */
+/*****************************************************************************
+ *                             header file                                   *
+ *****************************************************************************/
 #include <stdint.h>
 #include "tim.h"
 
-/* -----  @bit operation -----*/
+/*****************************************************************************
+ *                                macro                                      *
+ *****************************************************************************/
+
+/**
+ *\brief: mark bits for bit operation
+ */
 #define BIT_NUM_SMOD 7
 
-/* ----- @enumeration type ----- */
-/* mark work mode */
+/*****************************************************************************
+ *                           enumeration type                                *
+ *****************************************************************************/
+
+/**
+ *\brief: mark work mode
+ */
 typedef enum
 {
     UART_mode_0 = 0x0,  /* 8-bit shift register */
@@ -28,8 +41,13 @@ typedef enum
     UART_mode_3 = 0x3   /* 9-bit UART,variable baud rate */
 } UART_mode;
 
-/* ----- @structure define ----- */
-/* special structure for congratulating UART module */
+/*****************************************************************************
+ *                           structure define                                *
+ *****************************************************************************/
+
+/**
+ *\brief: structure for congratulating UART module
+ */
 typedef struct
 {
     uint32_t  baudrate;
@@ -40,7 +58,9 @@ typedef struct
     Action    receiveState;
 } UART_configTypeDef;
 
-/* ----- @function ----- */
+/*****************************************************************************
+ *                          function declare                                 *
+ *****************************************************************************/
 void UART_cmd_multiBaudrate(Action a);
 void UART_cmd_receive(Action a);
 void UART_config(UART_configTypeDef *uc);

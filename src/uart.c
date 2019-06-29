@@ -1,45 +1,57 @@
-/*
- * @Author:
- *  #Weilun Fong | wlf(at)zhishan-iot.tk
- * @E-mail:mcu(at)zhishan-iot.tk
- * @File-description:operate on-chip UART module
- * @Required-complier:SDCC
- * @Support-mcu:Intel MCS-51 based microprocessors
- * @Version:V0
- */
+/*****************************************************************************/
+/** 
+ * \file        uart.c
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \brief       operation for on-chip UART module
+ * \note        
+ * \version     v0.1
+ * \ingroup     UART
+******************************************************************************/
 
 #include "uart.h"
 
 #ifdef __CONF_COMPILE_UART
 
-/*
- * @Prototype:void UART_cmd_multiBaudrate(Action a)
- * @Parameter:(1)a:expected action
- * @Ret-val:
- * @Note:disable or enable multi baud rate mode
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       disable or enable multi baud rate mode
+ * \param[in]   a: expected action
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_cmd_multiBaudrate(Action a)
 {
-    CONFB(PCON,BIT_NUM_SMOD,a); 
+    CONFB(PCON,BIT_NUM_SMOD,a);
 }
 
-/*
- * @Prototype:void UART_cmd_receive(Action a)
- * @Parameter:(1)a:expected action
- * @Ret-val:
- * @Note:disable or enable receive function of UART module
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       disable or enable receive function of UART module
+ * \param[in]   a: expected action
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_cmd_receive(Action a)
 {
     REN = a;
 }
 
-/*
- * @Prototype:unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
- * @Parameter:(1)baud:expected baud rate
- * @Ret-val:initial value the baud rate required of timer counter register(if return 0x0000, it means overflow)
- * @Note:calculate timer counter register value
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       calculate value needed by timer counter register
+ * \param[in]   baud: expected baud rate
+ * \return      initial value the baud rate required of timer counter register(if return 0x0000, it means overflow)
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
 {
     unsigned char tmp = 0x00;
@@ -71,12 +83,16 @@ unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
     return (tmp << 0x8) | tmp;
 }
 
-/*
- * @Prototype:void UART_config(UART_configTypeDef *uc)
- * @Parameter:(1)uc:the pointer of configuration structure
- * @Ret-val:
- * @Note:configure UART module
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       configure UART module
+ * \param[in]   uc: the pointer of configuration structure
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_config(UART_configTypeDef *uc)
 {
     TIM_configTypeDef tc;
@@ -100,34 +116,46 @@ void UART_config(UART_configTypeDef *uc)
     
 }
 
-/*
- * @Prototype:FunctionalState UART_isReceived(void)
- * @Parameter:
- * @Ret-val:(1)SET:data have been received;(2)RESET:data haven't been received
- * @Note:
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       check receive state of UART module
+ * \param[in]   
+ * \return      SET(data have been received) or RESET(data haven't been received)
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 FunctionalState UART_isReceived(void)
 {
     return (FunctionalState)RI;
 }
 
-/*
- * @Prototype:FunctionalState UART_isTransmitted(void)
- * @Parameter:
- * @Ret-val:(1)SET:data have been transmitted;(2)RESET:data haven't been transmitted
- * @Note:
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       check transmit state of UART module
+ * \param[in]   
+ * \return      SET(data have been transmitted) or RESET(data haven't been transmitted)
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 FunctionalState UART_isTransmitted(void)
 {
     return (FunctionalState)TI;
 }
 
-/*
- * @Prototype:void UART_sendByte(byte dat)
- * @Parameter:(1)dat:one byte of data user want to send
- * @Ret-val:
- * @Note:send a byte via UART module
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       send one byte of data via UART module
+ * \param[in]   dat: the data you want to send(range: 0x00~0xFF)
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_sendByte(byte dat)
 {
     SBUF = dat;
@@ -135,12 +163,16 @@ void UART_sendByte(byte dat)
     TI = RESET;
 }
 
-/*
- * @Prototype:void UART_sendString(char *str)
- * @Parameter:(1)str:the point of string user want to send
- * @Ret-val:
- * @Note:send a ASCII string via UART module
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       send one byte of date via UART module
+ * \param[in]   str: the point of string user want to send
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_sendString(char *str)
 {
     while(*str != '\0')
@@ -152,34 +184,46 @@ void UART_sendString(char *str)
     }
 }
 
-/*
- * @Prototype:void UART_setMode(UART_mode m)
- * @Parameter:(1)m:expected work mode
- * @Ret-val:
- * @Note:set work mode of UART module
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       set work mode of UART module
+ * \param[in]   m: expected work mode
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_setMode(UART_mode m)
 {
     SCON = (SCON & 0x3F) | ((unsigned char)m << 0x6);
 }
 
-/*
- * @Prototype:void UART_INT_cmd(Action a)
- * @Parameter:(1)a:expected action
- * @Ret-val:
- * @Note:disable or enable interrupt function of UART module
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       disable or enable interrupt switch of UART module
+ * \param[in]   a: expected action
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_INT_cmd(Action a)
 {
     ES = a;
 }
 
-/*
- * @Prototype:void UART_INT_setPriority(Action a)
- * @Parameter:(1)a:expected action
- * @Ret-val:
- * @Note:disable or enable interrupt priority state of UART module
- */
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        
+ * \brief       configure interrupt priority class of UART module
+ * \param[in]   a: expected action(ENABLE: high priority class; DISABLE: low priority class)
+ * \return      none
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
 void UART_INT_setPriority(Action a)
 {
     PS = a;
