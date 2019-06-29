@@ -95,3 +95,5 @@
  Alias   :
  Date    :
  Note    :(1)update Makefile to v0.2.1: support compiling custom source file
+          (2)refactor macro.h and conf.h, use hml.h instead of conf.h
+          (3)add file version.h for HML version information

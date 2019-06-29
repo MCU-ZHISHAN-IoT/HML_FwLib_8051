@@ -24,5 +24,6 @@
 #include "tim.h"
 #include "uart.h"
 #include "util.h"
+#include "version.h"
 
 #endif
