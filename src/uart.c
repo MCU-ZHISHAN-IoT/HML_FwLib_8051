@@ -10,7 +10,7 @@
 
 #include "uart.h"
 
-#ifdef ___COMPILE_UART___
+#ifdef __CONF_COMPILE_UART
 
 /*
  * @Prototype:void UART_cmd_multiBaudrate(Action a)
@@ -46,25 +46,25 @@ unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
     
     if(PCON & 0x80)     /* multi baud rate mode */
     {
-        if(baud > _FRE_OSC_/12/16)
+        if(baud > MCU_FRE_CLK/12/16)
         {
             /* baud rate over max value */
             return 0x0000;
         }
         else 
         {
-            tmp = (256 - _FRE_OSC_/16/12/baud);  
+            tmp = (256 - MCU_FRE_CLK/16/12/baud);  
         }
     }
     else
     {
-        if(baud > _FRE_OSC_/12/32)
+        if(baud > MCU_FRE_CLK/12/32)
         {
             return 0x0000;
         }
         else
         {
-            tmp = (256 - _FRE_OSC_/32/12/baud);
+            tmp = (256 - MCU_FRE_CLK/32/12/baud);
         }
     }
     

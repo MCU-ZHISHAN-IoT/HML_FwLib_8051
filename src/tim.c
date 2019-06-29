@@ -10,7 +10,7 @@
 
 #include "tim.h"
 
-#ifdef ___COMPILE_TIM___
+#ifdef __CONF_COMPILE_TIM
 
 /*
  * @Prototype:void TIM_cmd(PERIPH_TIM tim,Action a)

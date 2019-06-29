@@ -11,7 +11,7 @@
 
 #include "util.h"
 
-#ifdef ___COMPILE_UTIL___
+#ifdef __CONF_COMPILE_UTIL
 
 /*
  * @Prototype:void disableAllInterrupts(void)
@@ -45,7 +45,7 @@ void sleep(u16 t)
 {
     u8 i = 0x00;
     
-    #if ( _FRE_OSC_ == 11059200L )
+    #if ( MCU_FRE_CLK == 11059200L )
 
         while(t--)
         {
@@ -53,7 +53,7 @@ void sleep(u16 t)
             while(i--);
         }
         
-    #elif ( _FRE_OSC_ == 12000000L )
+    #elif ( MCU_FRE_CLK == 12000000L )
 
         while(t--)
         {

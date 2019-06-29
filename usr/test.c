@@ -9,7 +9,7 @@
  * @Test-mcu:STC89C52RC
  * @Version:V0
  */
-#include "conf.h"
+#include "hml.h"
 
 /*
  * @Prototype:void sys_init(void)

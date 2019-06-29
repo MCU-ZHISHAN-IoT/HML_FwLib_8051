@@ -11,7 +11,7 @@
 
 #include "gpio.h"
 
-#ifdef ___COMPILE_GPIO___
+#ifdef __CONF_COMPILE_GPIO
 
 /*
  * @Prototype:void GPIO_configBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin,FunctionalState f)

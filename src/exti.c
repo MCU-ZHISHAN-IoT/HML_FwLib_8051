@@ -10,7 +10,7 @@
 
 #include "exti.h"
 
-#ifdef ___COMPILE_EXTI___
+#ifdef __CONF_COMPILE_EXTI
 
 /*
  * @Prototype:void EXTI_config(PERIPH_EXTI exti,EXTI_configTypeDef ec)
