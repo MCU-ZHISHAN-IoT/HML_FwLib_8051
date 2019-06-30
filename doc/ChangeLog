@@ -86,8 +86,8 @@
           (5)fix bug of CONFB in <bit.h>
           (6)update Makefile
             - update Makefile to v0.1.3: support -j option and rebuild function
-            - update Makefile to v0.2.0: refactor all code, optimize effect of print; improve speed of clean operation; fix problem that user can't set job server during execute rebuild operation
-          (7)move file LICENSE to root path of project; support incremental compilation
+            - update Makefile to v0.2.0: refactor all code, optimize effect of print; improve speed of clean operation; fix problem that user can't set job server during execute rebuild operation; support incremental compilation
+          (7)move file LICENSE to root path of project 
           (8)delete abolished header file intrasm.h
           (9)add file VERSION
 
@@ -99,3 +99,4 @@
           (3)add file version.h for HML version information
           (4)optimize comment style
           (5)add SDCC version check
+          (6)optimize function GPIO_getPortValue

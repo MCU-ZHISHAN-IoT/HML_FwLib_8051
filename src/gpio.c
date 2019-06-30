@@ -55,7 +55,7 @@ void GPIO_configPortValue(PERIPH_GPIO gpio,byte val)
         case PERIPH_GPIO_1: P1 = val; break;
         case PERIPH_GPIO_2: P2 = val; break;
         case PERIPH_GPIO_3: P3 = val; break;
-        default:break;
+        default: break;
     }
 }
 
@@ -92,14 +92,14 @@ FunctionalState GPIO_getBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
  * \ingroup     GPIO
  * \remarks     
 ******************************************************************************/
-unsigned char GPIO_getPortValue(PERIPH_GPIO gpio)
+byte GPIO_getPortValue(PERIPH_GPIO gpio)
 {
     switch(gpio)
     {
-        case PERIPH_GPIO_0: return P0; break;
-        case PERIPH_GPIO_1: return P1; break;
-        case PERIPH_GPIO_2: return P2; break;
-        case PERIPH_GPIO_3: return P3; break;
+        case PERIPH_GPIO_0: return P0;
+        case PERIPH_GPIO_1: return P1;
+        case PERIPH_GPIO_2: return P2;
+        case PERIPH_GPIO_3: return P3;
         default: return 0x00;
     }
 }
@@ -119,11 +119,11 @@ void GPIO_resetBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin)
 {
     switch(gpio)
     {
-        case PERIPH_GPIO_0:CLR_BIT_MASK(P0,pin);break;
-        case PERIPH_GPIO_1:CLR_BIT_MASK(P1,pin);break;
-        case PERIPH_GPIO_2:CLR_BIT_MASK(P2,pin);break;
-        case PERIPH_GPIO_3:CLR_BIT_MASK(P3,pin);break;
-        default:break;
+        case PERIPH_GPIO_0: CLR_BIT_MASK(P0,pin); break;
+        case PERIPH_GPIO_1: CLR_BIT_MASK(P1,pin); break;
+        case PERIPH_GPIO_2: CLR_BIT_MASK(P2,pin); break;
+        case PERIPH_GPIO_3: CLR_BIT_MASK(P3,pin); break;
+        default: break;
     }
 }
 

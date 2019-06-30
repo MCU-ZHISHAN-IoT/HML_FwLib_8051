@@ -54,7 +54,7 @@ typedef enum
 void GPIO_configBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin,FunctionalState f);
 void GPIO_configPortValue(PERIPH_GPIO gpio,byte val);
 FunctionalState GPIO_getBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin);
-unsigned char GPIO_getPortValue(PERIPH_GPIO gpio);
+byte GPIO_getPortValue(PERIPH_GPIO gpio);
 void GPIO_resetBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin);
 void GPIO_setBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin);
 void GPIO_toggleBitValue(PERIPH_GPIO gpio,PERIPH_GPIO_PIN pin);
