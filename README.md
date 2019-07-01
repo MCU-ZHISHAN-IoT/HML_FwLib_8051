@@ -37,10 +37,10 @@ There are several parameters need to be configured by user manually.
 The macro mark frequency of clock source, including extern crystal oscillator, and it's defined in *macro.h*. The default value is `11059200L`.
 #### conditional compilation
 In order to ensure the projects based on HML_FwLib_8051 can be downloaded into the limited on-chip store space of 8051 MCUs, the developers can modify the macro definition named `___COMPILE_XXX___` in *macro.h* to specify which piece of code should be compiled, thus to reduce the size of the HEX file. If user only use GPIO module, then user just need to enable `___COMPILE_GPIO___` macro definition in macro.h. Some macros for conditional compilation rely on others. For example, before you define the macro definition `___COMPILE_UART___`, the macro `___COMPILE_TIM___` should be defined, otherwise the compilation would be failed.
-### code & compilation
+### code & compile
 There is a source file named *test.c* under *usr* directory, we have put a main function here. User can add and modify own code here, then enter <kbd>make</kbd> in terminal, the Makefile will work and complete compilation. From version V0R3, you can enter <kbd>make help</kbd> to get all usages, and former version makefile only support <kbd>make</kbd>, <kbd>make clean</kbd>, <kbd>make mostlyclean</kbd>(change into <kbd>make distclean</kbd> now)
 
-Certainly, you can just add *inc* and *src* directory into your project structure, and write your own makefile to build a custom project. 
+Certainly, you can just add *inc* and *src* directory into your project, and write your own makefile to build a custom project. 
 
 ## Contributing
 Welcome suggestions and contribution from you! You can fork it or contact us via *[mcu@zhishan-iot.tk](mailto:mcu@zhishan-iot.tk)*.

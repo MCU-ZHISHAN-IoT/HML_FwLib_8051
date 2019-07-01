@@ -56,7 +56,7 @@ typedef enum
 #if (defined __CONF_FRE_CLKIN)
     #define MCU_FRE_CLK __CONF_FRE_CLKIN
 #else
-    #error HML run-time check: error: HML need define input clcok frequency! (ERROR_CODE-0x01)
+    #error HML run-time check: error: HML need define input clock frequency! (ERROR_CODE-0x01)
 #endif
 
 /**

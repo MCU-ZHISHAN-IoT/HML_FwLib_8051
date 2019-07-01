@@ -32,7 +32,7 @@ void sys_init(void)
     uc.mode              = UART_mode_1;
     uc.multiBaudrate     = DISABLE;
     uc.receiveState      = ENABLE;
-    
+
     UART_config(&uc);
     enableAllInterrupts();
 }

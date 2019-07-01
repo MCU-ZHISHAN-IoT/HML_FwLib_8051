@@ -1,9 +1,11 @@
-#Author     : Weilun Fong | wlf(at)zhishan-iot.tk
-#Description: record HML error code type
+# Author     : Weilun Fong | wlf(at)zhishan-iot.tk
+# Description: record HML_FwLib_8051 error code detail
 
-ERROR_CODE LIST:
  - 0x01
-  (@macro.h) User need to specify a frequency value of extern crystal oscillator via macro define; The default frequency value is 11059200L.
+    User need to specify a frequency value of extern crystal oscillator via macro define and default value is 11059200L.
+
  - 0x02
-  (@macro.h) Invalid operation in configuration of compilation macro. Macro __CONF_COMPILE_UART depends on __CONF_COMPILE_TIM.
-  
+    Invalid operation in configuration of compilation macro because macro __CONF_COMPILE_UART depends on __CONF_COMPILE_TIM.
+
+ - 0x03
+    HML_FwLib_8051 requires SDCC v3.6.0 or later versions. Please update your SDCC toolchain.
