@@ -29,7 +29,7 @@ void TIM_cmd(PERIPH_TIM tim,Action a)
     {
         case PERIPH_TIM_0: TR0 = a; break;
         case PERIPH_TIM_1: TR1 = a; break;
-        default:break;
+        default: break;
     }
 }
 
@@ -131,7 +131,7 @@ void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
     {
         case PERIPH_TIM_0: TMOD = (TMOD & 0xFC) | m; break;
         case PERIPH_TIM_1: TMOD = (TMOD & 0xCF) | (m << 0x04); break;
-        default:break;
+        default: break;
     }
 }
 
@@ -160,7 +160,7 @@ void TIM_setValue(PERIPH_TIM tim,word val)
             TH1 = (u8)((val >> 0x8) & 0x00FF);
             TL1 = (u8)(val & 0x00FF);
         } break;
-        default:break;
+        default: break;
     }
 }
 
@@ -202,7 +202,7 @@ void TIM_INT_setPriority(PERIPH_TIM tim,Action a)
     {
         case PERIPH_TIM_0: PT0 = (FunctionalState)a; break;
         case PERIPH_TIM_1: PT1 = (FunctionalState)a; break;
-        default:break;
+        default: break;
     }
 }
 

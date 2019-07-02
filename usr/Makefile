@@ -7,27 +7,27 @@
 # Page       :https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 # Tar-mcu    :Intel MCS-51 based microprocessors (8031, 8032, 8051, 8052, etc.)
 # Tar-project:HML_FwLib_8051
-# Version    :v0.2.1
+# Version    :v0.2.2
 ##################################################
 
 ########################################
 ##### [*]ENVIRONMENT CONFIGURATION
 ########################################
 ##### shell
-export SHELL        := /bin/bash
-export CAT          := cat
-export CD           := cd
-export ECHO         := echo
-export EECHO        := $(ECHO) -e
-export GREP         := grep
-export LS           := ls
-export RM           := rm -f
-export XARGS        := xargs
+export SHELL       := /bin/bash
+export CAT         := cat
+export CD          := cd
+export ECHO        := echo
+export EECHO       := $(ECHO) -e
+export GREP        := grep
+export LS          := ls
+export RM          := rm -f
+export XARGS       := xargs
 ##### tool-chain
-AR                  := sdar
-CC                  := sdcc
-MAKE                ?= make
-PACKIHX             := packihx
+AR                 := sdar
+CC                 := sdcc
+MAKE               ?= make
+PACKIHX            := packihx
 
 ########################################
 ##### [1]PATH & TARGET DEFINE
@@ -60,17 +60,16 @@ CFLAGS             := -c -I$(DIR_INC) -mmcs51 --opt-code-size --std-sdcc99 -L$(D
 ##### [2]VERSIION INFORMATION
 ########################################
 ##### version information##
-HML_FWLIB_NAME    := HML_FwLib_8051
-HML_FWLIB_VERSION := $(shell $(CAT) $(DIR_ROOT)/VERSION)
+HML_FWLIB_NAME     := HML_FwLib_8051
+HML_FWLIB_VERSION  := $(shell $(CAT) $(DIR_ROOT)/VERSION)
 # [note]: we unify version code from v0.1.0 because of the same makefile template
-MAK_VERSION       := v0.2.1
+MAK_VERSION        := v0.2.2
 
 ########################################
 ##### [3]BUILD WORKS
 ########################################
 ##### all target
 all: $(TARGET).hex
-	@echo
 	@echo ===================================================
 	@echo Make $(MAKECMDGOALS) done!
 	@echo project: $(HML_FWLIB_NAME) $(HML_FWLIB_VERSION)
@@ -124,10 +123,10 @@ rebuild:
 	@$(EECHO) "\033[36m - Clean all middle or temporary files \033[0m"
 	$(CD) $(DIR_OUTPUT) && $(LS) | $(GREP) -v ".gitkeep" | $(XARGS) $(RM)
 	@$(EECHO) "\033[36m - Start to build... \033[0m"
-	@$(MAKE) -s -f makefile -j$(JOBS) MAKECMDGOALS=$(MAKECMDGOALS)
+	@$(MAKE) -s -f Makefile -j$(JOBS) MAKECMDGOALS=$(MAKECMDGOALS)
 ##### version information
 .PHONY: version
 version:
 	@$(ECHO) "Makefile for HML_FwLib_xxx [$(MAK_VERSION)]"
-	@$(ECHO) "build project $(HML_FWLIB_NAME)-$(HML_FWLIB_VERSION), adapted by Weilun Fong <wlf(at)zhishan-iot.tk>"
+	@$(ECHO) "build project $(HML_FWLIB_NAME) $(HML_FWLIB_VERSION), adapted by Weilun Fong <wlf(at)zhishan-iot.tk>"
 	@$(ECHO) "Copyright(c) 2018-2019 ZHISHAN-IoT, all rights reserved."

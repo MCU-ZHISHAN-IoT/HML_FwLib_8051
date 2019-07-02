@@ -94,7 +94,9 @@
 >Version :v0.1.1
  Alias   :
  Date    :
- Note    :(1)update Makefile to v0.2.1: support compiling custom source file
+ Note    :(1)update Makefile
+            - update Makefile to v0.2.1: support compiling custom source file
+            - update Makefile to v0.2.2: fix fatal bug of rebuild function
           (2)refactor macro.h and conf.h, use hml.h instead of conf.h
           (3)add file version.h for HML version information
           (4)optimize comment style
