@@ -18,7 +18,8 @@
  * \date        
  * \brief       configure function for EXTI module
  * \param[in]   exti: target EXTI module
- * \return      ec  : the pointer of configuration structure which includes all configuration information
+ * \param[in]   ec  : the pointer of configuration structure which includes all configuration information
+ * \return      none
  * \ingroup     EXTI
  * \remarks     
 ******************************************************************************/
@@ -34,7 +35,8 @@ void EXTI_config(PERIPH_EXTI exti,EXTI_configTypeDef *ec)
  * \date        
  * \brief       disable or enable target EXTI module
  * \param[in]   exti: target EXTI module
- * \return      a   : expected status
+ * \param[in]   a   : expected status
+ * \return      none
  * \ingroup     EXTI
  * \remarks     
 ******************************************************************************/
@@ -54,7 +56,8 @@ void EXTI_cmd(PERIPH_EXTI exti,Action a)
  * \date        
  * \brief       configure work mode of target EXTI module
  * \param[in]   exti: target EXTI module
- * \return      mod : expected work mode
+ * \param[in]   mod : expected work mode
+ * \return      none
  * \ingroup     EXTI
  * \remarks     
 ******************************************************************************/
@@ -74,7 +77,8 @@ void EXTI_setMode(PERIPH_EXTI exti,EXTI_mode mod)
  * \date        
  * \brief       configure priority class of target EXTI module
  * \param[in]   exti: target EXTI module
- * \return      a   : ENABLE(high priority class) or DISABLE(low priority class)
+ * \param[in]   a   : ENABLE(high priority class) or DISABLE(low priority class)
+ * \return      none
  * \ingroup     EXTI
  * \remarks     
 ******************************************************************************/
