@@ -29,16 +29,19 @@ HML_FwLib_8051
 ├─inc      #include all header files(*.h) of HML_FwLib_8051
 ├─obj      #store all output files, including *.hex,*.ihx,*.lk,*.rel and others during compilation
 ├─src      #store all source files(*.c) of HML_FwLib_8051
-└─usr      #store makefile and a source file which includes main function
+├─usr      #store makefile and a source file which includes main function
+├─LICENSE  #license of HML_FwLib_8051
+└─VERSION  #version code of HML_FwLib_8051
 ```
 ### configuration
-There are several parameters need to be configured by user manually.
-#### \_FRE\_OSC\_
-The macro mark frequency of clock source, including extern crystal oscillator, and it's defined in *macro.h*. The default value is `11059200L`.
-#### conditional compilation
-In order to ensure the projects based on HML_FwLib_8051 can be downloaded into the limited on-chip store space of 8051 MCUs, the developers can modify the macro definition named `___COMPILE_XXX___` in *macro.h* to specify which piece of code should be compiled, thus to reduce the size of the HEX file. If user only use GPIO module, then user just need to enable `___COMPILE_GPIO___` macro definition in macro.h. Some macros for conditional compilation rely on others. For example, before you define the macro definition `___COMPILE_UART___`, the macro `___COMPILE_TIM___` should be defined, otherwise the compilation would be failed.
+There are several parameters need to be configured before using HML_FwLib_8051 by user manually. It's noticed that the name of following macros is different with previous version.
+#### \_\_CONF\_COMPILE\_xxx (for conditional compilation)
+In order to ensure projects based on HML_FwLib_8051 can be downloaded into the limited on-chip memory space of 8051 MCUs, developers can modify compile macros which are with format of `__CONF_COMPILE_xxx` in *conf.h* to specify which piece of code will take part in compilation, then it will reduce size of final .hex file. For example, if user only use GPIO module, then user just need to enable `__CONF_COMPILE_GPIO` macro in *conf.h*. Some macros for conditional compilation depend on others. For example, before you define macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be defined, otherwise build works will be failed.
+#### \_\_CONF\_FRE\_CLKIN
+A macro marks frequency of clock source and it's defined in *conf.h*. The default value is `11059200L`.
+
 ### code & compile
-There is a source file named *test.c* under *usr* directory, we have put a main function here. User can add and modify own code here, then enter <kbd>make</kbd> in terminal, the Makefile will work and complete compilation. From version V0R3, you can enter <kbd>make help</kbd> to get all usages, and former version makefile only support <kbd>make</kbd>, <kbd>make clean</kbd>, <kbd>make mostlyclean</kbd>(change into <kbd>make distclean</kbd> now)
+There is a source file named *test.c* under *usr* directory, we put code includes a main function inside it. User can add and modify own code here, then enter <kbd>make</kbd> in terminal, the Makefile will work and complete compilation. From version V0R3, you can enter <kbd>make help</kbd> to get all usages, and former version makefile only support <kbd>make</kbd>, <kbd>make clean</kbd>, <kbd>make mostlyclean</kbd>(change into <kbd>make distclean</kbd> now)
 
 Certainly, you can just add *inc* and *src* directory into your project, and write your own makefile to build a custom project. 
 
@@ -48,7 +51,7 @@ Welcome suggestions and contribution from you! You can fork it or contact us via
 ## License
 HML_FwLib_8051 is licensed under the [WTFPL2](http://wtfpl2.com/).
 
-##  Team
+## Team
 This is a one-man project....
 
 |member        | role              |e-mail                        |
