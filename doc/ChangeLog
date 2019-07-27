@@ -104,3 +104,8 @@
           (4)optimize comment style
           (5)add SDCC version check
           (6)optimize function GPIO_getPortValue
+
+>Version :v0.1.2
+ Alias   :
+ Date    :
+ Note    :(1)optimize HML version macro

@@ -18,8 +18,8 @@
 /**
  *\brief: version code
  */
-#define HML_VERSION_CODE 0.1.1
-#define HML_VERSION_NAME HML_FwLib_8051
+#define HML_VERSION_CODE "0.1.2"
+#define HML_VERSION_NAME "HML_FwLib_8051"
 
 /**
  *\brief: secondary version code
