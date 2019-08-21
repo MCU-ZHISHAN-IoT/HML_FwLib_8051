@@ -1,5 +1,5 @@
 # HML_FwLib_8051
-[![BuildStatus](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://hw.zhishan-iot.tk/page/hml/detail/fwlib_stc89.html)
+[![Build Status](http://jenkins.zhishan-iot.tk:12463/buildStatus/icon?job=HML_FwLib_8051)](http://jenkins.zhishan-iot.tk:12463/job/HML_FwLib_8051/)
 [![License](https://img.shields.io/badge/license-WTFPL2-blue.svg)](http://wtfpl2.com/)
 [![MCU](https://img.shields.io/badge/mcu-8051-orange.svg)](http://www.stcmcu.com/)
 ## What is HML_FwLib_8051

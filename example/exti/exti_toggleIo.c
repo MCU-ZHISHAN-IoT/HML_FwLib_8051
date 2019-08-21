@@ -1,8 +1,8 @@
 /*****************************************************************************/
 /** 
- * \file        uart-Hc05ToP1.c
+ * \file        exti_toggleIo.c
  * \author      Weilun Fong | wlf@zhishan-iot.tk
- * \brief       show content of data which from HC-05 module(via UART) to GPIO1
+ * \brief       a example which shows how to use HML_FwLib_8051 to toggle P10 state when EXTI1 is trigged
  * \note        
  * \test-board  TS51-V2.0
  * \test-mcu    STC89C52RC
@@ -10,7 +10,7 @@
  * \ingroup     example
 ******************************************************************************/
 
-#include "conf.h"
+#include "hml.h"
 
 /*****************************************************************************/
 /** 
@@ -24,17 +24,15 @@
 ******************************************************************************/
 void sys_init(void)
 {
-    UART_configTypeDef uc;
-    
-    uc.baudrate          = 9600;
-    uc.interruptState    = ENABLE;
-    uc.interruptPriority = DISABLE;
-    uc.mode              = UART_mode_1;
-    uc.multiBaudrate     = DISABLE;
-    uc.receiveState      = ENABLE;
+    EXTI_configTypeDef ec;
 
-    UART_config(&uc);
+    ec.mode     = EXTI_mode_fallEdge;
+    ec.priority = DISABLE;
+    EXTI_config(PERIPH_EXTI_1,&ec);
+    EXTI_cmd(PERIPH_EXTI_1,ENABLE);
     enableAllInterrupts();
+
+    GPIO_configPortValue(PERIPH_GPIO_1,0xFF);
 }
 
 /*****************************************************************************/
@@ -57,15 +55,14 @@ void main(void)
 /** 
  * \author      Weilun Fong
  * \date        
- * \brief       interrupt service function for UART
+ * \brief       interrupt service function for EXTI1
  * \param[in]   
  * \return      none
  * \ingroup     
  * \remarks     
 ******************************************************************************/
-void uart_isr(void) __interrupt SI0_VECTOR
+void exti1_isr(void) __interrupt IE1_VECTOR
 {
-    P1 = SBUF;
-    RI = RESET;
+    GPIO_toggleBitValue(PERIPH_GPIO_1,PERIPH_GPIO_PIN_2);
 }
 

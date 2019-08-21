@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /** 
- * \file        uart-sendString.c
+ * \file        uart_sendString.c
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       a example which shows how to use HML_FwLib_8051 to send string via UART module
  * \note        
