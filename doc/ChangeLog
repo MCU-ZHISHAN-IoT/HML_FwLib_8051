@@ -36,7 +36,7 @@
           (5)move macro define _FRE_OSC_ from <tim.h> to <macro.h>
           (6)rename UART_MODE as UART_mode, and modify name of related enum value
           (7)rename TIM_MODE as TIM_mode, and modify name of related enum value
-          (8)The conditional compilation mechanism is introduced into the source code(select expected compilation part in <macro.h>)
+          (8)the conditional compilation mechanism is introduced into the source code(select expected compilation part in <macro.h>)
           (9)update Makefile
           
 >Version :v0.0.4
@@ -110,3 +110,4 @@
  Date    :
  Note    :(1)optimize HML version macro
           (2)rename all examples and fix bugs
+          (3)add warning information output when meet redundant source files under conditional compilation

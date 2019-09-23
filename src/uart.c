@@ -229,4 +229,6 @@ void UART_INT_setPriority(Action a)
     PS = a;
 }
 
+#else
+    #warning Nothing to be done... User should remove .c file which is disabled by compile control macro from current directory.
 #endif

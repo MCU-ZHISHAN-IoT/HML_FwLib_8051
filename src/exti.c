@@ -92,4 +92,6 @@ void EXTI_setPriority(PERIPH_EXTI exti,Action a)
     }
 }
 
+#else
+    #warning Nothing to be done... User should remove .c file which is disabled by compile control macro from current directory.
 #endif
