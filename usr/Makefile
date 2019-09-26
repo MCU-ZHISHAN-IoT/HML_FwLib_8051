@@ -1,13 +1,13 @@
 ##################################################
-# Author     :Weilun Fong | wlf(at)zhishan-iot.tk
-# Date       :2019-07-06
-# Description:Makefile for HML_FwLib_8051, it will generate a hex format file finally
-# E-mail     :mcu(at)zhishan-iot.tk
-# Make-tool  :GNU Make (http://www.gnu.org/software/make/manual/make.html)
-# Page       :https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
-# Tar-mcu    :Intel MCS-51 based microprocessors (8031, 8032, 8051, 8052, etc.)
-# Tar-project:HML_FwLib_8051
-# Version    :v0.2.4
+# Author     : Weilun Fong | wlf(at)zhishan-iot.tk
+# Date       : 2019-09-26
+# Description: Makefile for HML_FwLib_8051, it will generate a hex format file finally
+# E-mail     : mcu@zhishan-iot.tk
+# Make-tool  : GNU Make (http://www.gnu.org/software/make/manual/make.html)
+# Page       : https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
+# Tar-mcu    : Intel MCS-51 based microprocessors (8031, 8032, 8051, 8052, etc.)
+# Tar-project: HML_FwLib_8051
+# Version    : v0.2.5
 ##################################################
 
 ########################################
@@ -67,7 +67,7 @@ CFLAGS             := -c -I$(DIR_INC) -mmcs51 --opt-code-size --std-sdcc99 -L$(D
 HML_FWLIB_NAME     := HML_FwLib_8051
 HML_FWLIB_VERSION  := $(shell $(CAT) $(DIR_ROOT)/VERSION)
 # [note]: we unify version code from v0.1.0 because of the same makefile template
-MAK_VERSION        := v0.2.4
+MAK_VERSION        := v0.2.5
 
 ########################################
 ##### [3]BUILD WORKS
@@ -131,6 +131,8 @@ rebuild:
 ##### version
 .PHONY: version
 version:
-	@$(ECHO) "Makefile for HML_FwLib_xxx [$(MAK_VERSION)]"
-	@$(ECHO) "build project $(HML_FWLIB_NAME) $(HML_FWLIB_VERSION), adapted by Weilun Fong <wlf(at)zhishan-iot.tk>"
+	@$(ECHO) "HmlFwlibMakefile [$(MAK_VERSION)]"
+	@$(ECHO) "General purpose Makefile for HML firmware library."
 	@$(ECHO) "Copyright(c) 2018-2019 ZHISHAN-IoT, all rights reserved."
+	@$(ECHO) ""
+	@$(ECHO) "This Makefile is adapted for project $(HML_FWLIB_NAME) $(HML_FWLIB_VERSION) by Weilun Fong <wlf@zhishan-iot.tk>"

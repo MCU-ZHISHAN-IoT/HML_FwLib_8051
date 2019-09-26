@@ -110,4 +110,5 @@
  Date    :
  Note    :(1)optimize HML version macro
           (2)rename all examples and fix bugs
-          (3)add warning information output when meet redundant source files under conditional compilation
+          (3)add warning information output when meet redundant source files under conditional 
+          (4)update Makefile to v0.2.5: improve version information
