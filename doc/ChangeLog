@@ -107,7 +107,7 @@
 
 >Version :v0.1.2
  Alias   :
- Date    :
+ Date    :2019-09-26
  Note    :(1)optimize HML version macro
           (2)rename all examples and fix bugs
           (3)add warning information output when meet redundant source files under conditional 
