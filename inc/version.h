@@ -37,6 +37,6 @@
 #ifdef HML_VERSION_PATCH
     #undef HML_VERSION_PATCH
 #endif
-#define HML_VERSION_PATCH 1
+#define HML_VERSION_PATCH 2
 
 #endif
