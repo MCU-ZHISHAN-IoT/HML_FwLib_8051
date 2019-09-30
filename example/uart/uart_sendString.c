@@ -1,12 +1,13 @@
 /*****************************************************************************/
 /** 
- * \file        uart_sendString.c
+ * \file        test.c
  * \author      Weilun Fong | wlf@zhishan-iot.tk
- * \brief       a example which shows how to use HML_FwLib_8051 to send string via UART module
+ * \brief       a example which shows how to use HML_FwLib_8051 to send string
+ *              via UART module
  * \note        
  * \test-board  TS51-V2.0
  * \test-mcu    STC89C52RC
- * \version     v0.1
+ * \version     v0.2
  * \ingroup     example
 ******************************************************************************/
 
@@ -25,13 +26,14 @@
 void sys_init(void)
 {
     UART_configTypeDef uc;
-    
+
     uc.baudrate          = 9600;
     uc.interruptState    = ENABLE;
     uc.interruptPriority = DISABLE;
     uc.mode              = UART_mode_1;
     uc.multiBaudrate     = DISABLE;
     uc.receiveState      = ENABLE;
+    uc.baudGenertor      = UART_baudGenerator_tim1;
 
     UART_config(&uc);
     enableAllInterrupts();

@@ -2,11 +2,12 @@
 /** 
  * \file        exti_toggleIo.c
  * \author      Weilun Fong | wlf@zhishan-iot.tk
- * \brief       a example which shows how to use HML_FwLib_8051 to toggle P10 state when EXTI1 is trigged
+ * \brief       a example which shows how to use HML_FwLib_8051 to toggle state
+ *              of pin P10 when EXTI1 is trigged
  * \note        
  * \test-board  TS51-V2.0
  * \test-mcu    STC89C52RC
- * \version     v0.1
+ * \version     v0.2
  * \ingroup     example
 ******************************************************************************/
 

@@ -1,8 +1,8 @@
 /*****************************************************************************/
 /** 
- * \file        uart_hc05ToP1.c
+ * \file        tim2_bleekLed.c
  * \author      Weilun Fong | wlf@zhishan-iot.tk
- * \brief       show content of data which from HC-05 module(via UART) to GPIO1
+ * \brief       a example which shows bleek LED per one second by timer-2
  * \note        
  * \test-board  TS51-V2.0
  * \test-mcu    STC89C52RC
@@ -15,7 +15,7 @@
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
- * \date        
+ * \date        2019/09/28
  * \brief       initial MCU
  * \param[in]   
  * \return      none
@@ -24,24 +24,24 @@
 ******************************************************************************/
 void sys_init(void)
 {
-    UART_configTypeDef uc;
-    
-    uc.baudrate          = 9600;
-    uc.interruptState    = ENABLE;
-    uc.interruptPriority = DISABLE;
-    uc.mode              = UART_mode_1;
-    uc.multiBaudrate     = DISABLE;
-    uc.receiveState      = ENABLE;
-    uc.baudGenertor      = UART_baudGenerator_tim1;
+    TIM2_configTypeDef t2c;
 
-    UART_config(&uc);
+    t2c.function          = TIM2_function_tim;
+    t2c.interruptState    = ENABLE;
+    t2c.interruptPriority = DISABLE;
+    t2c.mode              = TIM2_mode_0;
+    t2c.value             = 0x0000;
+    t2c.reloadValue       = TIM2_calculateInitValue(50000);
+
+    TIM2_config(&t2c);
+    TIM2_cmd(ENABLE);
     enableAllInterrupts();
 }
 
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
- * \date        
+ * \date        2019/09/28
  * \brief       main function
  * \param[in]   
  * \return      none
@@ -49,7 +49,7 @@ void sys_init(void)
  * \remarks     
 ******************************************************************************/
 void main(void)
-{
+{    
     sys_init();
     while(true);
 }
@@ -57,16 +57,27 @@ void main(void)
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
- * \date        
- * \brief       interrupt service function for UART
+ * \date        2019/09/28
+ * \brief       main function
  * \param[in]   
  * \return      none
  * \ingroup     
- * \remarks     
+ * \remarks     toggle state of target LED
 ******************************************************************************/
-void uart_isr(void) __interrupt SI0_VECTOR
+void tim2_isr(void) __interrupt TF2_VECTOR
 {
-    P1 = SBUF;
-    RI = RESET;
-}
+    static unsigned char i = 0;
 
+    TIM2_INT_cmd(DISABLE);
+
+    i++;
+    TIM2_clearFlag();
+
+    if (i == 20)
+    {
+        i = 0;
+        P1 = ~P1;  /* a 8-bit LED group is connected to P1 on board */
+    }
+
+    TIM2_INT_cmd(ENABLE);
+}

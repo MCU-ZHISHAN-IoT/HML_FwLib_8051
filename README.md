@@ -39,6 +39,10 @@ There are several parameters need to be configured before using HML_FwLib_8051 b
 In order to ensure projects based on HML_FwLib_8051 can be downloaded into the limited on-chip memory space of 8051 MCUs, developers can modify compile macros which are with format of `__CONF_COMPILE_xxx` in *conf.h* to specify which piece of code will take part in compilation, then it will reduce size of final .hex file. For example, if user only use GPIO module, then user just need to enable `__CONF_COMPILE_GPIO` macro in *conf.h*. Some macros for conditional compilation depend on others. For example, before you define macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be defined, otherwise build works will be failed.
 #### \_\_CONF\_FRE\_CLKIN
 A macro marks frequency of clock source and it's defined in *conf.h*. The default value is `11059200L`.
+##### \_\_CONF\_HAVE\_T2MOD
+When the macro is defined and mark value "1", it means current MCU has register T2MOD. Besides, if you enable this macro, please make sure macro `__CONF_HAVE_TIM2` is enabled firstly.
+##### \_\_\CONF\_HAVE_\TIM2
+When the macro is defined and mark value "1", it means current MCU has timer-2.
 
 ### code & compile
 There is a source file named *test.c* under *usr* directory, we put code includes a main function inside it. User can add and modify own code here, then enter <kbd>make</kbd> in terminal, the Makefile will work and complete compilation. From version V0R3, you can enter <kbd>make help</kbd> to get all usages, and former version makefile only support <kbd>make</kbd>, <kbd>make clean</kbd>, <kbd>make mostlyclean</kbd>(change into <kbd>make distclean</kbd> now)
@@ -46,7 +50,7 @@ There is a source file named *test.c* under *usr* directory, we put code include
 Certainly, you can just add *inc* and *src* directory into your project, and write your own makefile to build a custom project. 
 
 ## Contributing
-Welcome suggestions and contribution from you! You can fork it or contact us via *[mcu@zhishan-iot.tk](mailto:mcu@zhishan-iot.tk)*.
+Welcome suggestions and contribution from you! You can fork it and make a pull request or contact us via *[mcu@zhishan-iot.tk](mailto:mcu@zhishan-iot.tk)*.
 
 ## License
 HML_FwLib_8051 is licensed under the [WTFPL2](http://wtfpl2.com/).

@@ -4,7 +4,7 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       HML version information
  * \note        
- * \version     v0.1
+ * \version     v0.2
  * \ingroup     VERSION
 ******************************************************************************/
 
@@ -18,7 +18,7 @@
 /**
  *\brief: version code
  */
-#define HML_VERSION_CODE "0.1.2"
+#define HML_VERSION_CODE "0.2.0"
 #define HML_VERSION_NAME "HML_FwLib_8051"
 
 /**
@@ -32,11 +32,11 @@
 #ifdef HML_VERSION_MINOR
     #undef HML_VERSION_MINOR
 #endif
-#define HML_VERSION_MINOR 1
+#define HML_VERSION_MINOR 2
 
 #ifdef HML_VERSION_PATCH
     #undef HML_VERSION_PATCH
 #endif
-#define HML_VERSION_PATCH 2
+#define HML_VERSION_PATCH 0
 
 #endif

@@ -4,7 +4,7 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operations for on-chip timer
  * \note        
- * \version     v0.1
+ * \version     v0.2
  * \ingroup     TIM
 ******************************************************************************/
 

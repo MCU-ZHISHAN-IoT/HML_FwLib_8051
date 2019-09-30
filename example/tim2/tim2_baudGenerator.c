@@ -1,10 +1,10 @@
 /*****************************************************************************/
 /** 
- * \file        test.c
+ * \file        tim2_baudGenerator.c
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       a example which shows how to use HML_FwLib_8051 to send string
  *              via UART module
- * \note        
+ * \note        use timer-2 as baud rate generator
  * \test-board  TS51-V2.0
  * \test-mcu    STC89C52RC
  * \version     v0.2
@@ -21,19 +21,19 @@
  * \param[in]   
  * \return      none
  * \ingroup     
- * \remarks     
+ * \remarks     please enable macro __CONF_HAVE_TIM2 in conf.h firstly
 ******************************************************************************/
 void sys_init(void)
 {
     UART_configTypeDef uc;
-
+    
     uc.baudrate          = 9600;
     uc.interruptState    = ENABLE;
     uc.interruptPriority = DISABLE;
     uc.mode              = UART_mode_1;
     uc.multiBaudrate     = DISABLE;
     uc.receiveState      = ENABLE;
-    uc.baudGenertor      = UART_baudGenerator_tim1;
+    uc.baudGenertor      = UART_baudGenerator_tim2;
 
     UART_config(&uc);
     enableAllInterrupts();

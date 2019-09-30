@@ -4,7 +4,7 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operation for on-chip UART module
  * \note        
- * \version     v0.1
+ * \version     v0.2
  * \ingroup     UART
 ******************************************************************************/
 
@@ -45,42 +45,58 @@ void UART_cmd_receive(Action a)
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
- * \date        
+ * \date        2019/09/29
  * \brief       calculate value needed by timer counter register
+ * \param[in]   g   : expected baud rate generator
  * \param[in]   baud: expected baud rate
- * \return      initial value the baud rate required of timer counter register(if return 0x0000, it means overflow)
+ * \return      initial value the baud rate required of timer counter register,
+ *              and if return-value is 0x0000, it means overflow
  * \ingroup     UART
  * \remarks     
 ******************************************************************************/
-unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
+unsigned int UART_getBaudGeneratorInitValue(uint32_t baud, UART_baudGenerator g)
 {
     unsigned char tmp = 0x00;
-    
-    if(PCON & 0x80)     /* multi baud rate mode */
+
+#ifdef HAVE_TIM2
+    if (g == UART_baudGenerator_tim1)
     {
-        if(baud > MCU_FRE_CLK/12/16)
+#endif
+
+        if(PCON & 0x80)     /* multi baud rate mode */
         {
-            /* baud rate over max value */
-            return 0x0000;
-        }
-        else 
-        {
-            tmp = (256 - MCU_FRE_CLK/16/12/baud);  
-        }
-    }
-    else
-    {
-        if(baud > MCU_FRE_CLK/12/32)
-        {
-            return 0x0000;
+            if(baud > MCU_FRE_CLK/12/16)
+            {
+                /* baud rate over max value */
+                return 0x0000;
+            }
+            else 
+            {
+                tmp = (256 - MCU_FRE_CLK/16/12/baud);  
+            }
         }
         else
         {
-            tmp = (256 - MCU_FRE_CLK/32/12/baud);
+            if(baud > MCU_FRE_CLK/12/32)
+            {
+                return 0x0000;
+            }
+            else
+            {
+                tmp = (256 - MCU_FRE_CLK/32/12/baud);
+            }
         }
+
+        return (tmp << 0x8) | tmp;
+
+#ifdef HAVE_TIM2
     }
-    
-    return (tmp << 0x8) | tmp;
+    else
+    {
+        return (0xFFFF + 1 - (11059200/32/baud));
+    }
+#endif
+
 }
 
 /*****************************************************************************/
@@ -96,24 +112,48 @@ unsigned int UART_getBaudGeneratorInitValue(uint32_t baud)
 void UART_config(UART_configTypeDef *uc)
 {
     TIM_configTypeDef tc;
-    
+
+#ifdef HAVE_TIM2
+    TIM2_configTypeDef t2c;
+#endif
+
     UART_INT_cmd(uc->interruptState);
     UART_INT_setPriority(uc->interruptPriority);
     UART_cmd_multiBaudrate(uc->multiBaudrate);
-    
+
     //TODO:2018-04-07
     UART_setMode(uc->mode);
     UART_cmd_receive(uc->receiveState);
-    
-    /* UART module need TIM1 module as baud rate generator */
-    tc.function          = TIM_function_tim;
-    tc.interruptState    = DISABLE;
-    tc.interruptPriority = DISABLE;
-    tc.mode              = TIM_mode_2;
-    tc.value             = UART_getBaudGeneratorInitValue(uc->baudrate);
-    TIM_config(PERIPH_TIM_1,&tc);
-    TIM_cmd(PERIPH_TIM_1,ENABLE);
-    
+
+#ifdef HAVE_TIM2
+    if (uc->baudGenertor == UART_baudGenerator_tim1)
+    {
+#endif
+
+        /* UART module need TIM1 module as baud rate generator */
+        tc.function          = TIM_function_tim;
+        tc.interruptState    = DISABLE;
+        tc.interruptPriority = DISABLE;
+        tc.mode              = TIM_mode_2;
+        tc.value             = UART_getBaudGeneratorInitValue(uc->baudrate,UART_baudGenerator_tim1);
+        TIM_config(PERIPH_TIM_1,&tc);
+        TIM_cmd(PERIPH_TIM_1,ENABLE);
+
+#ifdef HAVE_TIM2
+    }
+    else
+    {
+        t2c.function          = TIM2_function_tim;
+        t2c.interruptState    = DISABLE;
+        t2c.interruptPriority = DISABLE;
+        t2c.mode              = TIM2_mode_2;
+        t2c.value             = 0x00;
+        t2c.reloadValue       = UART_getBaudGeneratorInitValue(uc->baudrate,UART_baudGenerator_tim2);
+        TIM2_config(&t2c);
+        TIM2_cmd(ENABLE);
+    }
+#endif
+
 }
 
 /*****************************************************************************/

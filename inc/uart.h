@@ -4,7 +4,7 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operation for on-chip UART module
  * \note        
- * \version     v0.1
+ * \version     v0.2
  * \ingroup     UART
 ******************************************************************************/
 
@@ -16,6 +16,10 @@
  *****************************************************************************/
 #include <stdint.h>
 #include "tim.h"
+
+#ifdef HAVE_TIM2
+    #include "tim2.h"
+#endif
 
 /*****************************************************************************
  *                                macro                                      *
@@ -41,12 +45,21 @@ typedef enum
     UART_mode_3 = 0x3   /* 9-bit UART,variable baud rate */
 } UART_mode;
 
+/**
+ *\brief: mark baud rate generator
+ */
+typedef enum
+{
+    UART_baudGenerator_tim1 = 0x0,
+    UART_baudGenerator_tim2 = 0x1      /* require macro HAVE_TIM2 */
+} UART_baudGenerator;
+
 /*****************************************************************************
  *                           structure define                                *
  *****************************************************************************/
 
 /**
- *\brief: structure for congratulating UART module
+ *\brief: structure for configure UART module
  */
 typedef struct
 {
@@ -56,6 +69,11 @@ typedef struct
     UART_mode mode;
     Action    multiBaudrate;
     Action    receiveState;
+
+#ifdef HAVE_TIM2
+    UART_baudGenerator baudGenertor;
+#endif
+
 } UART_configTypeDef;
 
 /*****************************************************************************
@@ -64,7 +82,7 @@ typedef struct
 void UART_cmd_multiBaudrate(Action a);
 void UART_cmd_receive(Action a);
 void UART_config(UART_configTypeDef *uc);
-unsigned int UART_getBaudGeneratorInitValue(uint32_t baud);
+unsigned int UART_getBaudGeneratorInitValue(uint32_t baud, UART_baudGenerator g);
 FunctionalState UART_isReceived(void);
 FunctionalState UART_isTransmitted(void);
 void UART_sendByte(byte dat);

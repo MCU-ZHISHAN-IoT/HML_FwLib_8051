@@ -4,7 +4,7 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       HML macro define
  * \note        
- * \version     v0.1
+ * \version     v0.2
  * \ingroup     generic
 ******************************************************************************/
 
@@ -23,6 +23,11 @@ typedef unsigned char byte;
 typedef unsigned char u8;
 typedef unsigned int  u16;
 typedef unsigned int  word;
+
+/*****************************************************************************
+ *                                macro                                      *
+ *****************************************************************************/
+#define WORD_MAX      0xFFFF
 
 /*****************************************************************************
  *                           enumeration type                                *
@@ -60,10 +65,29 @@ typedef enum
 #endif
 
 /**
+ *\brief: timer-2 selection
+ */
+#if (__CONF_HAVE_TIM2 == 1)
+    #define HAVE_TIM2
+#endif
+/**
+ *\brief: register T2MOD selection
+ */
+#if (__CONF_HAVE_T2MOD == 1)
+    #ifdef HAVE_TIM2
+        #define HAVE_T2MOD
+    #else
+        #error HML run-time check: error: macro __CONF_HAVE_T2MOD based on macro __CONF_HAVE_TIM2 (ERROR_CODE-0x02)
+    #endif
+#endif
+
+/**
  *\brief: HML compile selection check
  */
-#if (defined __CONF_COMPILE_UART) && (!defined __CONF_COMPILE_TIM)
-    #error HML run-time check: UART module need extern support, please enable macro __CONF_COMPILE_TIM (ERROR_CODE-0x02)
+#if (defined __CONF_COMPILE_UART)
+    #if (!defined __CONF_COMPILE_TIM)
+        #error HML run-time check: UART module need extern support, please enable macro __CONF_COMPILE_TIM (ERROR_CODE-0x03)
+    #endif
 #endif
 
 /**
@@ -71,11 +95,11 @@ typedef enum
  */
 #if (__SDCC_VERSION_MAJOR == 3)
     #if (__SDCC_VERSION_MINOR < 6)
-        #error HML run-time check: HML requires SDCC v3.6.0 or later versions (ERROR_CODE-0x03)
+        #error HML run-time check: HML requires SDCC v3.6.0 or later versions (ERROR_CODE-0x04)
     #endif
 #else
     #if (__SDCC_VERSION_MAJOR < 3)
-        #error HML run-time check: HML requires SDCC v3.6.0 or later versions (ERROR_CODE-0x03)
+        #error HML run-time check: HML requires SDCC v3.6.0 or later versions (ERROR_CODE-0x05)
     #endif
 #endif
  
