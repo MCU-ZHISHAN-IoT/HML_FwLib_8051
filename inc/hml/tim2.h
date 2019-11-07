@@ -4,21 +4,25 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operations for on-chip timer-2
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     TIM2
 ******************************************************************************/
 
-#ifndef ___TIM2_H___
-#define ___TIM2_H___
+#ifndef ___HML_TIM2_H___
+#define ___HML_TIM2_H___
 
 /*****************************************************************************
  *                             header file                                   *
  *****************************************************************************/
 #include <8052.h>
-#include <stdbool.h>
 /*****************************************************************************/
-#include "bit.h"
-#include "util.h"
+#include "hml/util.h"
+
+#if (defined HAVE_T2MOD)
+
+#include "hml/bit.h"
+
+#endif
 
 /*****************************************************************************
  *                                macro                                      *
@@ -94,23 +98,23 @@ typedef struct
     Action        interruptState;
     Action        interruptPriority;
     TIM2_mode     mode;
-    unsigned int  value;
-    unsigned int  reloadValue;    /* only for auto-reload mode */
+    uint16_t      value;
+    uint16_t      reloadValue;    /* only for auto-reload mode */
 } TIM2_configTypeDef;
 
 /*****************************************************************************
  *                          function declare                                 *
  *****************************************************************************/
-unsigned int TIM2_calculateInitValue(unsigned int t);
+uint16_t TIM2_calculateInitValue(uint16_t t);
 void TIM2_config(TIM2_configTypeDef *t2c);
 void TIM2_clearFlag(void);
 void TIM2_cmd(Action a);
-unsigned int TIM2_getCaptureValue(void);
+uint16_t TIM2_getCaptureValue(void);
 bool TIM2_isExternalEvent(void);
 void TIM2_setFunction(TIM2_function f);
 void TIM2_setMode(TIM2_mode m);
-void TIM2_setReloadValue(unsigned int val);
-void TIM2_setValue(unsigned int val);
+void TIM2_setReloadValue(uint16_t val);
+void TIM2_setValue(uint16_t val);
 void TIM2_BAUD_cmd(TIM2_baudClock t,Action a);
 void TIM2_INT_cmd(Action a);
 void TIM2_INT_setPriority(Action a);

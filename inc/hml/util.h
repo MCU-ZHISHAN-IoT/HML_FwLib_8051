@@ -4,24 +4,25 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       public operations
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     UTIL
 ******************************************************************************/
 
-#ifndef ___UTIL_H___
-#define ___UTIL_H___
+#ifndef ___HML_UTIL_H___
+#define ___HML_UTIL_H___
 
 /*****************************************************************************
  *                             header file                                   *
  *****************************************************************************/
 #include <8052.h>
-#include "macro.h"
+#include "hml/macro.h"
+#include "hml/types.h"
 
 /*****************************************************************************
  *                          function declare                                 *
  *****************************************************************************/
 void disableAllInterrupts(void);
 void enableAllInterrupts(void);
-void sleep(u16 t);
+void sleep(uint16_t t);
 
 #endif

@@ -4,12 +4,12 @@
  * \author      Weillun Fong | wlf@zhishan-iot.tk
  * \brief       operations for memory zone of MCU
  * \note        allow you to directly access the different memory areas of the 8051.
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     MEM
 ******************************************************************************/
 
-#ifndef ___MEM_H___
-#define ___MEM_H___
+#ifndef ___HML_MEM_H___
+#define ___HML_MEM_H___
 
 /*****************************************************************************
  *                                macro                                      *

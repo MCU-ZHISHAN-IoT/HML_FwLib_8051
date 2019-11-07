@@ -4,11 +4,11 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operations for on-chip timer
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     TIM
 ******************************************************************************/
 
-#include "tim.h"
+#include "hml/tim.h"
 
 #ifdef __CONF_COMPILE_TIM
 
@@ -63,7 +63,7 @@ void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-unsigned int TIM_getValue(PERIPH_TIM tim)
+uint16_t TIM_getValue(PERIPH_TIM tim)
 {
     switch(tim)
     {
@@ -108,8 +108,8 @@ void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
 {
     switch(tim)
     {
-        case PERIPH_TIM_0:CONFB(TMOD,BIT_NUM_T0_CT,f); break;
-        case PERIPH_TIM_1:CONFB(TMOD,BIT_NUM_T1_CT,f); break;
+        case PERIPH_TIM_0: CONFB(TMOD,BIT_NUM_T0_CT,f); break;
+        case PERIPH_TIM_1: CONFB(TMOD,BIT_NUM_T1_CT,f); break;
         default: break;
     }
 }
@@ -146,19 +146,19 @@ void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_setValue(PERIPH_TIM tim,word val)
+void TIM_setValue(PERIPH_TIM tim,uint16_t val)
 {
     switch(tim)
     {
         case PERIPH_TIM_0:
         {
-            TH0 = (u8)((val >> 0x8) & 0x00FF);
-            TL0 = (u8)(val & 0x00FF);
+            TH0 = (byte)((val >> 0x8) & 0x00FF);
+            TL0 = (byte)(val & 0x00FF);
         } break;
         case PERIPH_TIM_1:
         {
-            TH1 = (u8)((val >> 0x8) & 0x00FF);
-            TL1 = (u8)(val & 0x00FF);
+            TH1 = (byte)((val >> 0x8) & 0x00FF);
+            TL1 = (byte)(val & 0x00FF);
         } break;
         default: break;
     }

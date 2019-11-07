@@ -1,16 +1,19 @@
 /*****************************************************************************/
 /** 
- * \file        uart_hc05ToP1.c
- * \author      Weilun Fong | wlf@zhishan-iot.tk
- * \brief       show content of data which from HC-05 module(via UART) to GPIO1
- * \note        
- * \test-board  TS51-V2.0
- * \test-mcu    STC89C52RC
- * \version     v0.2
- * \ingroup     example
+ * \file      uart_hc05ToP1.c
+ * \author    Weilun Fong | wlf@zhishan-iot.tk
+ * \date      
+ * \brief     show content of data which from HC-05 module(via UART) to GPIO1
+ * \note      
+ * \version   v0.3
+ * \ingroup   example
+ * \remarks   test-board: TS51-V2.0; test-MCU: STC89C52RC
 ******************************************************************************/
 
-#include "hml.h"
+/*****************************************************************************
+ *                             header file                                   *
+ *****************************************************************************/
+#include "hml/hml.h"
 
 /*****************************************************************************/
 /** 
@@ -25,7 +28,7 @@
 void sys_init(void)
 {
     UART_configTypeDef uc;
-    
+
     uc.baudrate          = 9600;
     uc.interruptState    = ENABLE;
     uc.interruptPriority = DISABLE;

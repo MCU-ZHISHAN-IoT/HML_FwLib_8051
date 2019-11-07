@@ -4,11 +4,11 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operations for on-chip timer-2
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     TIM2
 ******************************************************************************/
 
-#include "tim2.h"
+#include "hml/tim2.h"
 
 #ifdef HAVE_TIM2
 
@@ -97,9 +97,9 @@ void TIM2_cmd(Action a)
  * \ingroup     TIM2
  * \remarks     this function only can be called validly under capture mode
 ******************************************************************************/
-unsigned int TIM2_getCaptureValue(void)
+uint16_t TIM2_getCaptureValue(void)
 {
-    return (unsigned int)((RCAP2H << 0x8) | RCAP2L);
+    return (uint16_t)((RCAP2H << 0x8) | RCAP2L);
 }
 
 /*****************************************************************************/

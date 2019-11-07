@@ -4,12 +4,12 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       HML configurations, this file need to be modified by users
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     generic
 ******************************************************************************/
 
-#ifndef ___CONF_H___
-#define ___CONF_H___
+#ifndef ___HML_CONF_H___
+#define ___HML_CONF_H___
 
 /*****************************************************************************
  *                                macro                                      *

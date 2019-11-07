@@ -4,11 +4,11 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operation for on-chip UART module
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     UART
 ******************************************************************************/
 
-#include "uart.h"
+#include "hml/uart.h"
 
 #ifdef __CONF_COMPILE_UART
 
@@ -54,9 +54,9 @@ void UART_cmd_receive(Action a)
  * \ingroup     UART
  * \remarks     
 ******************************************************************************/
-unsigned int UART_getBaudGeneratorInitValue(uint32_t baud, UART_baudGenerator g)
+uint16_t UART_getBaudGeneratorInitValue(uint32_t baud, UART_baudGenerator g)
 {
-    unsigned char tmp = 0x00;
+    uint8_t tmp = 0x00;
 
 #ifdef HAVE_TIM2
     if (g == UART_baudGenerator_tim1)

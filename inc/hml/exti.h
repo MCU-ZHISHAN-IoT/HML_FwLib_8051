@@ -4,18 +4,19 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operation for on-chip EXTI module
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     EXTI
 ******************************************************************************/
  
-#ifndef ___EXTI_H___
-#define ___EXTI_H___
+#ifndef ___HML_EXTI_H___
+#define ___HML_EXTI_H___
 
 /*****************************************************************************
  *                             header file                                   *
  *****************************************************************************/
 #include <8052.h>
-#include "macro.h"
+#include "hml/macro.h"
+#include "hml/types.h"
 
 /*****************************************************************************
  *                           enumeration type                                *

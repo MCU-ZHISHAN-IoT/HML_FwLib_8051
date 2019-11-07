@@ -4,11 +4,11 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       public operations
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     UTIL
 ******************************************************************************/
 
-#include "util.h"
+#include "hml/util.h"
 
 #ifdef __CONF_COMPILE_UTIL
 
@@ -52,10 +52,10 @@ void enableAllInterrupts(void)
  * \ingroup     UTIL
  * \remarks     
 ******************************************************************************/
-void sleep(u16 t)
+void sleep(uint16_t t)
 {
-    u8 i = 0x00;
-    
+    uint8_t i = 0x00;
+
     #if ( MCU_FRE_CLK == 11059200L )
 
     while(t--)
@@ -63,7 +63,7 @@ void sleep(u16 t)
         i = 110;
         while(i--);
     }
-        
+
     #elif ( MCU_FRE_CLK == 12000000L )
 
     while(t--)

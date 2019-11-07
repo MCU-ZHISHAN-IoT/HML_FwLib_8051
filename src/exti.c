@@ -4,11 +4,11 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operation for on-chip EXTI module
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     EXTI
 ******************************************************************************/
 
-#include "exti.h"
+#include "hml/exti.h"
 
 #ifdef __CONF_COMPILE_EXTI
 
@@ -18,7 +18,8 @@
  * \date        
  * \brief       configure function for EXTI module
  * \param[in]   exti: target EXTI module
- * \param[in]   ec  : the pointer of configuration structure which includes all configuration information
+ * \param[in]   ec  : the pointer of configuration structure which includes all 
+ *                    configuration information
  * \return      none
  * \ingroup     EXTI
  * \remarks     

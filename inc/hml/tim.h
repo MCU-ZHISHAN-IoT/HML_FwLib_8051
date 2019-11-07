@@ -4,21 +4,21 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operations for on-chip timer
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     TIM
 ******************************************************************************/
 
-#ifndef ___TIM_H___
-#define ___TIM_H___
+#ifndef ___HML_TIM_H___
+#define ___HML_TIM_H___
 
 /*****************************************************************************
  *                             header file                                   *
  *****************************************************************************/
 #include <8052.h>
-#include <stdbool.h>
 /*****************************************************************************/
-#include "bit.h"
-#include "macro.h"
+#include "hml/bit.h"
+#include "hml/macro.h"
+#include "hml/types.h"
 
 /*****************************************************************************
  *                                macro                                      *
@@ -82,7 +82,7 @@ typedef struct
     Action       interruptState;
     Action       interruptPriority;
     TIM_mode     mode;
-    unsigned int value;
+    uint16_t     value;
 } TIM_configTypeDef;
 
 /*****************************************************************************
@@ -90,11 +90,11 @@ typedef struct
  *****************************************************************************/
 void TIM_cmd(PERIPH_TIM tim,Action a);
 void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc);
-unsigned int TIM_getValue(PERIPH_TIM tim);
+uint16_t TIM_getValue(PERIPH_TIM tim);
 bool TIM_isOverflow(PERIPH_TIM tim);
 void TIM_setFunction(PERIPH_TIM tim,TIM_function f);
 void TIM_setMode(PERIPH_TIM tim,TIM_mode m);
-void TIM_setValue(PERIPH_TIM tim,word val);
+void TIM_setValue(PERIPH_TIM tim,uint16_t val);
 void TIM_INT_cmd(PERIPH_TIM tim,Action a);
 void TIM_INT_setPriority(PERIPH_TIM tim,Action a);
 

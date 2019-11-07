@@ -1,17 +1,20 @@
 /*****************************************************************************/
 /** 
- * \file        test.c
- * \author      Weilun Fong | wlf@zhishan-iot.tk
- * \brief       a example which shows how to use HML_FwLib_8051 to send string
- *              via UART module
- * \note        
- * \test-board  TS51-V2.0
- * \test-mcu    STC89C52RC
- * \version     v0.2
- * \ingroup     example
+ * \file      uart_sendString.c
+ * \author    Weilun Fong | wlf@zhishan-iot.tk
+ * \date      
+ * \brief     a example which shows how to use HML_FwLib_8051 to send string
+ *            via UART module
+ * \note      
+ * \version   v0.3
+ * \ingroup   example
+ * \remarks   test-board: TS51-V2.0; test-MCU: STC89C52RC
 ******************************************************************************/
 
-#include "hml.h"
+/*****************************************************************************
+ *                             header file                                   *
+ *****************************************************************************/
+#include "hml/hml.h"
 
 /*****************************************************************************/
 /** 

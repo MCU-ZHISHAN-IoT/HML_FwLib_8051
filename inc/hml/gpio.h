@@ -4,19 +4,20 @@
  * \author      Weilun Fong | wlf@zhishan-iot.tk
  * \brief       operations for GPIO module
  * \note        
- * \version     v0.2
+ * \version     v0.3
  * \ingroup     GPIO
 ******************************************************************************/
 
-#ifndef ___GPIO_H___
-#define ___GPIO_H___
+#ifndef ___HML_GPIO_H___
+#define ___HML_GPIO_H___
 
 /*****************************************************************************
  *                             header file                                   *
  *****************************************************************************/
 #include <8052.h>
-#include "bit.h"
-#include "macro.h"
+#include "hml/bit.h"
+#include "hml/macro.h"
+#include "hml/types.h"
 
 /*****************************************************************************
  *                           enumeration type                                *
