@@ -41,7 +41,7 @@ In order to ensure projects based on HML_FwLib_8051 can be downloaded into the l
 A macro marks frequency of clock source and it's defined in *conf.h*. The default value is `11059200L`.
 ##### \_\_CONF\_HAVE\_T2MOD
 When the macro is defined and mark value "1", it means current MCU has register T2MOD. Besides, if you enable this macro, please make sure macro `__CONF_HAVE_TIM2` is enabled firstly.
-##### \_\_\CONF\_HAVE_\TIM2
+##### \_\_CONF\_HAVE\_TIM2
 When the macro is defined and mark value "1", it means current MCU has timer-2.
 
 ### code & compile
