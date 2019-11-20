@@ -17,7 +17,7 @@
 #include "hml/tim.h"
 
 #ifdef HAVE_TIM2
-    #include "tim2.h"
+    #include "hml/tim2.h"
 #endif
 
 /*****************************************************************************
