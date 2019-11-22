@@ -1,13 +1,13 @@
 /*****************************************************************************/
 /** 
- * \file      tim2_bleekLed.c
- * \author    Weilun Fong | wlf@zhishan-iot.tk
- * \date      2019/09/28
- * \brief     a example which shows bleek LED per one second by timer-2
- * \note      
- * \version   v0.3
- * \ingroup   example
- * \remarks   test-board: TS51-V2.0; test-MCU: STC89C52RC
+ * \file        tim2_bleekLed.c
+ * \author      Weilun Fong | wlf@zhishan-iot.tk
+ * \date        2019/09/28
+ * \brief       a example which shows bleek LED per one second by timer-2
+ * \note        
+ * \version     v0.3
+ * \ingroup     example
+ * \remarks     test-board: TS51-V2.0; test-MCU: STC89C52RC
 ******************************************************************************/
 
 /*****************************************************************************
@@ -69,7 +69,7 @@ void main(void)
 ******************************************************************************/
 void tim2_isr(void) __interrupt TF2_VECTOR
 {
-    static unsigned char i = 0;
+    static uint8_t i = 0;
 
     TIM2_INT_cmd(DISABLE);
 
