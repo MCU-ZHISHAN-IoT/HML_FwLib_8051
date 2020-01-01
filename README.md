@@ -24,14 +24,15 @@ Please visit [detail page](https://hw.zhishan-iot.tk/page/hml/detail/fwlib_stc80
 ### file structure
 ```bash
 HML_FwLib_8051
-├─doc      #store related documents about HML_FwLib_8051
-├─example  #provide some example files with *.c format to help users learn about HML_FwLib_8051
-├─inc      #include all header files(*.h) of HML_FwLib_8051
-├─obj      #store all output files, including *.hex,*.ihx,*.lk,*.rel and others during compilation
-├─src      #store all source files(*.c) of HML_FwLib_8051
-├─usr      #store makefile and a source file which includes main function
-├─LICENSE  #license of HML_FwLib_8051
-└─VERSION  #version code of HML_FwLib_8051
+├─doc      # store related documents about HML_FwLib_8051
+├─example  # provide some example files with *.c format to help users learn about HML_FwLib_8051
+├─inc      # include all header files(*.h) of HML_FwLib_8051
+├─obj      # store all output files, including *.hex,*.ihx,*.lk,*.rel and others during compilation
+├─src      # store all source files(*.c) of HML_FwLib_8051
+├─usr      # store makefile and a source file which includes main function
+├─AUTHORS  # authors & contributors
+├─LICENSE  # license of HML_FwLib_8051
+└─VERSION  # version code of HML_FwLib_8051
 ```
 ### configuration
 There are several parameters need to be configured before using HML_FwLib_8051 by user manually. It's noticed that the name of following macros is different with previous version.
@@ -39,9 +40,9 @@ There are several parameters need to be configured before using HML_FwLib_8051 b
 In order to ensure projects based on HML_FwLib_8051 can be downloaded into the limited on-chip memory space of 8051 MCUs, developers can modify compile macros which are with format of `__CONF_COMPILE_xxx` in *conf.h* to specify which piece of code will take part in compilation, then it will reduce size of final .hex file. For example, if user only use GPIO module, then user just need to enable `__CONF_COMPILE_GPIO` macro in *conf.h*. Some macros for conditional compilation depend on others. For example, before you define macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be defined, otherwise build works will be failed.
 #### \_\_CONF\_FRE\_CLKIN
 A macro marks frequency of clock source and it's defined in *conf.h*. The default value is `11059200L`.
-##### \_\_CONF\_HAVE\_T2MOD
+#### \_\_CONF\_HAVE\_T2MOD
 When the macro is defined and mark value "1", it means current MCU has register T2MOD. Besides, if you enable this macro, please make sure macro `__CONF_HAVE_TIM2` is enabled firstly.
-##### \_\_CONF\_HAVE\_TIM2
+#### \_\_CONF\_HAVE\_TIM2
 When the macro is defined and mark value "1", it means current MCU has timer-2.
 
 ### code & compile
