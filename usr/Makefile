@@ -27,7 +27,7 @@ export XARGS       := xargs
 ##### tool-chain
 AR                 := sdar
 CC                 := sdcc
-MAKE               ?= make
+MAKE               := make --no-print-directory
 PACKIHX            := packihx
 
 ########################################
@@ -127,7 +127,7 @@ rebuild:
 	@$(EECHO) "\033[36m - Clean all middle or temporary files \033[0m"
 	$(CD) $(DIR_OUTPUT) && $(LS) | $(GREP) -v ".gitkeep" | $(XARGS) $(RM)
 	@$(EECHO) "\033[36m - Start to build... \033[0m"
-	@$(MAKE) -s -f Makefile -j$(JOBS) MAKECMDGOALS=$(MAKECMDGOALS)
+	@$(MAKE) -f Makefile -j$(JOBS) MAKECMDGOALS=$(MAKECMDGOALS)
 ##### version
 .PHONY: version
 version:
