@@ -50,33 +50,75 @@ void enableAllInterrupts(void)
  * \param[in]   t: how many one ms you want to delay
  * \return      none
  * \ingroup     UTIL
- * \remarks     
+ * \remarks     only for 12T mode now
 ******************************************************************************/
 void sleep(uint16_t t)
 {
-    uint8_t i = 0x00;
+    __asm
 
-    #if ( MCU_FRE_CLK == 11059200L )
+        ; preprocess
+        clr c
+        mov a,dpl
+        subb a,#1
+        mov dpl,a
+        mov a,dph
+        subb a,#0
+        mov dph,a
 
-    while(t--)
-    {
-        i = 110;
-        while(i--);
-    }
+        ; calculate total cosume time
+        mov r6,dpl
+        mov r7,dph
+        mov __mullong_PARM_2,r6
+        mov (__mullong_PARM_2 + 1),r7
+        mov (__mullong_PARM_2 + 2),#0x00
+        mov (__mullong_PARM_2 + 3),#0x00
+        mov dptr,#0x0399
+        clr a
+        mov b,a
+        lcall   __mullong
+        mov r4,dpl
+        mov r5,dph
+        mov r6,b
+        mov r7,a
+        mov __divslong_PARM_2,#0x07
+        clr a
+        mov (__divslong_PARM_2 + 1),a
+        mov (__divslong_PARM_2 + 2),a
+        mov (__divslong_PARM_2 + 3),a
+        mov dpl,r4
+        mov dph,r5
+        mov b,r6
+        mov a,r7
+        lcall   __divslong
+        mov r4,dpl
+        mov r5,dph
+        mov a,#0xd2
+        clr c
+        subb    a,r4
+        mov dpl,a
+        mov a,#0xff
+        subb a,r5
+        mov dph,a
 
-    #elif ( MCU_FRE_CLK == 12000000L )
+        ; loop for sleep
+        mov a,dpl
+        anl a,dph
+        cpl a
+        jz ENDL$
+    LOOP$:
+        inc dptr
+        mov a,dpl
+        anl a,dph
+        cpl a
+        jnz LOOP$
+    ENDL$:
 
-    while(t--)
-    {
-        i = 120;
-        while(i--);
-    }
+    __endasm;
 
-    #else
-
-    /* users can add other situations here */
-
-    #endif
+    /**
+     * @note: disable SDCC warning
+     */
+    t = 0;
 }
 
 #else
