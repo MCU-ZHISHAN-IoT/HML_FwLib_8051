@@ -10,7 +10,7 @@
 
 #include "hml/tim.h"
 
-#ifdef __CONF_COMPILE_TIM
+#ifdef COMPILE_TIM
 
 /*****************************************************************************/
 /** 

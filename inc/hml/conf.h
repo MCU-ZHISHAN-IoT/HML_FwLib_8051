@@ -18,7 +18,10 @@
 /**
  *\brief: configure clock frequency of MCU
  */
-#define __CONF_FRE_CLKIN     11059200L
+#ifndef __CONF_FRE_CLKIN
+    #warning no specified clock frequency, HML will fill it with 11.0592MHz
+    #define __CONF_FRE_CLKIN 11059200L
+#endif
 
 /**
  *\brief: timer-2 function selection
@@ -29,11 +32,11 @@
 /**
  *\brief: select HML module which take part in compilation
  */
-#define __CONF_COMPILE_EXTI
-#define __CONF_COMPILE_GPIO
-#define __CONF_COMPILE_TIM
-#define __CONF_COMPILE_TIM2
-#define __CONF_COMPILE_UART
-#define __CONF_COMPILE_UTIL
+#define __CONF_COMPILE_EXTI  1
+#define __CONF_COMPILE_GPIO  1
+#define __CONF_COMPILE_TIM   1
+#define __CONF_COMPILE_TIM2  1
+#define __CONF_COMPILE_UART  1
+#define __CONF_COMPILE_UTIL  1
 
 #endif

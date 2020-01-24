@@ -1,0 +1,76 @@
+#!/usr/bin/make
+
+##################################################
+# Author     : Weilun Fong | wlf@zhishan-iot.tk
+# Date       : 2020-01-24
+# Description: configure Makefile for generic 8051 MCU
+# E-mail     : mcu@zhishan-iot.tk
+# Make-tool  : GNU Make (http://www.gnu.org/software/make/manual/make.html)
+# Page       : https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
+# Project    : HML_FwLib_8051
+# Version    : v0.3.0
+##################################################
+
+########################################
+##### [*]ENVIRONMENT CONFIGURATION
+SHELL := /bin/bash
+AWK   ?= awk
+ECHO  ?= echo
+EXPR  ?= expr
+GREP  ?= grep
+SPACE ?= $(empty) $(empty)
+########################################
+
+########################################
+##### [1] INFORMATION PRINT
+$(info $(SPACE)- Collect MCU config information)
+########################################
+
+########################################
+##### [2] INTERNAL RAM / USER INPUT
+########################################
+### clock frequency
+ifneq ($(CLKFRE),)
+    ifeq ($(shell $(ECHO) $(CLKFRE) | $(GREP) '^[[:digit:]]*$$'),)
+        $(error invalid CLKFRE value)
+    else
+        CLOCK_FREQUENCY := $(CLKFRE)
+    endif
+else
+    CLOCK_FREQUENCY := 11059200
+endif
+### internal ROM
+ifneq ($(CODE),)
+    export CODE_SIZE := $(shell $(EXPR) $(CODE) \\* 1024)
+else
+    export CODE_SIZE := 8192
+endif
+### internal RAM
+ifneq ($(IRAM),)
+    export IRAM_SIZE := $(IRAM)
+else
+    export IRAM_SIZE := 256
+endif
+### external RAM
+ifneq ($(XRAM),)
+    export XRAM_SIZE := $(shell $(EXPR) $(XRAM) \\* 1024)
+else
+    export XRAM_SIZE := 0
+endif
+
+########################################
+##### [3] EXPORT CFLAGS
+########################################
+export CFLAGS := -c -I$(DIR_INC)           \
+                 -mmcs51 -D__CONF_FRE_CLKIN=$(CLOCK_FREQUENCY)UL \
+                 --std-sdcc99              \
+                 --opt-code-size           \
+                 --code-loc 0x0000 --code-size $(CODE_SIZE) \
+                 --iram-size $(IRAM_SIZE)  \
+                 --xram-size $(XRAM_SIZE)
+
+########################################
+##### [+] PRINT RESULT
+$(info [mcu-config] code=$(CODE_SIZE)B, iram=$(IRAM_SIZE)B, xram=$(XRAM_SIZE)B)
+$(info [mcu-clock ] $(shell $(ECHO) $(CLOCK_FREQUENCY) | $(AWK) '{printf("%.6f",$$1/1000000)}') MHz)
+########################################

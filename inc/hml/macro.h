@@ -21,6 +21,32 @@
  *****************************************************************************/
 
 /**
+ *\brief: compile select
+ */
+#if (__CONF_COMPILE_EXTI == 1)
+    #define COMPILE_EXTI
+#endif
+#if (__CONF_COMPILE_GPIO == 1)
+    #define COMPILE_GPIO
+#endif
+#if (__CONF_COMPILE_TIM == 1)
+    #define COMPILE_TIM
+#endif
+#if (__CONF_COMPILE_TIM2 == 1)
+    #define COMPILE_TIM2
+#endif
+#if (__CONF_COMPILE_UART == 1)
+    #define COMPILE_UART
+#endif
+#if (__CONF_COMPILE_UTIL == 1)
+    #define COMPILE_UTIL
+#endif
+
+/*****************************************************************************
+ *                           run-time check                                  *
+ *****************************************************************************/
+
+/**
  *\brief: MCU clock configuration check
  */
 #if (defined __CONF_FRE_CLKIN)
@@ -49,8 +75,8 @@
 /**
  *\brief: HML compile selection check
  */
-#if (defined __CONF_COMPILE_UART)
-    #if (!defined __CONF_COMPILE_TIM)
+#if (defined COMPILE_UART)
+    #if (!defined COMPILE_TIM)
         #error HML run-time check: UART module need extern support, please enable macro __CONF_COMPILE_TIM (ERROR_CODE-0x03)
     #endif
 #endif

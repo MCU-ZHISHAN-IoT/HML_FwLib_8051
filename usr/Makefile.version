@@ -1,13 +1,14 @@
+#!/usr/bin/make
+
 ##################################################
 # Author     : Weilun Fong | wlf@zhishan-iot.tk
-# Date       : 2019-12-28
+# Date       : 2020-01-24
 # Description: version Makefile
 # E-mail     : mcu@zhishan-iot.tk
 # Make-tool  : GNU Make (http://www.gnu.org/software/make/manual/make.html)
 # Page       :
-# Tar-mcu    :
-# Tar-project: general purpose
-# Version    : v0.2.6
+# Project    : HML_FwLib_8051
+# Version    : v0.3.0
 ##################################################
 
 ########################################
@@ -18,7 +19,7 @@ ECHO               := echo
 ##### version information##
 HML_FWLIB_NAME     := HML_FwLib_8051
 # [note]: we unify version code from v0.1.0 because of the same makefile template
-MAK_VERSION        := v0.2.6
+MAK_VERSION        := v0.3.0
 # author
 AUTHOR_NAME        := Weilun Fong
 AUTHOR_EMAIL       := wlf@zhishan-iot.tk
@@ -31,8 +32,8 @@ MAINTAINER_EMAIL   := mcu@zhishan-iot.tk
 version:
 	@$(ECHO) "HmlFwlibMakefile [$(MAK_VERSION)]"
 	@$(ECHO) "General purpose Makefile for HML firmware library."
-	@$(ECHO) "Copyright(c) 2018-2019 ZHISHAN-IoT, all rights reserved."
+	@$(ECHO) "Copyright(c) 2018-2020 ZHISHAN-IoT, all rights reserved."
 	@$(ECHO) ""
 	@$(ECHO) "Adapted for $(HML_FWLIB_NAME) $(HML_FWLIB_VERSION)\
 by $(AUTHOR_NAME) <$(AUTHOR_EMAIL)>"
-	@$(ECHO) "Report bugs to <$(MAINTAINER_EMAIL)>"
+	@$(ECHO) "Report bugs and patches to <$(MAINTAINER_EMAIL)>"
