@@ -138,3 +138,4 @@
               - optimize build information print
            (2)refactor sleep function
            (3)optimize macro for module compile selection
+           (4)refactor hml/version.h
