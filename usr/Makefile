@@ -136,7 +136,7 @@ library: $(TARGET_FWLIB)
 ##### mcu configuration
 .PHONY: mcu
 mcu:
-    ifeq ($(findstring $(MAKECMDGOALS), $(PHONY_LIST_IN) library),)
+    ifeq ($(findstring $(MAKECMDGOALS), $(PHONY_LIST_IN)),)
         include Makefile.mcu
     endif
 ##### rebuild
@@ -144,7 +144,7 @@ mcu:
 rebuild:
 	@$(EECHO) "\033[36m - Clean all middle or temporary files \033[0m"
 	@$(MAKE) distclean
-	@$(MAKE) -f Makefile -j$(JOBS)
+	@$(MAKE) -f Makefile -j$(JOBS) $(MAKEFLAGS)
 ##### version
 .PHONY: version
 version:
