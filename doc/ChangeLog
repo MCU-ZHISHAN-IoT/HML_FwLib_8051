@@ -139,3 +139,5 @@
            (2)refactor sleep function
            (3)optimize macro for module compile selection
            (4)refactor hml/version.h
+           (5)add macro MCU_PRESCALER
+           (6)add function UART_getByte and UART_sendHex

@@ -159,6 +159,21 @@ void UART_config(UART_configTypeDef *uc)
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
+ * \date        2020\02\01
+ * \brief       get result of UART receiver
+ * \param[in]   
+ * \return      
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
+byte UART_getByte(void)
+{
+    return SBUF;
+}
+
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
  * \date        
  * \brief       check receive state of UART module
  * \param[in]   
@@ -201,6 +216,22 @@ void UART_sendByte(byte dat)
     SBUF = dat;
     while(!TI);
     TI = RESET;
+}
+
+/*****************************************************************************/
+/** 
+ * \author      Weilun Fong
+ * \date        2020/02/01
+ * \brief       output a hex number with character format via UART
+ * \param[in]   hex: expected hex number(range: 0x0 ~ 0xF)
+ * \return      
+ * \ingroup     UART
+ * \remarks     
+******************************************************************************/
+void UART_sendHex(uint8_t hex)
+{
+    UART_sendByte(hexTable[hex >> 0x4]);
+    UART_sendByte(hexTable[hex & 0xF]);
 }
 
 /*****************************************************************************/
