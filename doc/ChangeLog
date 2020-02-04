@@ -141,3 +141,4 @@
            (4)refactor hml/version.h
            (5)add macro MCU_PRESCALER
            (6)add function UART_getByte and UART_sendHex
+           (7)add macro __HML_NAME_STRING__ for version mark

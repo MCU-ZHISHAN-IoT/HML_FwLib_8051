@@ -16,6 +16,11 @@
  *****************************************************************************/
 
 /**
+ *\ brief: string literal representation of the current library name
+ */
+#define __HML_NAME_STRING__ "HML_FwLib_8051"
+
+/**
  *\ brief: string literal representation of the current library version
  */
 #define __HML_VERSION_STRING__ "0.3.1"
@@ -32,7 +37,7 @@
  *
  * In the numerical representation, the major number is multiplied by
  * 10000, the minor number by 100, and all three parts are then
- * added.  It is intented to provide a monotonically increasing
+ * added.  It is intended to provide a monotonically increasing
  * numerical value that can easily be used in numerical checks.
  */
 #define __HML_VERSION__ 000301UL
