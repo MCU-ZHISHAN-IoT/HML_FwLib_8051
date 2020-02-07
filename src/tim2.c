@@ -24,7 +24,7 @@
  * \ingroup     TIM2
  * \remarks     result is usually written into TH2/TL2
 ******************************************************************************/
-unsigned int TIM2_calculateInitValue(unsigned int t)
+uint16_t TIM2_calculateInitValue(uint16_t t)
 {
     if((t*(MCU_FRE_CLK/1000000)/12) >= TIM2_MAXTICK)
     {
@@ -157,7 +157,7 @@ void TIM2_setMode(TIM2_mode m)
  * \ingroup     TIM2
  * \remarks     the parameter value will be written into register RCAP2H/RCAP2L
 ******************************************************************************/
-void TIM2_setReloadValue(unsigned int val)
+void TIM2_setReloadValue(uint16_t val)
 {
     RCAP2H = (byte)(val >> 0x8);
     RCAP2L = val;
@@ -173,7 +173,7 @@ void TIM2_setReloadValue(unsigned int val)
  * \ingroup     TIM2
  * \remarks     
 ******************************************************************************/
-void TIM2_setValue(unsigned int val)
+void TIM2_setValue(uint16_t val)
 {
     TH2 = (byte)(val >> 0x8);
     TL2 = val;
