@@ -1,12 +1,20 @@
 # HML_FwLib_8051
-![Jenkins](https://img.shields.io/jenkins/build?jobUrl=http%3A%2F%2Fjenkins.zhishan-iot.tk%3A12463%2Fjob%2FHML_FwLib_8051)
-![GitHub repo size](https://img.shields.io/github/repo-size/MCU-ZHISHAN-IoT/HML_FwLib_8051)
-![GitHub](https://img.shields.io/github/license/MCU-ZHISHAN-IoT/HML_FwLib_8051)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/MCU-ZHISHAN-IoT/HML_FwLib_8051?color=26a69a)
-## What is HML_FwLib_8051
-HML_FwLib_8051 is the first member component of HML firmware library, **providing a group of interface functions for users to operate on-chip resource of MCS-51 MCUs**, including GPIO, external interrupt, timer and UART modules. The 8051 MCUs have been one of the most widely used MCUs since it was produced by [Intel](https://www.intel.com/) in 1981. As amateurs with some experience of 8051 development, we intend to develop a lite and easy-use tool that can help future developers to complete projects based on 8051 MCUs more easily and quickly.
+[![Jenkins](https://img.shields.io/jenkins/build?jobUrl=http%3A%2F%2Fjenkins.zhishan-iot.tk%3A12463%2Fjob%2FHML_FwLib_8051)](http://jenkins.zhishan-iot.tk:12463/job/HML_FwLib_8051)
+[![GitHub repo size](https://img.shields.io/github/repo-size/MCU-ZHISHAN-IoT/HML_FwLib_8051)](https://github.com/MCU-ZHISHAN-IoT/HML_FwLib_8051)
+[![GitHub](https://img.shields.io/github/license/MCU-ZHISHAN-IoT/HML_FwLib_8051)](https://github.com/MCU-ZHISHAN-IoT/HML_FwLib_8051/blob/master/LICENSE)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/MCU-ZHISHAN-IoT/HML_FwLib_8051?color=26a69a)](https://github.com/MCU-ZHISHAN-IoT/HML_FwLib_8051/tags)
 
-The source codes are written in C language and for [SDCC compiler](http://sdcc.sourceforge.net/), i.e., it can only be compiled by SDCC. This choice is motivated by the fact that SDCC is free and highly efficient, while there are very few examples of application about SDCC on the Internet. We hope that, as one of the early attempts to develop MCU projects using SDCC, this work will make SDCC become more popular among MCU developers.
+## What is HML_FwLib_8051
+HML_FwLib_8051 is the first member component of HML firmware library, **providing a group of interface functions for users to 
+operate on-chip resource of MCS-51 MCUs**, including GPIO, external interrupt, timer and UART modules. The 8051 MCUs have been 
+one of the most widely used MCUs since it was produced by [Intel](https://www.intel.com/) in 1981. As amateurs with some 
+experience of 8051 development, we intend to develop a lite and easy-use tool that can help future developers to complete 
+projects based on 8051 MCUs more easily and quickly.
+
+The source codes are written in C language and for [SDCC compiler](http://sdcc.sourceforge.net/), i.e., it can only be compiled
+by SDCC. This choice is motivated by the fact that SDCC is free and highly efficient, while there are very few examples of 
+application about SDCC on the Internet. We hope that, as one of the early attempts to develop MCU projects using SDCC, this work
+will make SDCC become more popular among MCU developers.
 
 Please visit [detail page](https://hw.zhishan-iot.tk/page/hml/detail/fwlib_stc8051.html) for more information to get started it!
 
@@ -36,18 +44,29 @@ HML_FwLib_8051
 └─VERSION  # version code of HML_FwLib_8051
 ```
 ### configuration
-There are several parameters need to be configured before using HML_FwLib_8051 by user manually. It's noticed that the name of following macros is different with previous version.
+There are several parameters need to be configured before using HML_FwLib_8051 by user manually. It's noticed that the name of 
+following macros is different with previous version.
 #### \_\_CONF\_COMPILE\_xxx (for conditional compilation)
-In order to ensure projects based on HML_FwLib_8051 can be downloaded into the limited on-chip memory space of 8051 MCUs, developers can modify compile macros which are with format of `__CONF_COMPILE_xxx` in *conf.h* to specify which piece of code will take part in compilation, then it will reduce size of final .hex file. For instance, if user only use GPIO module, then user just need to enable `__CONF_COMPILE_GPIO` macro in *conf.h*. Some macros for conditional compilation depend on others. For example, before you enable macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be enable at the same time, otherwise build works will be failed.
+In order to ensure projects based on HML_FwLib_8051 can be downloaded into the limited on-chip memory space of 8051 MCUs, 
+developers can modify compile macros which are with format of `__CONF_COMPILE_xxx` in *hml/conf.h* to specify which piece of 
+code will take part in compilation, then it will reduce size of final .hex file. For instance, if user only use GPIO module, 
+then user just need to enable `__CONF_COMPILE_GPIO` macro in *hml/conf.h*. Some macros for conditional compilation depend on others. For example, before you enable macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be enable at the same 
+time. Otherwise, build works will be failed.
 #### \_\_CONF\_FRE\_CLKIN
-A macro marks frequency of clock source and it's defined in *conf.h*. The default value is `11059200L`.
+A macro marks frequency of clock source and it's defined in *hml/conf.h*. The default value is `11059200UL`. This value can be 
+configed via make command line interface variable or config Makefile(refer to *usr/Makefile.config*)
 #### \_\_CONF\_HAVE\_T2MOD
-When the macro is defined and mark value "1", it means current MCU has register T2MOD. Besides, if you enable this macro, please make sure macro `__CONF_HAVE_TIM2` is enabled firstly.
+When the macro is defined and mark value "1", it means current MCU has register T2MOD. Besides, if you enable this macro, please
+make sure macro `__CONF_HAVE_TIM2` is enabled firstly.
 #### \_\_CONF\_HAVE\_TIM2
 When the macro is defined and mark value "1", it means current MCU has timer-2.
 
 ### code & compile
-There is a source file named *test.c* under *usr* directory, we put code includes a main function inside it. User can add and modify own code here, then enter <kbd>make</kbd> in terminal, the Makefile will work and complete compilation. From version V0R3, you can enter <kbd>make help</kbd> to get all usages, and former version makefile only support <kbd>make</kbd>, <kbd>make clean</kbd>, <kbd>make mostlyclean</kbd>(change into <kbd>make distclean</kbd> now)
+There is a source file named *test.c* under *usr* directory, we put code includes a main function inside it. User can add and 
+modify own code here, then enter <kbd>make -j</kbd> in terminal, the Makefile will work and complete compilation. Besides, our 
+Makefile provides some interface variable to config build works via make command line interface variable or config Makefile. 
+From version V0R3, you can enter <kbd>make help</kbd> to get all usages, and former version makefile only support 
+<kbd>make</kbd>, <kbd>make clean</kbd>, <kbd>make mostlyclean</kbd>(change into <kbd>make distclean</kbd> now)
 
 Certainly, you can just add *inc* and *src* directory into your project, and write your own makefile to build a custom project. 
 
