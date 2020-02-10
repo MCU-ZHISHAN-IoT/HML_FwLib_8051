@@ -12,13 +12,12 @@ Coding Style
 ------------
 
 * use 4 spaces for indentation
-* no oneliners (conditions, loops, variable declarations ...)
 * always use parenthesis for control structures
 * use spaces around operators
 * lines should not have trailing whitespace
-* use spaces between function parameters
 * use pronouncable variable names, not just a combination of letters
 * use unified code comment style, you can refer to existing code
+* ...
 
 Example:
 

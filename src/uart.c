@@ -159,10 +159,10 @@ void UART_config(UART_configTypeDef *uc)
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
- * \date        2020\02\01
+ * \date        2020/02/01
  * \brief       get result of UART receiver
  * \param[in]   
- * \return      
+ * \return      none
  * \ingroup     UART
  * \remarks     
 ******************************************************************************/
@@ -224,7 +224,7 @@ void UART_sendByte(byte dat)
  * \date        2020/02/01
  * \brief       output a hex number with character format via UART
  * \param[in]   hex: expected hex number(range: 0x0 ~ 0xF)
- * \return      
+ * \return      none
  * \ingroup     UART
  * \remarks     
 ******************************************************************************/

@@ -60,7 +60,7 @@ ifeq ("$(VERBOSE)", "1")
     Q :=
     VECHO := @$(TRUE)
 else
-    Q :=  @
+    Q := @
     VECHO := @$(ECHO)
 endif
 
@@ -143,7 +143,7 @@ library: $(TARGET_FWLIB)
 # [+] rebuild
 .PHONY: rebuild
 rebuild:
-	@$(EECHO) "$(TITLE_COLOR) - Clean all middle or temporary files \033[0m"
+	@$(EECHO) "$(TITLE_COLOR) - Clean previous files \033[0m"
 	@$(MAKE) distclean
 	@$(MAKE) -f Makefile -j$(JOBS) $(MAKEFLAGS)
 # [+] version

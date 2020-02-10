@@ -37,33 +37,41 @@
 /**
  *\brief: baudrate of zcli
  */
-#define ZCLI_BAUDRANTE      9600
+#define ZCLI_BAUDRANTE            9600
 
 /**
  *\brief: zcli max arguments number support
  */
-#define ZCLI_MAX_ARGS       3
+#define ZCLI_MAX_ARGS             3
 
 /**
  *\brief: time stamp
  */
-#define ZCLI_TIMESTAMP       "20200202"
+#define ZCLI_TIMESTAMP            20200209
+#define ZCLI_TIMESTAMP_STRING     "20200209"
+
+/**
+ *\brief: version code
+ */
+#define ZCLI_VERSION              0001
+#define ZCLI_VERSION_MAJOR        ((ZCLI_VERSION / 100) % 100)
+#define ZCLI_VERSION_MINOR        (ZCLI_VERSION % 100)
 
 /**
  *\brief: length define for zcli
  */
-#define ZCLI_CMD_LEN         8
-#define ZCLI_ARGS_LEN        8
-#define ZCLI_STRING_LEN      24
-#define ZCLI_TABLE_LEN(x)    sizeof(x)/sizeof(*(&x[0]))
+#define ZCLI_CMD_LEN              8
+#define ZCLI_ARGS_LEN             8
+#define ZCLI_STRING_LEN           24
+#define ZCLI_TABLE_LEN(x)         sizeof(x)/sizeof(*(&x[0]))
 
 /**
  *\brief: ASCII character mark
  */
-#define ASCII_BS             0x08  /* backspace */
-#define ASCII_TAB            0x09  /* horizontal tab */
-#define ASCII_CR             0x0D  /* carriage return */
-#define ASCII_DEL            0x7F  /* delete */
+#define ASCII_BS                  0x08  /* backspace */
+#define ASCII_TAB                 0x09  /* horizontal tab */
+#define ASCII_CR                  0x0D  /* carriage return */
+#define ASCII_DEL                 0x7F  /* delete */
 
 /*****************************************************************************
  *                             type define                                   *
@@ -135,7 +143,7 @@ static const char __code terminal_str_clearLine[] = "\33[2K\r\r> ";
 static const char __code zcli_str_authorInfo[] = "\r\nWritten by Weilun Fong \
 <wlf@zhishan-iot.tk>";
 static const char __code zcli_str_commited[] = "\r\n\033[1m\033[32mCommitted!\033[0m";
-static const char __code zcli_str_copyrigth[] = "\r\nzCLI v0.0 2020 (c) ZHISHAN-IoT";
+static const char __code zcli_str_copyrigth[] = "\r\nzCLI 2020 (c) ZHISHAN-IoT";
 static const char __code zcli_str_hello[] = "\r\nHello! I'm zCLI!";
 static const char __code zcli_str_helpNote[] = "\r\nPlease input command as follows:";
 static const char __code zcli_str_invalidCommand[] = "\r\nWtf? Enter '?' for usage";
@@ -418,7 +426,8 @@ int8_t zcli_action_si(void)
 ******************************************************************************/
 int8_t zcli_action_v(void)
 {
-    printf("\r\nzCLI v0.0 [%s]", ZCLI_TIMESTAMP);
+    printf("\r\nzCLI v%d.%d [%s]",ZCLI_VERSION_MAJOR, ZCLI_VERSION_MINOR, \
+ZCLI_TIMESTAMP_STRING);
     zcli_printString(zcli_str_authorInfo);
     return 0;
 }
