@@ -129,7 +129,7 @@
 
 >Version : v0.3.1
  Alias   :
- Date    : 
+ Date    : 2020-06-09
  Note    : (1)update Makefile to v0.2.6:
               - support <library> target, user can get usage via <make help>
               - optimize <make version> function
@@ -147,3 +147,4 @@
            (6)add function UART_getByte and UART_sendHex
            (7)add macro __HML_NAME_STRING__ for version mark
            (8)fix bugs of conflict between function body and declaration in TIM2 module
+           (9)add example Zcli
