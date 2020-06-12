@@ -54,12 +54,12 @@ then user just need to enable `__CONF_COMPILE_GPIO` macro in *hml/conf.h*. Some 
 time. Otherwise, build works will be failed.
 #### \_\_CONF\_FRE\_CLKIN
 A macro marks frequency of clock source and it's defined in *hml/conf.h*. The default value is `11059200UL`. This value can be 
-configed via make command line interface variable or config Makefile(refer to *usr/Makefile.config*)
+configured via make command line interface variable or config Makefile(refer to *usr/Makefile.config*)
 #### \_\_CONF\_HAVE\_T2MOD
-When the macro is defined and mark value "1", it means current MCU has register T2MOD. Besides, if you enable this macro, please
+When the macro is defined and mark value `1`, it means current MCU has register T2MOD. Besides, if you enable this macro, please
 make sure macro `__CONF_HAVE_TIM2` is enabled firstly.
 #### \_\_CONF\_HAVE\_TIM2
-When the macro is defined and mark value "1", it means current MCU has timer-2.
+When the macro is defined and mark value `1`, it means current MCU has timer-2.
 
 ### code & compile
 There is a source file named *test.c* under *usr* directory, we put code includes a main function inside it. User can add and 
