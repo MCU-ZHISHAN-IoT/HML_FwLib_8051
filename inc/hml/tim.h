@@ -25,7 +25,7 @@
  *****************************************************************************/
 
 /**
- *\brief: mark TMOD bits for bit operation
+ * \brief mark TMOD bits for bit operation
  */
 #define BIT_NUM_T0_M0     0
 #define BIT_NUM_T0_M1     1
@@ -41,7 +41,7 @@
  *****************************************************************************/
 
 /**
- *\brief: mark timer
+ * \brief mark timer
  */
 typedef enum
 {
@@ -50,7 +50,7 @@ typedef enum
 } PERIPH_TIM;
 
 /**
- *\brief: mark work mode
+ * \brief mark work mode
  */
 typedef enum
 {
@@ -61,7 +61,7 @@ typedef enum
 } TIM_mode;
 
 /**
- *\brief: mark counter mode and timer mode
+ * \brief mark counter mode and timer mode
  */
 typedef enum
 {
@@ -74,7 +74,7 @@ typedef enum
  *****************************************************************************/
 
 /**
- *\brief: structure for congratulating TIM module
+ * \brief structure for congratulating TIM module
  */
 typedef struct
 {
@@ -88,14 +88,14 @@ typedef struct
 /*****************************************************************************
  *                          function declare                                 *
  *****************************************************************************/
-void TIM_cmd(PERIPH_TIM tim,Action a);
-void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc);
+void TIM_cmd(PERIPH_TIM tim, Action a);
+void TIM_config(PERIPH_TIM tim, TIM_configTypeDef *tc);
 uint16_t TIM_getValue(PERIPH_TIM tim);
 bool TIM_isOverflow(PERIPH_TIM tim);
-void TIM_setFunction(PERIPH_TIM tim,TIM_function f);
-void TIM_setMode(PERIPH_TIM tim,TIM_mode m);
-void TIM_setValue(PERIPH_TIM tim,uint16_t val);
-void TIM_INT_cmd(PERIPH_TIM tim,Action a);
-void TIM_INT_setPriority(PERIPH_TIM tim,Action a);
+void TIM_setFunction(PERIPH_TIM tim, TIM_function f);
+void TIM_setMode(PERIPH_TIM tim, TIM_mode m);
+void TIM_setValue(PERIPH_TIM tim, uint16_t val);
+void TIM_INT_cmd(PERIPH_TIM tim, Action a);
+void TIM_INT_setPriority(PERIPH_TIM tim, Action a);
 
 #endif

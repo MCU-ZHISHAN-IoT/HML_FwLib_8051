@@ -29,12 +29,12 @@
  *****************************************************************************/
 
 /**
- *\brief: mark max value of counter
+ * \brief mark max value of counter
  */
 #define TIM2_MAXTICK    WORD_MAX
 
 /**
- *\brief: define register T2MOD and bits inside
+ * \brief define register T2MOD and bits inside
  */
 #if (defined HAVE_T2MOD)
 
@@ -49,7 +49,7 @@ __sfr __at (0xC9) T2MOD;
 #endif
 
 /**
- *\brief: interrupt vector
+ * \brief interrupt vector
  */
 #define TF2_VECTOR      5    /* 0x2B timer-2 */
 
@@ -58,7 +58,7 @@ __sfr __at (0xC9) T2MOD;
  *****************************************************************************/
 
 /**
- *\brief: mark baud clock type
+ * \brief mark baud clock type
  */
 typedef enum
 {
@@ -67,7 +67,7 @@ typedef enum
 } TIM2_baudClock;
 
 /**
- *\brief: mark work function(role) of timer-2
+ * \brief mark work function(role) of timer-2
  */
 typedef enum
 {
@@ -76,7 +76,7 @@ typedef enum
 } TIM2_function;
 
 /**
- *\brief: mark work mode
+ * \brief mark work mode
  */
 typedef enum
 {
@@ -90,7 +90,7 @@ typedef enum
  *****************************************************************************/
 
 /**
- *\brief: structure for congratulating TIM2 module
+ * \brief structure for congratulating TIM2 module
  */
 typedef struct
 {
@@ -115,7 +115,7 @@ void TIM2_setFunction(TIM2_function f);
 void TIM2_setMode(TIM2_mode m);
 void TIM2_setReloadValue(uint16_t val);
 void TIM2_setValue(uint16_t val);
-void TIM2_BAUD_cmd(TIM2_baudClock t,Action a);
+void TIM2_BAUD_cmd(TIM2_baudClock t, Action a);
 void TIM2_INT_cmd(Action a);
 void TIM2_INT_setPriority(Action a);
 void TIM2_T2EX_cmd(Action a);

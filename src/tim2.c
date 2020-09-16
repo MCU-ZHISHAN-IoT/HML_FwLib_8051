@@ -271,7 +271,7 @@ void TIM2_T2EX_cmd(Action a)
 ******************************************************************************/
 void TIM2_DCOUNT_cmd(Action a)
 {
-    CONFB(T2MOD,BIT_NUM_DCEN,(FunctionalState)a);
+    CONFB(T2MOD, BIT_NUM_DCEN, (FunctionalState)a);
 }
 
 /*****************************************************************************/
@@ -286,7 +286,7 @@ void TIM2_DCOUNT_cmd(Action a)
 ******************************************************************************/
 void TIM2_OUT_cmd(Action a)
 {
-    CONFB(T2MOD,BIT_NUM_T2OE,(FunctionalState)a);
+    CONFB(T2MOD, BIT_NUM_T2OE, (FunctionalState)a);
 }
 
 #endif

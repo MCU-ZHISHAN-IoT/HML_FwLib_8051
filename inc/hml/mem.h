@@ -16,7 +16,7 @@
  *****************************************************************************/
 
 /**
- *\brief: [absacc]: for direct access
+ * \brief for direct access
  */
 #define __CBYTE ((unsigned char volatile __code  *) 0)
 #define __DBYTE ((unsigned char volatile __data  *) 0)

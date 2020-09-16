@@ -24,7 +24,7 @@
 ******************************************************************************/
 void UART_cmd_multiBaudrate(Action a)
 {
-    CONFB(PCON,BIT_NUM_SMOD,a);
+    CONFB(PCON, BIT_NUM_SMOD, a);
 }
 
 /*****************************************************************************/
@@ -135,9 +135,9 @@ void UART_config(UART_configTypeDef *uc)
         tc.interruptState    = DISABLE;
         tc.interruptPriority = DISABLE;
         tc.mode              = TIM_mode_2;
-        tc.value             = UART_getBaudGeneratorInitValue(uc->baudrate,UART_baudGenerator_tim1);
-        TIM_config(PERIPH_TIM_1,&tc);
-        TIM_cmd(PERIPH_TIM_1,ENABLE);
+        tc.value             = UART_getBaudGeneratorInitValue(uc->baudrate, UART_baudGenerator_tim1);
+        TIM_config(PERIPH_TIM_1, &tc);
+        TIM_cmd(PERIPH_TIM_1, ENABLE);
 
 #ifdef HAVE_TIM2
     }
@@ -148,7 +148,7 @@ void UART_config(UART_configTypeDef *uc)
         t2c.interruptPriority = DISABLE;
         t2c.mode              = TIM2_mode_2;
         t2c.value             = 0x00;
-        t2c.reloadValue       = UART_getBaudGeneratorInitValue(uc->baudrate,UART_baudGenerator_tim2);
+        t2c.reloadValue       = UART_getBaudGeneratorInitValue(uc->baudrate, UART_baudGenerator_tim2);
         TIM2_config(&t2c);
         TIM2_cmd(ENABLE);
     }
@@ -267,7 +267,7 @@ void UART_sendString(char *str)
 ******************************************************************************/
 void UART_setMode(UART_mode m)
 {
-    SCON = (SCON & 0x3F) | ((unsigned char)m << 0x6);
+    SCON = (SCON & 0x3F) | ((byte)m << 0x6);
 }
 
 /*****************************************************************************/

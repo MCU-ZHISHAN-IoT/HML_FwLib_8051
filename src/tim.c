@@ -23,7 +23,7 @@
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_cmd(PERIPH_TIM tim,Action a)
+void TIM_cmd(PERIPH_TIM tim, Action a)
 {
     switch(tim)
     {
@@ -44,13 +44,13 @@ void TIM_cmd(PERIPH_TIM tim,Action a)
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_config(PERIPH_TIM tim,TIM_configTypeDef *tc)
+void TIM_config(PERIPH_TIM tim, TIM_configTypeDef *tc)
 {
-    TIM_setFunction(tim,tc->function);
-    TIM_setMode(tim,tc->mode);
-    TIM_setValue(tim,tc->value);
-    TIM_INT_cmd(tim,tc->interruptState);
-    TIM_INT_setPriority(tim,tc->interruptPriority);
+    TIM_setFunction(tim, tc->function);
+    TIM_setMode(tim, tc->mode);
+    TIM_setValue(tim, tc->value);
+    TIM_INT_cmd(tim, tc->interruptState);
+    TIM_INT_setPriority(tim, tc->interruptPriority);
 }
 
 /*****************************************************************************/
@@ -104,12 +104,12 @@ bool TIM_isOverflow(PERIPH_TIM tim)
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_setFunction(PERIPH_TIM tim,TIM_function f)
+void TIM_setFunction(PERIPH_TIM tim, TIM_function f)
 {
     switch(tim)
     {
-        case PERIPH_TIM_0: CONFB(TMOD,BIT_NUM_T0_CT,f); break;
-        case PERIPH_TIM_1: CONFB(TMOD,BIT_NUM_T1_CT,f); break;
+        case PERIPH_TIM_0: CONFB(TMOD, BIT_NUM_T0_CT, f); break;
+        case PERIPH_TIM_1: CONFB(TMOD, BIT_NUM_T1_CT, f); break;
         default: break;
     }
 }
@@ -146,7 +146,7 @@ void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_setValue(PERIPH_TIM tim,uint16_t val)
+void TIM_setValue(PERIPH_TIM tim, uint16_t val)
 {
     switch(tim)
     {
@@ -175,7 +175,7 @@ void TIM_setValue(PERIPH_TIM tim,uint16_t val)
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_INT_cmd(PERIPH_TIM tim,Action a)
+void TIM_INT_cmd(PERIPH_TIM tim, Action a)
 {
     switch(tim)
     {
@@ -196,7 +196,7 @@ void TIM_INT_cmd(PERIPH_TIM tim,Action a)
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_INT_setPriority(PERIPH_TIM tim,Action a)
+void TIM_INT_setPriority(PERIPH_TIM tim, Action a)
 {
     switch(tim)
     {

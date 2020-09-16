@@ -21,7 +21,7 @@
  *****************************************************************************/
 
 /**
- *\brief: compile select
+ * \brief compile select
  */
 #if (__CONF_COMPILE_EXTI == 1)
     #define COMPILE_EXTI
@@ -43,7 +43,7 @@
 #endif
 
 /**
- *\brief: mark prescaler of MCU
+ * \brief mark prescaler of MCU
  */
 #define MCU_PRESCALER 12
 
@@ -52,7 +52,7 @@
  *****************************************************************************/
 
 /**
- *\brief: MCU clock configuration check
+ * \brief MCU clock configuration check
  */
 #if (defined __CONF_FRE_CLKIN)
     #define MCU_FRE_CLK __CONF_FRE_CLKIN
@@ -61,13 +61,13 @@
 #endif
 
 /**
- *\brief: timer-2 selection
+ * \brief timer-2 selection
  */
 #if (__CONF_HAVE_TIM2 == 1)
     #define HAVE_TIM2
 #endif
 /**
- *\brief: register T2MOD selection
+ * \brief register T2MOD selection
  */
 #if (__CONF_HAVE_T2MOD == 1)
     #ifdef HAVE_TIM2
@@ -78,7 +78,7 @@
 #endif
 
 /**
- *\brief: HML compile selection check
+ * \brief HML compile selection check
  */
 #if (defined COMPILE_UART)
     #if (!defined COMPILE_TIM)
@@ -87,7 +87,7 @@
 #endif
 
 /**
- *\brief: SDCC version check
+ * \brief SDCC version check
  */
 #if (__SDCC_VERSION_MAJOR == 3)
     #if (__SDCC_VERSION_MINOR < 6)

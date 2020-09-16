@@ -25,7 +25,7 @@
  *****************************************************************************/
 
 /**
- *\brief: mark bits for bit operation
+ * \brief mark bits for bit operation
  */
 #define BIT_NUM_SMOD 7
 
@@ -39,7 +39,7 @@ static __code char hexTable[16] = { '0','1','2','3','4','5','6','7','8','9','A',
  *****************************************************************************/
 
 /**
- *\brief: mark work mode
+ * \brief mark work mode
  */
 typedef enum
 {
@@ -50,7 +50,7 @@ typedef enum
 } UART_mode;
 
 /**
- *\brief: mark baud rate generator
+ * \brief mark baud rate generator
  */
 typedef enum
 {
@@ -63,7 +63,7 @@ typedef enum
  *****************************************************************************/
 
 /**
- *\brief: structure for configure UART module
+ * \brief structure for configure UART module
  */
 typedef struct
 {

@@ -32,11 +32,11 @@ void sys_init(void)
 
     ec.mode     = EXTI_mode_fallEdge;
     ec.priority = DISABLE;
-    EXTI_config(PERIPH_EXTI_1,&ec);
-    EXTI_cmd(PERIPH_EXTI_1,ENABLE);
+    EXTI_config(PERIPH_EXTI_1, &ec);
+    EXTI_cmd(PERIPH_EXTI_1, ENABLE);
     enableAllInterrupts();
 
-    GPIO_configPortValue(PERIPH_GPIO_1,0xFF);
+    GPIO_configPortValue(PERIPH_GPIO_1, 0xFF);
 }
 
 /*****************************************************************************/
@@ -67,6 +67,6 @@ void main(void)
 ******************************************************************************/
 void exti1_isr(void) __interrupt IE1_VECTOR
 {
-    GPIO_toggleBitValue(PERIPH_GPIO_1,PERIPH_GPIO_PIN_2);
+    GPIO_toggleBitValue(PERIPH_GPIO_1, PERIPH_GPIO_PIN_2);
 }
 

@@ -16,7 +16,7 @@
  *****************************************************************************/
 
 /**
- *\brief: configure clock frequency of MCU
+ * \brief configure clock frequency of MCU
  */
 #ifndef __CONF_FRE_CLKIN
     #warning no specified clock frequency, HML will fill it with 11.0592MHz
@@ -24,13 +24,13 @@
 #endif
 
 /**
- *\brief: timer-2 function selection
+ * \brief timer-2 function selection
  */
 #define __CONF_HAVE_TIM2     1
 #define __CONF_HAVE_T2MOD    1    /* register T2MOD is not a standard register for all 8052 MCUs */
 
 /**
- *\brief: select HML module which take part in compilation
+ * \brief select HML module which take part in compilation
  */
 #define __CONF_COMPILE_EXTI  1
 #define __CONF_COMPILE_GPIO  1
