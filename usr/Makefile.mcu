@@ -56,7 +56,7 @@ endif
 #    --code-size        Code Segment size
 #    --iram-size        Internal Ram size
 #    --xram-size        External Ram size
-export CFLAGS := -c -I$(DIR_INC) --fsigned-char \
+export CFLAGS := -c -I$(DIR_INC) \
 -mmcs51 \
 -D__CONF_FRE_CLKIN=$(CLOCK_FREQUENCY)UL \
 --std-sdcc99 --fsigned-char\
