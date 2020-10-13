@@ -135,16 +135,16 @@ void TIM2_setFunction(TIM2_function f)
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
- * \date        2019/09/22
+ * \date        2020/10/13
  * \brief       set work mode of timer-2
- * \param[in]   m: expected work mode
+ * \param[in]   mode: expected work mode
  * \return      none
  * \ingroup     TIM2
  * \remarks     
 ******************************************************************************/
-void TIM2_setMode(TIM2_mode m)
+void TIM2_setMode(TIM2_mode mode)
 {
-    T2CON = (T2CON & 0xCE) | m;
+    T2CON = (T2CON & 0xCE) | mode;
 }
 
 /*****************************************************************************/

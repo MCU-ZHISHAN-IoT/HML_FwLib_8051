@@ -117,20 +117,20 @@ void TIM_setFunction(PERIPH_TIM tim, TIM_function f)
 /*****************************************************************************/
 /** 
  * \author      Weilun Fong
- * \date        
+ * \date        2020/10/13
  * \brief       configure work mode of target timer
- * \param[in]   tim: target timer
- * \param[in]   m  : expected work mode
+ * \param[in]   tim : target timer
+ * \param[in]   mode: expected work mode
  * \return      none
  * \ingroup     TIM
  * \remarks     
 ******************************************************************************/
-void TIM_setMode(PERIPH_TIM tim,TIM_mode m)
+void TIM_setMode(PERIPH_TIM tim,TIM_mode mode)
 {
     switch(tim)
     {
-        case PERIPH_TIM_0: TMOD = (TMOD & 0xFC) | m; break;
-        case PERIPH_TIM_1: TMOD = (TMOD & 0xCF) | (m << 0x04); break;
+        case PERIPH_TIM_0: TMOD = (TMOD & 0xFC) | mode; break;
+        case PERIPH_TIM_1: TMOD = (TMOD & 0xCF) | (mode << 0x04); break;
         default: break;
     }
 }
