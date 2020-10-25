@@ -142,9 +142,8 @@
               - simplify configure step
            (2)refactor sleep function
            (3)optimize macro for module compile selection
-           (4)refactor hml/version.h
+           (4)refactor hml/version.h, add macro __HML_NAME_STRING__
            (5)add macro MCU_PRESCALER
            (6)add function UART_getByte and UART_sendHex
-           (7)add macro __HML_NAME_STRING__ for version mark
-           (8)fix bugs of conflict between function body and declaration in TIM2 module
-           (9)add example Zcli
+           (7)fix bugs of conflict between function body and declaration in TIM2 module
+           (8)add example Zcli
