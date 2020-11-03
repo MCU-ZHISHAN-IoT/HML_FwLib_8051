@@ -147,3 +147,10 @@
            (6)add function UART_getByte and UART_sendHex
            (7)fix bugs of conflict between function body and declaration in TIM2 module
            (8)add example Zcli
+
+>Version : v0.3.2
+ Alias   :
+ Date    : 2020-11-03
+ Note    : 
+           (1)optimize code writing
+           (2)refactor sleep

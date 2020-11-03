@@ -23,12 +23,12 @@
 /**
  * \brief string literal representation of the current library version
  */
-#define __HML_VERSION_STRING__ "0.3.1"
+#define __HML_VERSION_STRING__ "0.3.2"
 
 /**
  * \deprecated these macro will be abolished in next minor version
  */
-#define HML_VERSION_CODE "0.3.1"
+#define HML_VERSION_CODE "0.3.2"
 #define HML_VERSION_NAME "HML_FwLib_8051"
 
 /**
@@ -40,17 +40,17 @@
  * added.  It is intended to provide a monotonically increasing
  * numerical value that can easily be used in numerical checks.
  */
-#define __HML_VERSION__ 000301UL
+#define __HML_VERSION__ 000302UL
 
 /**
  * \brief string literal representation of the release date.
  */
-#define __HML_DATE_STRING__ "20200131"
+#define __HML_DATE_STRING__ "20201103"
 
 /**
  * \brief numerical representation of the release date.
  */
-#define __HML_DATE__ 20200131UL
+#define __HML_DATE__ 20201103UL
 
 /**
  * \brief library major version number.
@@ -65,7 +65,7 @@
 /**
  * \brief library patch version number.
  */
-#define __HML_VERSION_PATCH__ 1
+#define __HML_VERSION_PATCH__ 2
 
 /**
  * \deprecated following macro will be abolished in next minor version
@@ -83,6 +83,6 @@
 #ifdef HML_VERSION_PATCH
     #undef HML_VERSION_PATCH
 #endif
-#define HML_VERSION_PATCH 1
+#define HML_VERSION_PATCH 2
 
 #endif
