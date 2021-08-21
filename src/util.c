@@ -52,7 +52,7 @@ void enableAllInterrupts(void)
  * \ingroup     UTIL
  * \remarks     private function, don' use it
 ******************************************************************************/
-uint16_t _sleep_getInitValue(void)
+static uint16_t _sleep_getInitValue(void)
 {
     return (uint16_t)(MCU_FRE_CLK/(float)12000/8) - 2;
 }
@@ -67,7 +67,7 @@ uint16_t _sleep_getInitValue(void)
  * \ingroup     UTIL
  * \remarks     private function, don' use it
 ******************************************************************************/
-void _sleep_1ms(void)
+static void _sleep_1ms(void)
 {
     __asm
         mov ar5, r6                 ;#2
