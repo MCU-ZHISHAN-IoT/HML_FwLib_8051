@@ -1,0 +1,74 @@
+{
+    "name": "HML_FwLib_8051",
+    "version": "0.3.2",
+
+    "description": "A lite firmware library for 8051 MCU based on SDCC complier",
+    "keywords": [
+        "mcs51"
+    ],
+    "license": "WTFPL2",
+    "platforms": "intel_mcs51",
+    "homepage": "https://github.com/MCU-ZHISHAN-IoT/HML_FwLib_8051",
+    "authors": [
+        {
+            "name": "Weilun Fong",
+            "email": "wlf@zhishan-iot.tk"
+        }
+    ],
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MCU-ZHISHAN-IoT/HML_FwLib_8051.git"
+    },
+
+    "build": {
+        "srcDir": "src",
+        "includeDir": "inc",
+        "flags": [
+            "--fsigned-char"
+        ]
+    },
+    
+    "examples": [
+        {
+            "name": "exti",
+            "base": "example/exti",
+            "files": [
+                "exti_toggleIo.c"
+            ]
+        },
+        {
+            "name": "gpio",
+            "base": "example/gpio",
+            "files": [
+                "gpio_toggleIo.c"
+            ]
+        },
+        {
+            "name": "tim2",
+            "base": "example/tim2",
+            "files": [
+                "tim2_baudGenerator.c",
+                "tim2_bleekLed.c"
+            ]
+        },
+        {
+            "name": "uart",
+            "base": "example/uart",
+            "files": [
+                "uart_hc05ToP1.c",
+                "uart_sendString.c"
+            ]
+        },
+        {
+            "name": "zcli",
+            "base": "example/zcli",
+            "files": [
+                "zcli.c",
+                "zcli-ChangeLog",
+                "zcli-usage-demo.gif",
+                "README.md"
+            ]
+        }
+    ]
+}
