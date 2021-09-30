@@ -30,19 +30,6 @@ Please visit [detail page](https://hw.zhishan-iot.tk/page/hml/detail/fwlib_stc80
 + *\[for Windows\]* Unix shell tools([msys](http://www.mingw.org/wiki/MSYS), [Cygwin](http://www.cygwin.com/), [GNUwin32](http://gnuwin32.sourceforge.net/)) needed by makefile for SDCC
 
 ## Usage
-### file structure
-```bash
-HML_FwLib_8051
-├─doc      # store related documents about HML_FwLib_8051
-├─example  # provide some example files with *.c format to help users learn about HML_FwLib_8051
-├─inc      # include all header files(*.h) of HML_FwLib_8051
-├─obj      # store all output files, including *.hex,*.ihx,*.lk,*.rel and others during compilation
-├─src      # store all source files(*.c) of HML_FwLib_8051
-├─usr      # store makefile and a source file which includes main function
-├─AUTHORS  # authors & contributors
-├─LICENSE  # license of HML_FwLib_8051
-└─VERSION  # version code of HML_FwLib_8051
-```
 ### configuration
 There are several parameters need to be configured before using HML_FwLib_8051 by user manually. It's noticed that the name of 
 following macros is different with previous version.
@@ -50,7 +37,8 @@ following macros is different with previous version.
 In order to ensure projects based on HML_FwLib_8051 can be downloaded into the limited on-chip memory space of 8051 MCUs, 
 developers can modify compile macros which are with format of `__CONF_COMPILE_xxx` in *hml/conf.h* to specify which piece of 
 code will take part in compilation, then it will reduce size of final .hex file. For instance, if user only use GPIO module, 
-then user just need to enable `__CONF_COMPILE_GPIO` macro in *hml/conf.h*. Some macros for conditional compilation depend on others. For example, before you enable macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be enable at the same 
+then user just need to enable `__CONF_COMPILE_GPIO` macro in *hml/conf.h*. Some macros for conditional compilation depend on
+others. For example, before you enable macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be enable at the same 
 time. Otherwise, build works will be failed.
 #### \_\_CONF\_FRE\_CLKIN
 A macro marks frequency of clock source and it's defined in *hml/conf.h*. The default value is `11059200UL`. This value can be 
@@ -63,10 +51,9 @@ When the macro is defined and mark value `1`, it means current MCU has timer-2.
 
 ### code & compile
 There is a source file named *test.c* under *usr* directory, we put code includes a main function inside it. User can add and 
-modify own code here, then enter <kbd>make -j</kbd> in terminal, the Makefile will work and complete compilation. Besides, our 
-Makefile provides some interface variable to config build works via make command line interface variable or config Makefile. 
-From version V0R3, you can enter <kbd>make help</kbd> to get all usages, and former version makefile only support 
-<kbd>make</kbd>, <kbd>make clean</kbd>, <kbd>make mostlyclean</kbd>(change into <kbd>make distclean</kbd> now)
+modify own code here, then execute command <kbd>make -j</kbd> under root path of project, the Makefile will work and complete
+buildings soon. Besides, our Makefile provides some interface variable to config build works via make command line interface 
+variables or config Makefile(mk/config.mk). From version V0R3, you can enter <kbd>make help</kbd> to get all usages.
 
 Certainly, you can just add *inc* and *src* directory into your project, and write your own makefile to build a custom project. 
 

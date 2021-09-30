@@ -2,13 +2,13 @@
 
 # ------------------------------------------------------------------------
 # Author     : Weilun Fong | wlf@zhishan-iot.tk
-# Date       : 2020-02-08
+# Date       : 2021-09-30
 # Description: MCU parameters config Makefile
 # E-mail     : mcu@zhishan-iot.tk
 # Make-tool  : GNU Make (http://www.gnu.org/software/make/manual/make.html)
 # Page       : https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 # Project    : HML_FwLib_8051
-# Version    : v0.3.1
+# Version    : v0.4.0
 # ------------------------------------------------------------------------
 
 # Print note information
@@ -47,7 +47,7 @@ endif
 
 # Generate and export CFLAGS
 #   Details:
-#     --fsigned-char    Make "char" signed by default
+#    --fsigned-char     Make "char" signed by default
 #    -mmcs51            Generate code for the Intel MCS51 family of processors.
 #                       This is the default processor target.
 #    --std-sdcc99       Use ISO C99 standard with SDCC extensions
@@ -56,7 +56,7 @@ endif
 #    --code-size        Code Segment size
 #    --iram-size        Internal Ram size
 #    --xram-size        External Ram size
-export CFLAGS := -c -I$(DIR_INC) \
+export CFLAGS := -c -I$(INCDIR) \
 -mmcs51 \
 -D__CONF_FRE_CLKIN=$(CLOCK_FREQUENCY)UL \
 --std-sdcc99 --fsigned-char \
@@ -72,5 +72,5 @@ export CFLAGS := -c -I$(DIR_INC) \
 AFLAGS        := -rcs
 
 # Print final MCU information according to all configurations
-$(info [mcu-config] code=$(CODE_SIZE)B, iram=$(IRAM_SIZE)B, xram=$(XRAM_SIZE)B)
-$(info [mcu-clock ] $(shell $(ECHO) $(CLOCK_FREQUENCY) | $(AWK) '{printf("%.6f",$$1/1000000)}') MHz)
+$(info memory: code=$(CODE_SIZE)B iram=$(IRAM_SIZE)B xram=$(XRAM_SIZE)B, \
+clock: $(shell $(ECHO) $(CLOCK_FREQUENCY) | $(AWK) '{printf("%.6f",$$1/1000000)}') MHz)
