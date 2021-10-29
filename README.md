@@ -24,44 +24,48 @@ Please visit [detail page](https://hw.zhishan-iot.tk/page/hml/detail/fwlib_stc80
 + Open all source code on [Github](https://github.com) and licensed under the [WTPL2](http://wtfpl2.com/).
 + Readable code and provide examples to help you get started it.
 
-## Prerequisite
-+ [GNU Make](http://www.gnu.org/software/make/manual/make.html)(recommend)
-+ [SDCC compiler](http://sdcc.sourceforge.net/)
-+ *\[for Windows\]* Unix shell tools([msys](http://www.mingw.org/wiki/MSYS), [Cygwin](http://www.cygwin.com/), [GNUwin32](http://gnuwin32.sourceforge.net/)) needed by makefile for SDCC
-
-## Usage
-### configuration
+## Config
 There are several parameters need to be configured before using HML_FwLib_8051 by user manually. It's noticed that the name of 
 following macros is different with previous version.
-#### \_\_CONF\_COMPILE\_xxx (for conditional compilation)
+### \_\_CONF\_COMPILE\_xxx (for conditional compilation)
 In order to ensure projects based on HML_FwLib_8051 can be downloaded into the limited on-chip memory space of 8051 MCUs, 
 developers can modify compile macros which are with format of `__CONF_COMPILE_xxx` in *hml/conf.h* to specify which piece of 
 code will take part in compilation, then it will reduce size of final .hex file. For instance, if user only use GPIO module, 
 then user just need to enable `__CONF_COMPILE_GPIO` macro in *hml/conf.h*. Some macros for conditional compilation depend on
 others. For example, before you enable macro `__CONF_COMPILE_UART`, macro `__CONF_COMPILE_TIM` should be enable at the same 
 time. Otherwise, build works will be failed.
-#### \_\_CONF\_FRE\_CLKIN
+### \_\_CONF\_FRE\_CLKIN
 A macro marks frequency of clock source and it's defined in *hml/conf.h*. The default value is `11059200UL`. This value can be 
-configured via make command line interface variable or config Makefile(refer to *usr/Makefile.config*)
-#### \_\_CONF\_HAVE\_T2MOD
+configured via make command line interface variable or config Makefile(refer to *mk/config.mk* or *cmake/config.cmake*)
+### \_\_CONF\_HAVE\_T2MOD
 When the macro is defined and mark value `1`, it means current MCU has register T2MOD. Besides, if you enable this macro, please
 make sure macro `__CONF_HAVE_TIM2` is enabled firstly.
-#### \_\_CONF\_HAVE\_TIM2
+### \_\_CONF\_HAVE\_TIM2
 When the macro is defined and mark value `1`, it means current MCU has timer-2.
 
-### code & compile
-There is a source file named *test.c* under *usr* directory, we put code includes a main function inside it. User can add and 
-modify own code here, then execute command <kbd>make -j</kbd> under root path of project, the Makefile will work and complete
-buildings soon. Besides, our Makefile provides some interface variable to config build works via make command line interface 
-variables or config Makefile(mk/config.mk). From version V0R3, you can enter <kbd>make help</kbd> to get all usages.
+## Building
+We provide two kinds of build system support:
+* cmake
+* gmake
+### cmake
+Run this command for initialization. Add option `-GNinja` if you expect to build project via Ninja.
+```
+$ cmake -S . -B build
+```
+Run this command for building project. Add option `--clean-first` if you want to execute clean operation before building.
+```
+$ cmake --build build -j$(nproc)
+```
+You can execute command `cmake --build build -t usage` for usage. If you want to adjust build details, please modify `cmake/config.cmake`.
+### gmake
+Execute this command for building HML_FwLib_8051 with GNU Make.
+```
+$ make -j$(nproc)
+```
+You can execute command `make help` for usage. If you want to adjust build details, please modify `mk/config.mk`.
 
-Certainly, you can just add *inc* and *src* directory into your project, and write your own makefile to build a custom project. 
-
-## Contributing
+## Contribution
 Welcome suggestions and contribution from you! You can fork it and make a pull request or contact us via *[mcu@zhishan-iot.tk](mailto:mcu@zhishan-iot.tk)*.
-
-## License
-HML_FwLib_8051 is licensed under the [WTFPL2](http://wtfpl2.com/).
 
 ## Team
 This is a one-man project....
