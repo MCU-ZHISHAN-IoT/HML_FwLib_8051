@@ -151,6 +151,7 @@ help:
 	@$(ECHO) ""
 	@$(ECHO) "Clean:"
 	@$(ECHO) "    clean       - Delete temporary files, except for library related files."
+	@$(ECHO) "    distclean   - Deprecated phony target."
 	@$(ECHO) "    mostlyclean - Delete all temporary files and generated library file."
 	@$(ECHO) ""
 	@$(ECHO) "Info:"
