@@ -47,6 +47,11 @@
  */
 #define MCU_PRESCALER 12
 
+/**
+ * \brief for unused variable to disable SDCC warning
+ */
+#define UNUSED(x) ((void)(x))
+
 /*****************************************************************************
  *                           run-time check                                  *
  *****************************************************************************/
