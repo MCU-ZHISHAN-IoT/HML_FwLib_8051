@@ -2,13 +2,13 @@
 
 # ------------------------------------------------------------------------
 # Author     : Weilun Fong | wlf@zhishan-iot.tk
-# Date       : 2021-09-30
+# Date       : 2022-02-24
 # Description: config Makefile
 # E-mail     : mcu@zhishan-iot.tk
 # Make-tool  : GNU Make (http://www.gnu.org/software/make/manual/make.html)
 # Page       : https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 # Project    : HML_FwLib_8051
-# Version    : v0.4.0
+# Version    : v0.4.1
 # ------------------------------------------------------------------------
 
 # @Note: Specify value of config variable via command line has higher priority
@@ -42,4 +42,5 @@ EXE_C     ?= $(MYFILE)
 # Options for number of parallel build jobs
 # [JOBS] Specify number of parallel build jobs, this variable only works
 #    during run <rebuild> target
-JOBS      ?= $(shell nproc)
+JOBS      ?= $(shell $(NPROC))
+
