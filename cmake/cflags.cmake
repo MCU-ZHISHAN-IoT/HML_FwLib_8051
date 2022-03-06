@@ -1,12 +1,12 @@
 # ------------------------------------------------------------------------
 # Author     : Weilun Fong | wlf@zhishan-iot.tk
-# Date       : 2021-09-27
-# Description: project Makefile
+# Date       : 2022-03-06
+# Description: compile parametes define
 # E-mail     : mcu@zhishan-iot.tk
 # Make-tool  : CMake
 # Page       : https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 # Project    : HML_FwLib_8051
-# Version    : v0.0.1
+# Version    : v0.0.2
 # ------------------------------------------------------------------------
 
 # [CLKFRE] frequency of MCU clock

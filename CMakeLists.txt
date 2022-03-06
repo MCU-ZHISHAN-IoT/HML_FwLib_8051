@@ -1,12 +1,12 @@
 # ------------------------------------------------------------------------
 # Author     : Weilun Fong | wlf@zhishan-iot.tk
-# Date       : 2021-09-27
+# Date       : 2022-03-06
 # Description: project Makefile
 # E-mail     : mcu@zhishan-iot.tk
 # Make-tool  : CMake
 # Page       : https://hw.zhishan-iot.tk/page/hml/detail/fwlib_8051.html
 # Project    : HML_FwLib_8051
-# Version    : v0.0.1
+# Version    : v0.0.2
 # ------------------------------------------------------------------------
 
 # CMake require
@@ -38,6 +38,9 @@ aux_source_directory(${CMAKE_SOURCE_DIR}/src SOURCES)
 include(${CMAKEDIR}/config.cmake)
 include(${CMAKEDIR}/version.cmake)
 include(${CMAKEDIR}/cflags.cmake)
+
+# Print control
+set(CMAKE_VERBOSE_MAKEFILE ${VERBOSE})
 
 # Build library
 include_directories(${CMAKE_SOURCE_DIR}/inc)
@@ -98,17 +101,19 @@ add_custom_target(rebuild
 add_custom_target(version
     COMMAND
         echo -e "\
-General purpose CMake based Makefile for HML firmware library. \\n\
-Copyright(c) 2021 ZHISHAN-IoT, all rights reserved. \\n\
+\\n\
+General purpose CMakeLists for HML firmware library. \\n\
+Copyright(c) 2021-2022 ZHISHAN-IoT, all rights reserved. \\n\
 \\n\
 Adapted for ${PROJECT_NAME} v${PROJECT_VERSION} by Weilun Fong <wlf@zhishan-iot.tk> \\n\
-Report bugs and patches to <wlf@zhishan-iot.tk>"
+Report bugs and patches to <wlf@zhishan-iot.tk>\\n"
     VERBATIM
 )
 # target <usage>: show usage
 add_custom_target(usage
     COMMAND
         echo -e "\
+\\n\
 Build: \\n\
     all        - Build target, include HML library file and user code. \\n\
     library    - Only build HML library file. \\n\
@@ -123,7 +128,7 @@ Info: \\n\
     usage      - Show usage. \\n\
     version    - Show version information. \\n\
 \\n\
-Report bugs and patches to <wlf@zhishan-iot.tk>"
+Report bugs and patches to <wlf@zhishan-iot.tk>\\n"
     VERBATIM
 )
 
